@@ -3,7 +3,7 @@
     <el-menu :default-openeds="['1', '3']">
       <el-menu-item index="1">
         <i class="el-icon-user-solid"></i>
-        <span>Personajes</span>
+        <span> {{charactersItemText}}</span>
       </el-menu-item>
       <el-submenu index="2">
         <template slot="title"><i class="el-icon-video-camera-solid"></i>Temporadas</template>
@@ -37,6 +37,9 @@
 export default {
   name: 'Menu',
   components: {},
+  created() {
+    this.charactersItemText = this.$t('MENU.CHARACTERS.TEXT');
+  },
 };
 </script>
 
