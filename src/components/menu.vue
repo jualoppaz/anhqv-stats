@@ -14,11 +14,31 @@
       </el-menu-item>
       <el-submenu index="3">
         <template slot="title"><i class="el-icon-video-camera-solid"></i>Temporadas</template>
-        <el-menu-item index="3-1"><i class="el-icon-film"></i>1ª Temporada</el-menu-item>
-        <el-menu-item index="3-2"><i class="el-icon-film"></i>2ª Temporada</el-menu-item>
-        <el-menu-item index="3-3"><i class="el-icon-film"></i>3ª Temporada</el-menu-item>
-        <el-menu-item index="3-4"><i class="el-icon-film"></i>4ª Temporada</el-menu-item>
-        <el-menu-item index="3-5"><i class="el-icon-film"></i>5ª Temporada</el-menu-item>
+        <el-menu-item index="3-1">
+          <router-link to="/seasons/1">
+            <i class="el-icon-film"></i>1ª Temporada
+          </router-link>
+        </el-menu-item>
+        <el-menu-item index="3-2">
+          <router-link to="/seasons/2">
+            <i class="el-icon-film"></i>2ª Temporada
+          </router-link>
+        </el-menu-item>
+        <el-menu-item index="3-3">
+          <router-link to="/seasons/3">
+            <i class="el-icon-film"></i>3ª Temporada
+          </router-link>
+        </el-menu-item>
+        <el-menu-item index="3-4">
+          <router-link to="/seasons/4">
+            <i class="el-icon-film"></i>4ª Temporada
+          </router-link>
+        </el-menu-item>
+        <el-menu-item index="3-5">
+          <router-link to="/seasons/5">
+            <i class="el-icon-film"></i>5ª Temporada
+          </router-link>
+        </el-menu-item>
       </el-submenu>
     </el-menu>
   </el-aside>
@@ -45,15 +65,15 @@ export default {
 
 #aside-menu {
   width: 200px;
-  height: 100vh;
 
-  > ul {
-    height: 100vh;
+  ul {
+    border-right: 0;
     -moz-user-select: none;
     -webkit-user-select: none;
 
     li {
       > a {
+        color: #303133;
 
         &.router-link-exact-active, &:focus{
           color: #409EFF;
