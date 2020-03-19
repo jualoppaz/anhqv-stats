@@ -1,20 +1,22 @@
 <template>
-  <el-container id="app">
-    <Menu/>
-
+  <div id="app">
     <el-container>
-      <el-header id="header">
-        <img src="./assets/banner.gif">
-      </el-header>
+      <Menu/>
 
-      <el-main>
-        <router-view></router-view>
-      </el-main>
-      <el-footer>
-        Juan Manuel López Pazos
-      </el-footer>
+      <el-container id="content">
+        <el-header id="header">
+          <img src="./assets/banner.gif">
+        </el-header>
+
+        <el-main id="main">
+          <router-view></router-view>
+        </el-main>
+      </el-container>
     </el-container>
-  </el-container>
+    <el-footer id="footer">
+      Juan Manuel López Pazos
+    </el-footer>
+  </div>
 </template>
 
 <script>
@@ -35,15 +37,25 @@ body{
   margin: 0;
 
   #app {
-    #header{
-      width: 100%;
-      height: 200px !important;
-      text-align: center;
-      padding: 0;
+    #content {
+      border-left: 1px solid #e6e6e6;
 
-      img {
-        max-height: 100%;
+      #header{
+        width: 100%;
+        height: 200px !important;
+        text-align: center;
+        padding: 0;
+
+        img {
+          max-height: 100%;
+        }
       }
+    }
+
+    #footer{
+      border-top: 1px solid #e6e6e6;
+      text-align: center;
+      padding: 20px;
     }
   }
 }
