@@ -2,6 +2,9 @@
   "MENU": {
     "CHARACTERS": {
       "TEXT": "Personajes"
+    },
+    "HOME": {
+      "TEXT": "Inicio"
     }
   }
 }
