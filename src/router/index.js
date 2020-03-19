@@ -15,6 +15,10 @@ export default new Router({
       path: '/characters',
       component: () => import('@/views/Characters'),
       children: [],
+    }, {
+      path: '/seasons/:season_number',
+      component: () => import('@/views/Season'),
+      children: [],
     },
   ],
 });
