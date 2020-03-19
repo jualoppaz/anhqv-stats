@@ -8,15 +8,16 @@
 
 export default {
   name: 'Season',
-  props: ['seasonNumber'],
   components: {},
   created() {},
+  computed: {
+    seasonNumber() {
+      return this.$route.params.season_number;
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 
-#season {
-
-}
 </style>
