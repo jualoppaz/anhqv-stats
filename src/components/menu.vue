@@ -1,19 +1,23 @@
 <template>
   <el-aside id="aside-menu">
-    <el-menu :default-openeds="defaultOpeneds">
+    <el-menu :default-openeds="defaultOpeneds" :collapse="isCollapsed">
       <el-menu-item index="1">
         <router-link
           to="/">
-          <i class="el-icon-s-home"></i> {{homeItemText}}
+          <i class="el-icon-s-home"></i>
+          <span>{{homeItemText}}</span>
         </router-link>
       </el-menu-item>
       <el-menu-item index="2">
         <router-link to="/characters">
-          <i class="el-icon-user-solid"></i> {{charactersItemText}}
+          <i class="el-icon-user-solid"></i>
+          <span>{{charactersItemText}}</span>
         </router-link>
       </el-menu-item>
       <el-submenu index="3">
-        <template slot="title"><i class="el-icon-video-camera-solid"></i>Temporadas</template>
+        <template slot="title">
+          <i class="el-icon-video-camera-solid"></i><span slot="title">Temporadas</span>
+        </template>
         <el-menu-item index="3-1">
           <router-link to="/seasons/1">
             <i class="el-icon-film"></i>1ª Temporada
@@ -51,20 +55,38 @@ export default {
   components: {},
   data() {
     return {
+      isCollapsed: false,
       defaultOpeneds: ['3'],
     };
   },
   created() {
     this.charactersItemText = this.$t('MENU.CHARACTERS.TEXT');
     this.homeItemText = this.$t('MENU.HOME.TEXT');
+    window.addEventListener('resize', this.handleResize);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleResize);
+  },
+  methods: {
+    handleResize() {
+      if (window.innerWidth < 768) {
+        this.isCollapsed = true;
+      } else {
+        this.isCollapsed = false;
+      }
+    },
   },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 #aside-menu {
-  width: 200px;
+  width: 64px !important;
+
+  @media screen and (min-width: 768px){
+    width: 300px !important;
+  }
 
   ul {
     border-right: 0;
@@ -72,19 +94,41 @@ export default {
     -webkit-user-select: none;
 
     li {
-      > a {
-        color: #303133;
+      &.el-menu-item{
+        padding: 0 !important;
 
-        &.router-link-exact-active, &:focus{
-          color: #409EFF;
+        > a {
+          color: #303133;
+          display: block;
+          text-decoration: none;
+          padding: 0 20px;
 
-          i {
+          &.router-link-exact-active, &:focus{
             color: #409EFF;
+
+            i {
+              color: #409EFF;
+            }
           }
         }
-        display: block;
-        //color: #303133;
-        text-decoration: none;
+      }
+
+      ::v-deep div.el-submenu__title {
+        //padding: 0 !important;
+      }
+
+      &.el-submenu {
+        ul {
+          li {
+            &.el-menu-item {
+              padding: 0 !important;
+
+              a {
+                padding: 0 45px !important;
+              }
+            }
+          }
+        }
       }
     }
   }
