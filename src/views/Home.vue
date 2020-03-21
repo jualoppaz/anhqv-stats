@@ -1,6 +1,8 @@
 <template>
   <div id="home">
-    Bienvenido a la Web de la Comunidad más loca de la TV.
+    <p>
+      Bienvenido a la Web de la Comunidad más loca de la TV.
+    </p>
   </div>
 </template>
 
