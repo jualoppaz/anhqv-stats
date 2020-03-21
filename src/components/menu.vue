@@ -85,7 +85,7 @@ export default {
   width: 64px !important;
 
   @media screen and (min-width: 768px){
-    width: 300px !important;
+    width: 250px !important;
   }
 
   ul {
