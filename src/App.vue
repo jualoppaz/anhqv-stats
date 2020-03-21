@@ -54,6 +54,10 @@ body{
           }
         }
 
+        #main {
+          padding: 50px;
+        }
+
         #footer{
           border-top: 1px solid #e6e6e6;
           text-align: center;
