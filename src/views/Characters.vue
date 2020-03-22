@@ -6,7 +6,7 @@
     <el-row id="characters-list" :gutter="50">
       <el-col
         class="character-col"
-        :xs="12"
+        :xs="24"
         :sm="6"
         :md="6"
         v-for="character in characters"
@@ -71,7 +71,10 @@ export default {
         text-align: center;
 
         .image-container{
-          height: 300px;
+          @media screen and (min-width: 768px) {
+            height: 300px;
+          }
+
           .image{
             width: 100%;
             max-height: 100%;
