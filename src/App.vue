@@ -50,7 +50,8 @@ body{
           padding: 0;
 
           img {
-            max-height: 100%;
+            height: 100%;
+            max-width: 100%;
           }
         }
 
