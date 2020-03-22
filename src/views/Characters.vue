@@ -15,7 +15,9 @@
           class="character-card"
           shadow="hover"
           :body-style="{ padding: '0px' }">
-          <img v-bind:src="character.image" class="image">
+          <div class="image-container">
+            <img v-bind:src="character.image_url" class="image">
+          </div>
           <div
             class="character-card-info"
             style="padding: 14px;">
@@ -37,64 +39,22 @@
 
 <script>
 
+import { mapState } from 'vuex';
+
 export default {
   name: 'Characters',
   components: {},
-  created() {},
-  data() {
-    return {
-      characters: [
-        {
-          id: 1,
-          name: 'Mauricio',
-          surname: 'Hidalgo',
-          nickname: 'Mauri',
-          image: 'https://vignette.wikia.nocookie.net/seriesspain/images/a/a6/Mauri.jpg/revision/latest/window-crop/width/200/x-offset/0/y-offset/0/window-width/250/window-height/250?cb=20110104141719&path-prefix=es',
-        }, {
-          id: 2,
-          name: 'María Luisa',
-          surname: 'Benito Valbuena',
-          nickname: 'Marisa',
-          image: 'https://vignette.wikia.nocookie.net/seriesspain/images/c/c4/Marisa_Benito.jpg/revision/latest/top-crop/width/300/height/300?cb=20111126095454&path-prefix=es',
-        }, {
-          id: 3,
-          name: 'Mauricio 3',
-          surname: 'Hidalgo',
-          image: 'https://vignette.wikia.nocookie.net/seriesspain/images/a/a6/Mauri.jpg/revision/latest/window-crop/width/200/x-offset/0/y-offset/0/window-width/250/window-height/250?cb=20110104141719&path-prefix=es',
-        }, {
-          id: 4,
-          name: 'Mauricio 4',
-          surname: 'Hidalgo',
-          image: 'https://vignette.wikia.nocookie.net/seriesspain/images/a/a6/Mauri.jpg/revision/latest/window-crop/width/200/x-offset/0/y-offset/0/window-width/250/window-height/250?cb=20110104141719&path-prefix=es',
-        }, {
-          id: 5,
-          name: 'Mauricio',
-          surname: 'Hidalgo',
-          nickname: 'Mauri',
-          image: 'https://vignette.wikia.nocookie.net/seriesspain/images/a/a6/Mauri.jpg/revision/latest/window-crop/width/200/x-offset/0/y-offset/0/window-width/250/window-height/250?cb=20110104141719&path-prefix=es',
-        }, {
-          id: 6,
-          name: 'María Luisa',
-          surname: 'Benito Valbuena',
-          nickname: 'Marisa',
-          image: 'https://vignette.wikia.nocookie.net/seriesspain/images/c/c4/Marisa_Benito.jpg/revision/latest/top-crop/width/300/height/300?cb=20111126095454&path-prefix=es',
-        }, {
-          id: 7,
-          name: 'Mauricio 3',
-          surname: 'Hidalgo',
-          image: 'https://vignette.wikia.nocookie.net/seriesspain/images/a/a6/Mauri.jpg/revision/latest/window-crop/width/200/x-offset/0/y-offset/0/window-width/250/window-height/250?cb=20110104141719&path-prefix=es',
-        }, {
-          id: 8,
-          name: 'Mauricio 4',
-          surname: 'Hidalgo',
-          image: 'https://vignette.wikia.nocookie.net/seriesspain/images/a/a6/Mauri.jpg/revision/latest/window-crop/width/200/x-offset/0/y-offset/0/window-width/250/window-height/250?cb=20110104141719&path-prefix=es',
-        },
-      ],
-    };
+  created() {
+    this.$store.dispatch('characters/getAll');
+  },
+  computed: {
+    ...mapState('characters', {
+      characters: 'all',
+    }),
   },
   methods: {
-    goToDetail(character) {
-      console.log(character.id);
+    goToDetail() {
+      // TODO
     },
   },
 };
@@ -110,10 +70,15 @@ export default {
       .character-card{
         text-align: center;
 
-        .image{
-          width: 100%;
-          display: block;
+        .image-container{
+          height: 300px;
+          .image{
+            width: 100%;
+            max-height: 100%;
+            display: block;
+          }
         }
+
         .character-card-info{
           text-align: left;
         }
