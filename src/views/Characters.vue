@@ -6,7 +6,7 @@
     <el-row id="characters-list" :gutter="50">
       <el-col
         class="character-col"
-        :xs="8"
+        :xs="12"
         :sm="6"
         :md="6"
         v-for="character in characters"
