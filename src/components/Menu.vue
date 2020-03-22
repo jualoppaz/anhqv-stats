@@ -63,6 +63,7 @@ export default {
     this.charactersItemText = this.$t('MENU.CHARACTERS.TEXT');
     this.homeItemText = this.$t('MENU.HOME.TEXT');
     window.addEventListener('resize', this.handleResize);
+    this.handleResize();
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize);
