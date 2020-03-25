@@ -25,7 +25,7 @@
           <div
             class="character-card-info"
             style="padding: 14px;">
-            <span><b>{{character.nickname}}</b></span>
+            <span><b>{{character.shortname}}</b></span>
             <div class="bottom clearfix">
               <el-button
                 type="text"
