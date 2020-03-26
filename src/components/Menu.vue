@@ -108,16 +108,16 @@ export default {
         padding: 0 !important;
 
         > a {
-          color: #303133;
+          color: $color-text-black;
           display: block;
           text-decoration: none;
           padding: 0 20px;
 
           &.router-link-exact-active, &:focus{
-            color: #409EFF;
+            color: $color-text-blue;
 
             i {
-              color: #409EFF;
+              color: $color-text-blue;
             }
           }
         }
