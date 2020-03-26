@@ -1,5 +1,8 @@
 <template>
   <el-aside id="aside-menu">
+    <div id="logo">
+      <img src="../assets/banner.gif">
+    </div>
     <el-menu :default-openeds="defaultOpeneds" :collapse="isCollapsed">
       <el-menu-item index="1">
         <router-link
@@ -87,6 +90,12 @@ export default {
 
   @media screen and (min-width: 768px){
     width: 250px !important;
+  }
+
+  #logo {
+    img {
+      width: 100%;
+    }
   }
 
   ul {
