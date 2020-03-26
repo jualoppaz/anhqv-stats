@@ -2,11 +2,11 @@ import { createLocalVue, shallowMount } from '@vue/test-utils';
 import VueRouter from 'vue-router';
 import ElementUI from 'element-ui';
 import Menu from '../../../src/components/Menu.vue';
-import router from '../../../src/router';
 
 const localVue = createLocalVue();
-localVue.use(VueRouter);
 localVue.use(ElementUI);
+
+const router = new VueRouter();
 
 describe('Menu.vue', () => {
   it('check initial data', () => {
@@ -15,7 +15,13 @@ describe('Menu.vue', () => {
       router,
       mocks: {
         $t: () => {},
+        $route: {
+          meta: {
+            title: () => 'dummy',
+          },
+        },
       },
+      stubs: ['router-link', 'router-view'],
     });
     expect(JSON.stringify(wrapper.vm.defaultOpeneds)).toBe(JSON.stringify(['3']));
     expect(wrapper.vm.isCollapsed).toBe(false);
@@ -25,10 +31,15 @@ describe('Menu.vue', () => {
     it('isCollapsed must be true', () => {
       const wrapper = shallowMount(Menu, {
         localVue,
-        router,
         mocks: {
           $t: () => {},
+          $route: {
+            meta: {
+              title: () => 'dummy',
+            },
+          },
         },
+        stubs: ['router-link', 'router-view'],
       });
 
       window.innerWidth = 767;
@@ -40,10 +51,15 @@ describe('Menu.vue', () => {
   it('check beforeDestroy function is called', () => {
     const wrapper = shallowMount(Menu, {
       localVue,
-      router,
       mocks: {
         $t: () => {},
+        $route: {
+          meta: {
+            title: () => 'dummy',
+          },
+        },
       },
+      stubs: ['router-link', 'router-view'],
     });
 
     window.removeEventListener = jest.fn();
