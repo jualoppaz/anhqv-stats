@@ -9,7 +9,9 @@ export default {
   name: 'Header',
   computed: {
     title() {
-      return this.$route.meta.title && this.$route.meta.title(this.$route).toUpperCase();
+      return this.$route.meta.title && this.$route.meta.title({
+        route: this.$route,
+      }).toUpperCase();
     },
   },
 };
