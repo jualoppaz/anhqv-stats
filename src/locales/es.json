@@ -6,5 +6,18 @@
     "HOME": {
       "TEXT": "Inicio"
     }
+  },
+  "VIEWS": {
+    "HOME": {
+      "TITLE": "Inicio"
+    },
+    "CHARACTERS": {
+      "TITLE": "Personajes"
+    },
+    "SEASONS": {
+      "DETAIL": {
+        "TITLE": "Temporada {number}"
+      }
+    }
   }
 }

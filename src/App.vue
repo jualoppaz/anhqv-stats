@@ -2,10 +2,9 @@
   <div id="app">
     <el-container id="layout">
       <Menu/>
-
       <el-container id="content">
-        <el-header id="header">
-          <img src="./assets/banner.gif">
+        <el-header>
+          <Header/>
         </el-header>
 
         <el-main id="main">
@@ -22,11 +21,13 @@
 <script>
 
 import Menu from './components/Menu.vue';
+import Header from './components/Header.vue';
 
 export default {
   name: 'App',
   components: {
     Menu,
+    Header,
   },
 };
 </script>
@@ -43,16 +44,9 @@ body{
       #content {
         border-left: 1px solid #e6e6e6;
 
-        #header{
+        .el-header{
           width: 100%;
-          height: 200px !important;
-          text-align: center;
           padding: 0;
-
-          img {
-            height: 100%;
-            max-width: 100%;
-          }
         }
 
         #main {
