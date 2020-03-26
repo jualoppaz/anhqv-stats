@@ -123,10 +123,6 @@ export default {
         }
       }
 
-      ::v-deep div.el-submenu__title {
-        //padding: 0 !important;
-      }
-
       &.el-submenu {
         ul {
           li {
