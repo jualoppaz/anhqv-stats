@@ -60,11 +60,11 @@ export default {
     return {
       isCollapsed: false,
       defaultOpeneds: ['3'],
+      charactersItemText: this.$t('MENU.CHARACTERS.TEXT'),
+      homeItemText: this.$t('MENU.HOME.TEXT'),
     };
   },
   created() {
-    this.charactersItemText = this.$t('MENU.CHARACTERS.TEXT');
-    this.homeItemText = this.$t('MENU.HOME.TEXT');
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
   },
