@@ -15,6 +15,9 @@ describe('Footer.vue', () => {
       router,
     });
 
-    expect(wrapper.text()).toBe('Copyright ©2020 👨‍💻 Juan Manuel López Pazos');
+    expect(wrapper.find('#copyright').exists()).toBe(true);
+    expect(wrapper.find('#author').exists()).toBe(true);
+    expect(wrapper.find('#copyright').text()).toBe('Copyright ©2020');
+    expect(wrapper.find('#author').text()).toBe('👨‍💻 Juan Manuel López Pazos');
   });
 });
