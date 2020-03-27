@@ -10,8 +10,8 @@
         <el-main id="main">
           <router-view></router-view>
         </el-main>
-        <el-footer id="footer">
-          Juan Manuel López Pazos
+        <el-footer>
+          <Footer/>
         </el-footer>
       </el-container>
     </el-container>
@@ -22,12 +22,14 @@
 
 import Menu from './components/Menu.vue';
 import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
 
 export default {
   name: 'App',
   components: {
     Menu,
     Header,
+    Footer,
   },
 };
 </script>
@@ -53,10 +55,8 @@ body{
           padding: 50px;
         }
 
-        #footer{
-          border-top: 1px solid #e6e6e6;
-          text-align: center;
-          padding: 20px;
+        .el-footer{
+          padding: 0;
         }
       }
     }
