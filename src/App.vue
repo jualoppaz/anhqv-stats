@@ -58,6 +58,11 @@ body{
 
         .el-footer{
           padding: 0;
+          height: 80px !important;
+
+          @media screen and (min-width: 768px){
+            height: 60px !important;
+          }
         }
       }
     }
