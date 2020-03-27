@@ -3,7 +3,11 @@
     <p>
       Aquí puedes ver el detalle de todos y cada uno de los personajes que aparecen en la serie.
     </p>
-    <el-row id="characters-list" :gutter="50">
+    <el-row
+      id="characters-list"
+      :gutter="gutter"
+      v-loading.fullscreen.lock="loading"
+      element-loading-background="rgba(0, 0, 0, 0.8)">
       <el-col
         class="character-col"
         :xs="24"
@@ -21,7 +25,7 @@
           <div
             class="character-card-info"
             style="padding: 14px;">
-            <span><b>{{character.nickname}}</b></span>
+            <span><b>{{character.shortname}}</b></span>
             <div class="bottom clearfix">
               <el-button
                 type="text"
@@ -44,8 +48,17 @@ import { mapState } from 'vuex';
 export default {
   name: 'Characters',
   components: {},
+  data() {
+    return {
+      loading: true,
+      gutter: 50,
+    };
+  },
   created() {
-    this.$store.dispatch('characters/getAll');
+    this.$store.dispatch('characters/getAll')
+      .then(() => {
+        this.loading = false;
+      });
   },
   computed: {
     ...mapState('characters', {

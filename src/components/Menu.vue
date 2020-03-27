@@ -1,5 +1,8 @@
 <template>
   <el-aside id="aside-menu">
+    <div id="logo">
+      <img src="../assets/banner.gif">
+    </div>
     <el-menu :default-openeds="defaultOpeneds" :collapse="isCollapsed">
       <el-menu-item index="1">
         <router-link
@@ -57,11 +60,11 @@ export default {
     return {
       isCollapsed: false,
       defaultOpeneds: ['3'],
+      charactersItemText: this.$t('MENU.CHARACTERS.TEXT'),
+      homeItemText: this.$t('MENU.HOME.TEXT'),
     };
   },
   created() {
-    this.charactersItemText = this.$t('MENU.CHARACTERS.TEXT');
-    this.homeItemText = this.$t('MENU.HOME.TEXT');
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
   },
@@ -89,6 +92,12 @@ export default {
     width: 250px !important;
   }
 
+  #logo {
+    img {
+      width: 100%;
+    }
+  }
+
   ul {
     border-right: 0;
     -moz-user-select: none;
@@ -99,23 +108,19 @@ export default {
         padding: 0 !important;
 
         > a {
-          color: #303133;
+          color: $color-text-black;
           display: block;
           text-decoration: none;
           padding: 0 20px;
 
           &.router-link-exact-active, &:focus{
-            color: #409EFF;
+            color: $color-text-blue;
 
             i {
-              color: #409EFF;
+              color: $color-text-blue;
             }
           }
         }
-      }
-
-      ::v-deep div.el-submenu__title {
-        //padding: 0 !important;
       }
 
       &.el-submenu {

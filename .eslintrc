@@ -12,11 +12,36 @@
     "parser": "babel-eslint"
   },
   "rules": {
-    "no-shadow": ["error", { "allow": ["state"]}],
-    "no-param-reassign": ["error", {
-      "props": true,
-      "ignorePropertyModificationsFor": ["Vue"]
-    }],
-    "no-debugger": ["warn"]
-  }
+    "no-shadow": [
+      "error",
+      {
+        "allow": [
+          "state"
+        ]
+      }
+    ],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": [
+          "Vue"
+        ]
+      }
+    ],
+    "no-debugger": [
+      "warn"
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/__tests__/*.{j,t}s?(x)",
+        "**/tests/unit/**/*.spec.{j,t}s?(x)"
+      ],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
 }

@@ -22,3 +22,6 @@ yarn-error.log*
 
 ## environment files
 .env
+
+## tests
+coverage

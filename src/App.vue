@@ -2,17 +2,16 @@
   <div id="app">
     <el-container id="layout">
       <Menu/>
-
       <el-container id="content">
-        <el-header id="header">
-          <img src="./assets/banner.gif">
+        <el-header>
+          <Header/>
         </el-header>
 
         <el-main id="main">
           <router-view></router-view>
         </el-main>
-        <el-footer id="footer">
-          Juan Manuel López Pazos
+        <el-footer>
+          <Footer/>
         </el-footer>
       </el-container>
     </el-container>
@@ -22,11 +21,15 @@
 <script>
 
 import Menu from './components/Menu.vue';
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
 
 export default {
   name: 'App',
   components: {
     Menu,
+    Header,
+    Footer,
   },
 };
 </script>
@@ -43,26 +46,17 @@ body{
       #content {
         border-left: 1px solid #e6e6e6;
 
-        #header{
+        .el-header{
           width: 100%;
-          height: 200px !important;
-          text-align: center;
           padding: 0;
-
-          img {
-            height: 100%;
-            max-width: 100%;
-          }
         }
 
         #main {
           padding: 50px;
         }
 
-        #footer{
-          border-top: 1px solid #e6e6e6;
-          text-align: center;
-          padding: 20px;
+        .el-footer{
+          padding: 0;
         }
       }
     }

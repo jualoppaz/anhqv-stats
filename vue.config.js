@@ -10,4 +10,11 @@ module.exports = {
       enableInSFC: true,
     },
   },
+  css: {
+    loaderOptions: {
+      scss: {
+        prependData: '@import "~@/styles/variables.scss";',
+      },
+    },
+  },
 };
