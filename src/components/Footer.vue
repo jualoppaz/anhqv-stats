@@ -1,12 +1,18 @@
 <template>
   <div id="footer">
-    Copyright © 2020 <a href="https://www.juanmanuellopezpazos.es" target="_blank"> 👨‍💻 Juan Manuel López Pazos</a>
+    {{copyrightText}} <a href="https://www.juanmanuellopezpazos.es" target="_blank">{{authorText}}</a>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Footer',
+  data() {
+    return {
+      copyrightText: 'Copyright ©2020',
+      authorText: '👨‍💻 Juan Manuel López Pazos',
+    };
+  },
 };
 </script>
 
