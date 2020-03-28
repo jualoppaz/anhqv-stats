@@ -11,6 +11,7 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'Home',
       component: () => import('@/views/Home'),
       children: [],
       meta: {
@@ -18,13 +19,15 @@ export default new Router({
       },
     }, {
       path: '/personajes',
+      name: 'Characters',
       component: () => import('@/views/Characters'),
       children: [],
       meta: {
         title: () => i18n.t('VIEWS.CHARACTERS.TITLE'),
       },
     }, {
-      path: '/seasons/:season_number',
+      path: '/temporadas/:season_number',
+      name: 'SeasonDetails',
       component: () => import('@/views/Season'),
       children: [],
       meta: {
