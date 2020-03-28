@@ -25,15 +25,17 @@
           <div
             class="character-card-info"
             style="padding: 14px;">
-            <span><b>{{character.shortname}}</b></span>
-            <div class="bottom clearfix">
+            <el-row>
+              <span><b>{{character.shortname}}</b></span>
+            </el-row>
+            <el-row>
               <el-button
-                type="text"
-                class="button"
+                type="primary"
+                plain
                 v-on:click="goToDetail(character)">
-                Detalle
+                {{detailButtonText}}
               </el-button>
-            </div>
+            </el-row>
           </div>
         </el-card>
       </el-col>
@@ -50,6 +52,7 @@ export default {
   components: {},
   data() {
     return {
+      detailButtonText: this.$t('VIEWS.CHARACTERS.SEE_DETAIL.TEXT'),
       loading: true,
       gutter: 50,
     };
@@ -97,6 +100,12 @@ export default {
 
         .character-card-info{
           text-align: left;
+
+          .el-row{
+            &:not(:last-child){
+              margin-bottom: 20px;
+            }
+          }
         }
       }
     }
