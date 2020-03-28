@@ -12,7 +12,7 @@
         </router-link>
       </el-menu-item>
       <el-menu-item index="2">
-        <router-link to="/personajes">
+        <router-link :to="{ name: 'Characters' }">
           <i class="el-icon-user-solid"></i>
           <span>{{charactersItemText}}</span>
         </router-link>
@@ -22,27 +22,27 @@
           <i class="el-icon-video-camera-solid"></i><span slot="title">Temporadas</span>
         </template>
         <el-menu-item index="3-1">
-          <router-link to="/seasons/1">
+          <router-link :to="{ name: 'SeasonDetails', params: { season_number: 1 } }">
             <i class="el-icon-film"></i>1ª Temporada
           </router-link>
         </el-menu-item>
         <el-menu-item index="3-2">
-          <router-link to="/seasons/2">
+          <router-link :to="{ name: 'SeasonDetails', params: { season_number: 2 } }">
             <i class="el-icon-film"></i>2ª Temporada
           </router-link>
         </el-menu-item>
         <el-menu-item index="3-3">
-          <router-link to="/seasons/3">
+          <router-link :to="{ name: 'SeasonDetails', params: { season_number: 3 } }">
             <i class="el-icon-film"></i>3ª Temporada
           </router-link>
         </el-menu-item>
         <el-menu-item index="3-4">
-          <router-link to="/seasons/4">
+          <router-link :to="{ name: 'SeasonDetails', params: { season_number: 4 } }">
             <i class="el-icon-film"></i>4ª Temporada
           </router-link>
         </el-menu-item>
         <el-menu-item index="3-5">
-          <router-link to="/seasons/5">
+          <router-link :to="{ name: 'SeasonDetails', params: { season_number: 5 } }">
             <i class="el-icon-film"></i>5ª Temporada
           </router-link>
         </el-menu-item>
