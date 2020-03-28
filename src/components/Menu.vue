@@ -12,7 +12,7 @@
         </router-link>
       </el-menu-item>
       <el-menu-item index="2">
-        <router-link to="/characters">
+        <router-link to="/personajes">
           <i class="el-icon-user-solid"></i>
           <span>{{charactersItemText}}</span>
         </router-link>
