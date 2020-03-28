@@ -49,6 +49,7 @@ body{
         .el-header{
           width: 100%;
           padding: 0;
+          border-bottom: 1px solid $color-border-gray;
         }
 
         #main {
@@ -57,6 +58,11 @@ body{
 
         .el-footer{
           padding: 0;
+          height: 80px !important;
+
+          @media screen and (min-width: 768px){
+            height: 60px !important;
+          }
         }
       }
     }

@@ -1,6 +1,11 @@
 <template>
   <div id="footer">
-    {{copyrightText}} <a href="https://www.juanmanuellopezpazos.es" target="_blank">{{authorText}}</a>
+    <div id="copyright">
+      {{copyrightText}}
+    </div>
+    <div id="author">
+      <a href="https://www.juanmanuellopezpazos.es" target="_blank">{{authorText}}</a>
+    </div>
   </div>
 </template>
 
@@ -20,9 +25,22 @@ export default {
 #footer{
   border-top: 1px solid $color-border-gray;
   text-align: center;
-
-  line-height: 59px;
   margin: 0;
+
+  @media screen and (min-width: 768px){
+    line-height: 59px;
+  }
+
+  > div{
+    line-height: 40px;
+    @media screen and (min-width: 768px){
+      display: inline-block;
+
+      &#author{
+        margin-left: 5px;
+      }
+    }
+  }
 
   a {
     text-decoration: none;

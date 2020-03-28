@@ -20,7 +20,6 @@ export default {
 <style lang="scss" scoped>
 #header{
   height: 100%;
-  border-bottom: 1px solid $color-border-gray;
 
   h1 {
     margin: 0;
