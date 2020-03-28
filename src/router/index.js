@@ -17,7 +17,7 @@ export default new Router({
         title: () => i18n.t('VIEWS.HOME.TITLE'),
       },
     }, {
-      path: '/characters',
+      path: '/personajes',
       component: () => import('@/views/Characters'),
       children: [],
       meta: {
