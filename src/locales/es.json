@@ -12,7 +12,10 @@
       "TITLE": "Inicio"
     },
     "CHARACTERS": {
-      "TITLE": "Personajes"
+      "TITLE": "Personajes",
+      "SEE_DETAIL": {
+        "TEXT": "Detalle"
+      }
     },
     "SEASONS": {
       "DETAIL": {
