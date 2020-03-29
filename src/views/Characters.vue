@@ -15,27 +15,8 @@
         :md="6"
         v-for="character in characters"
         :key="character.id">
-        <el-card
-          class="character-card"
-          shadow="hover"
-          :body-style="{ padding: '0px' }">
-          <div class="image-container">
-            <img v-bind:src="character.image_url" class="image">
-          </div>
-          <div
-            class="character-card-info"
-            style="padding: 14px;">
-            <span><b>{{character.shortname}}</b></span>
-            <div class="bottom clearfix">
-              <el-button
-                type="text"
-                class="button"
-                v-on:click="goToDetail(character)">
-                Detalle
-              </el-button>
-            </div>
-          </div>
-        </el-card>
+        <CharacterCard :character="character">
+        </CharacterCard>
       </el-col>
     </el-row>
   </div>
@@ -44,10 +25,13 @@
 <script>
 
 import { mapState } from 'vuex';
+import CharacterCard from '../components/CharacterCard.vue';
 
 export default {
   name: 'Characters',
-  components: {},
+  components: {
+    CharacterCard,
+  },
   data() {
     return {
       loading: true,
@@ -79,26 +63,6 @@ export default {
   #characters-list{
     .character-col{
       padding: 6px;
-
-      .character-card{
-        text-align: center;
-
-        .image-container{
-          @media screen and (min-width: 768px) {
-            height: 300px;
-          }
-
-          .image{
-            width: 100%;
-            max-height: 100%;
-            display: block;
-          }
-        }
-
-        .character-card-info{
-          text-align: left;
-        }
-      }
     }
   }
 }
