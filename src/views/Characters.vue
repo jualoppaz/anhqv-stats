@@ -52,11 +52,6 @@ export default {
       characters: 'all',
     }),
   },
-  methods: {
-    goToDetail() {
-      // TODO
-    },
-  },
 };
 </script>
 
