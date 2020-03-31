@@ -38,6 +38,7 @@ export default {
 
 body{
   margin: 0;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 
   #app {
     #layout {
@@ -53,7 +54,10 @@ body{
         }
 
         #main {
-          padding: 50px;
+
+          @media screen and (min-width: 768px){
+            padding: 50px;
+          }
         }
 
         .el-footer{

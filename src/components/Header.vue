@@ -25,6 +25,10 @@ export default {
     margin: 0;
     line-height: 60px;
     padding: 0 20px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 }
 </style>
