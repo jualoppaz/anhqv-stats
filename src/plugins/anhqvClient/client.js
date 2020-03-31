@@ -10,7 +10,7 @@ function AnhqvClient({
 
 const CHARACTERS = 'characters';
 
-AnhqvClient.prototype.setBaseURL = (baseURL) => {
+AnhqvClient.prototype.setBaseURL = function setBaseURL(baseURL) {
   this.restClient.defaults.baseURL = baseURL;
 };
 
