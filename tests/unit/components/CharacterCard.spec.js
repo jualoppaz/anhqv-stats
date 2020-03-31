@@ -26,4 +26,34 @@ describe('CharacterCard.vue', () => {
     expect(wrapper.props().character.shortname).toBe('John');
     expect(wrapper.props().character.image_url).toBe('http://path/to/image');
   });
+
+  it('it should navigate to detail page', () => {
+    router.push = jest.fn();
+
+    const wrapper = shallowMount(CharacterCard, {
+      localVue,
+      mocks: {
+        $t: () => {},
+        $router: {
+          push: jest.fn(),
+        },
+      },
+      propsData: {
+        character: {
+          shortname: 'John',
+          slug: 'john-doe',
+          image_url: 'http://path/to/image',
+        },
+      },
+    });
+
+    wrapper.vm.goToDetail();
+
+    expect(wrapper.vm.$router.push).toHaveBeenCalledWith({
+      name: 'CharacterDetail',
+      params: {
+        slug: 'john-doe',
+      },
+    });
+  });
 });

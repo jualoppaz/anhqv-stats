@@ -16,7 +16,7 @@
         <el-button
           type="primary"
           plain
-          v-on:click="goToDetail(character)">
+          v-on:click="goToDetail()">
           {{detailButtonText}}
         </el-button>
       </el-row>
@@ -32,6 +32,16 @@ export default {
     return {
       detailButtonText: this.$t('VIEWS.CHARACTERS.SEE_DETAIL.TEXT'),
     };
+  },
+  methods: {
+    goToDetail() {
+      this.$router.push({
+        name: 'CharacterDetail',
+        params: {
+          slug: this.character.slug,
+        },
+      });
+    },
   },
 };
 </script>

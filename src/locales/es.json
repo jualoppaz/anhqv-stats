@@ -15,6 +15,12 @@
       "TITLE": "Personajes",
       "SEE_DETAIL": {
         "TEXT": "Detalle"
+      },
+      "DETAIL": {
+        "TITLE": "Personaje | {character}",
+        "INFO": {
+          "TITLE": "Datos del personaje"
+        }
       }
     },
     "SEASONS": {

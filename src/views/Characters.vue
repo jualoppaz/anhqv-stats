@@ -5,9 +5,7 @@
     </p>
     <el-row
       id="characters-list"
-      :gutter="gutter"
-      v-loading.fullscreen.lock="loading"
-      element-loading-background="rgba(0, 0, 0, 0.8)">
+      :gutter="gutter">
       <el-col
         class="character-col"
         :xs="24"
@@ -25,6 +23,7 @@
 <script>
 
 import { mapState } from 'vuex';
+import { Loading } from 'element-ui';
 import CharacterCard from '../components/CharacterCard.vue';
 
 export default {
@@ -34,25 +33,24 @@ export default {
   },
   data() {
     return {
-      loading: true,
       gutter: 50,
     };
   },
   created() {
+    const loadingInstance = Loading.service({
+      target: '.el-main',
+      background: 'rgba(0, 0, 0, 0.8)',
+    });
+
     this.$store.dispatch('characters/getAll')
-      .then(() => {
-        this.loading = false;
+      .finally(() => {
+        loadingInstance.close();
       });
   },
   computed: {
     ...mapState('characters', {
       characters: 'all',
     }),
-  },
-  methods: {
-    goToDetail() {
-      // TODO
-    },
   },
 };
 </script>
