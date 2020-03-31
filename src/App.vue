@@ -54,7 +54,10 @@ body{
         }
 
         #main {
-          padding: 50px;
+
+          @media screen and (min-width: 768px){
+            padding: 50px;
+          }
         }
 
         .el-footer{
