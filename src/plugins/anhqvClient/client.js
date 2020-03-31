@@ -19,4 +19,9 @@ AnhqvClient.prototype.getCharacters = function getCharacters() {
     .then((response) => response.data);
 };
 
+AnhqvClient.prototype.getCharacterBySlug = function getCharacterBySlug(slug) {
+  return this.restClient.get(`/${CHARACTERS}/${slug}`)
+    .then((response) => response.data);
+};
+
 module.exports = (deps) => AnhqvClient.bind(null, deps);
