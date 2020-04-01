@@ -1,6 +1,6 @@
 {
   "name": "anhqv-stats",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -42,5 +42,9 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "engines": {
+    "npm": "6.4.1",
+    "node": "10.15.3"
+  }
 }
