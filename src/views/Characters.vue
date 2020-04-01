@@ -26,6 +26,8 @@ import { mapState } from 'vuex';
 import { Loading } from 'element-ui';
 import CharacterCard from '../components/CharacterCard.vue';
 
+import utils from '../utils';
+
 export default {
   name: 'Characters',
   components: {
@@ -37,6 +39,9 @@ export default {
     };
   },
   created() {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+
     const loadingInstance = Loading.service({
       target: '.el-main',
       background: 'rgba(0, 0, 0, 0.8)',
@@ -47,10 +52,22 @@ export default {
         loadingInstance.close();
       });
   },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleResize);
+  },
   computed: {
     ...mapState('characters', {
       characters: 'all',
     }),
+  },
+  methods: {
+    handleResize() {
+      if (utils.isMobile()) {
+        this.gutter = 20;
+      } else {
+        this.gutter = 50;
+      }
+    },
   },
 };
 </script>
