@@ -19,7 +19,12 @@
       "DETAIL": {
         "TITLE": "Personaje | {character}",
         "INFO": {
-          "TITLE": "Datos del personaje"
+          "TITLE": "Datos del personaje",
+          "NAME": "Nombre",
+          "SURNAME": "Primer apellido",
+          "SECOND_SURNAME": "Segundo apellido",
+          "SHORTNAME": "Nombre corto",
+          "NICKNAME": "Apodo"
         }
       }
     },
