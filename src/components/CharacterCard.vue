@@ -51,7 +51,7 @@ export default {
   text-align: center;
 
   .image-container{
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet-min-width) {
       height: 300px;
     }
 

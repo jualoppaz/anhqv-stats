@@ -90,7 +90,7 @@ export default {
 #aside-menu {
   width: 64px !important;
 
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: $tablet-min-width){
     width: 250px !important;
   }
 

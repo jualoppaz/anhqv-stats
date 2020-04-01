@@ -27,13 +27,13 @@ export default {
   text-align: center;
   margin: 0;
 
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: $tablet-min-width){
     line-height: 59px;
   }
 
   > div{
     line-height: 40px;
-    @media screen and (min-width: 768px){
+    @media screen and (min-width: $tablet-min-width){
       display: inline-block;
 
       &#author{
