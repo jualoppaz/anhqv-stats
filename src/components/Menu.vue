@@ -53,6 +53,8 @@
 
 <script>
 
+import utils from '../utils';
+
 export default {
   name: 'Menu',
   components: {},
@@ -73,7 +75,7 @@ export default {
   },
   methods: {
     handleResize() {
-      if (window.innerWidth < 768) {
+      if (utils.isMobile()) {
         this.isCollapsed = true;
       } else {
         this.isCollapsed = false;
@@ -88,7 +90,7 @@ export default {
 #aside-menu {
   width: 64px !important;
 
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: $tablet-min-width){
     width: 250px !important;
   }
 

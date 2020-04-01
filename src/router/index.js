@@ -6,7 +6,7 @@ import utils from '../utils';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: '/',
   routes: [
@@ -48,3 +48,11 @@ export default new Router({
     },
   ],
 });
+
+router.beforeEach((to, from, next) => {
+  const element = document.querySelector(utils.LAYOUT.MAIN.QUERY_SELECTOR);
+  if (element) element.scrollTop = 0;
+  next();
+});
+
+export default router;

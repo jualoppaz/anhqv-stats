@@ -26,6 +26,8 @@ import { mapState } from 'vuex';
 import { Loading } from 'element-ui';
 import CharacterCard from '../components/CharacterCard.vue';
 
+import utils from '../utils';
+
 export default {
   name: 'Characters',
   components: {
@@ -33,24 +35,40 @@ export default {
   },
   data() {
     return {
-      gutter: 50,
+      gutter: utils.VIEWS.CHARACTERS.GUTTER.DEFAULT,
     };
   },
   created() {
-    const loadingInstance = Loading.service({
-      target: '.el-main',
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+
+    this.loadingInstance = Loading.service({
+      target: utils.LOADING.QUERY_SELECTOR,
       background: 'rgba(0, 0, 0, 0.8)',
     });
 
     this.$store.dispatch('characters/getAll')
       .finally(() => {
-        loadingInstance.close();
+        this.loadingInstance.close();
       });
+  },
+  beforeDestroy() {
+    this.loadingInstance.close();
+    window.removeEventListener('resize', this.handleResize);
   },
   computed: {
     ...mapState('characters', {
       characters: 'all',
     }),
+  },
+  methods: {
+    handleResize() {
+      if (utils.isMobile()) {
+        this.gutter = utils.VIEWS.CHARACTERS.GUTTER.MOBILE;
+      } else {
+        this.gutter = utils.VIEWS.CHARACTERS.GUTTER.DEFAULT;
+      }
+    },
   },
 };
 </script>

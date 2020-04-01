@@ -4,83 +4,36 @@
       id="character-info">
       <el-card>
          <div slot="header" class="clearfix">
-            <div
-              id="title">
-              {{characterInfoTitle}}
-            </div>
+            <div id="title">{{characterInfoTitle}}</div>
          </div>
          <el-row>
-            <el-col
-              id="avatar"
-              :xs="24"
-              :sm="24"
-              :md="6">
+            <el-col id="avatar" :xs="24" :sm="24" :md="6">
               <el-avatar :src="character.image_url" :size="avatarSize"/>
             </el-col>
-            <el-col
-              :xs="24"
-              :sm="24"
-              :md="{
-                span: 14,
-                offset: 2
-              }">
-              <el-row
-                class="character-info-row">
-                <el-col
-                  :xs="{
-                  span: 24
-                  }"
-                  :sm="{
-                  span: 12
-                  }"
-                  :md="{
-                  span: 8
-                  }">
-                  <p>Nombre</p>
+            <el-col :xs="24" :sm="24" :md="{ span: 14, offset: 2 }">
+              <el-row class="character-info-row">
+                <el-col :xs="24" :sm="12" :md="8">
+                  <p>{{nameLabel}}</p>
                   <p v-if="character.name" class="bold">{{character.name}}</p>
                   <p v-else><i class="el-icon-minus"></i></p>
                 </el-col>
-                <el-col
-                  :xs="{
-                  span: 24
-                  }"
-                  :sm="{
-                  span: 12
-                  }"
-                  :md="{
-                  span: 8
-                  }">
-                  <p>Primer apellido</p>
+                <el-col :xs="24" :sm="12" :md="8">
+                  <p>{{surnameLabel}}</p>
                   <p v-if="character.surname" class="bold">{{character.surname}}</p>
                   <p v-else><i class="el-icon-minus"></i></p>
                 </el-col>
-                <el-col
-                  :xs="{
-                  span: 24
-                  }"
-                  :sm="{
-                  span: 12
-                  }"
-                  :md="{
-                  span: 8
-                  }">
-                  <p>Segundo apellido</p>
+                <el-col :xs="24" :sm="12" :md="8">
+                  <p>{{secondSurnameLabel}}</p>
                   <p v-if="character.second_surname" class="bold">{{character.second_surname}}</p>
                   <p v-else><i class="el-icon-minus"></i></p>
                 </el-col>
-                <el-col
-                  :xs="24"
-                  :sm="12"
-                  :md="8">
-                  <p>Nombre corto</p>
+                <el-col :xs="24" :sm="12" :md="8">
+                  <p>{{shortnameLabel}}</p>
                   <p v-if="character.shortname" class="bold">{{character.shortname}}</p>
                   <p v-else><i class="el-icon-minus"></i></p>
                 </el-col>
-                <el-col
-                  :xs="24"
-                  :sm="12"
-                  :md="8">
-                  <p>Apodo</p>
+                <el-col :xs="24" :sm="12" :md="8">
+                  <p>{{nicknameLabel}}</p>
                   <p v-if="character.nickname" class="bold">{{character.nickname}}</p>
                   <p v-else><i class="el-icon-minus"></i></p>
                 </el-col>
@@ -97,6 +50,8 @@
 import { mapState } from 'vuex';
 import { Loading } from 'element-ui';
 
+import utils from '../utils';
+
 export default {
   name: 'CharacterDetail',
   components: {},
@@ -104,11 +59,16 @@ export default {
     return {
       avatarSize: 250,
       characterInfoTitle: this.$t('VIEWS.CHARACTERS.DETAIL.INFO.TITLE'),
+      nameLabel: this.$t('VIEWS.CHARACTERS.DETAIL.INFO.NAME'),
+      surnameLabel: this.$t('VIEWS.CHARACTERS.DETAIL.INFO.SURNAME'),
+      secondSurnameLabel: this.$t('VIEWS.CHARACTERS.DETAIL.INFO.SECOND_SURNAME'),
+      shortnameLabel: this.$t('VIEWS.CHARACTERS.DETAIL.INFO.SHORTNAME'),
+      nicknameLabel: this.$t('VIEWS.CHARACTERS.DETAIL.INFO.NICKNAME'),
     };
   },
   created() {
-    const loadingInstance = Loading.service({
-      target: '.el-main',
+    this.loadingInstance = Loading.service({
+      target: utils.LOADING.QUERY_SELECTOR,
       background: 'rgba(0, 0, 0, 0.8)',
     });
 
@@ -117,10 +77,11 @@ export default {
 
     this.$store.dispatch('characters/getBySlug', { slug: this.$route.params.slug })
       .finally(() => {
-        loadingInstance.close();
+        this.loadingInstance.close();
       });
   },
   beforeDestroy() {
+    this.loadingInstance.close();
     window.removeEventListener('resize', this.handleResize);
     this.$store.dispatch('characters/destroyCurrent');
   },
@@ -131,7 +92,7 @@ export default {
   },
   methods: {
     handleResize() {
-      if (window.innerWidth < 768) {
+      if (utils.isMobile()) {
         this.avatarSize = 100;
       } else {
         this.avatarSize = 250;

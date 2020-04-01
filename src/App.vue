@@ -55,7 +55,7 @@ body{
 
         #main {
 
-          @media screen and (min-width: 768px){
+          @media screen and (min-width: $tablet-min-width){
             padding: 50px;
           }
         }
@@ -64,7 +64,7 @@ body{
           padding: 0;
           height: 80px !important;
 
-          @media screen and (min-width: 768px){
+          @media screen and (min-width: $tablet-min-width){
             height: 60px !important;
           }
         }
