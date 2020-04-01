@@ -35,7 +35,7 @@ export default {
   },
   data() {
     return {
-      gutter: 50,
+      gutter: utils.VIEWS.CHARACTERS.GUTTER.DEFAULT,
     };
   },
   created() {
@@ -63,9 +63,9 @@ export default {
   methods: {
     handleResize() {
       if (utils.isMobile()) {
-        this.gutter = 20;
+        this.gutter = utils.VIEWS.CHARACTERS.GUTTER.MOBILE;
       } else {
-        this.gutter = 50;
+        this.gutter = utils.VIEWS.CHARACTERS.GUTTER.DEFAULT;
       }
     },
   },
