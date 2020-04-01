@@ -97,6 +97,8 @@
 import { mapState } from 'vuex';
 import { Loading } from 'element-ui';
 
+import utils from '../utils';
+
 export default {
   name: 'CharacterDetail',
   components: {},
@@ -107,8 +109,8 @@ export default {
     };
   },
   created() {
-    const loadingInstance = Loading.service({
-      target: '.el-main',
+    this.loadingInstance = Loading.service({
+      target: utils.LOADING.QUERY_SELECTOR,
       background: 'rgba(0, 0, 0, 0.8)',
     });
 
@@ -117,10 +119,11 @@ export default {
 
     this.$store.dispatch('characters/getBySlug', { slug: this.$route.params.slug })
       .finally(() => {
-        loadingInstance.close();
+        this.loadingInstance.close();
       });
   },
   beforeDestroy() {
+    this.loadingInstance.close();
     window.removeEventListener('resize', this.handleResize);
     this.$store.dispatch('characters/destroyCurrent');
   },

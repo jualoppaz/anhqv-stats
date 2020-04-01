@@ -42,17 +42,18 @@ export default {
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
 
-    const loadingInstance = Loading.service({
-      target: '.el-main',
+    this.loadingInstance = Loading.service({
+      target: utils.LOADING.QUERY_SELECTOR,
       background: 'rgba(0, 0, 0, 0.8)',
     });
 
     this.$store.dispatch('characters/getAll')
       .finally(() => {
-        loadingInstance.close();
+        this.loadingInstance.close();
       });
   },
   beforeDestroy() {
+    this.loadingInstance.close();
     window.removeEventListener('resize', this.handleResize);
   },
   computed: {
