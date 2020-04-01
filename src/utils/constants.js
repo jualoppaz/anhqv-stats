@@ -4,7 +4,7 @@ const constants = {
       MIN_WIDTH: 768,
     },
     DESKTOP: {
-      MIN_WITH: 992,
+      MIN_WIDTH: 992,
     },
   },
 };
