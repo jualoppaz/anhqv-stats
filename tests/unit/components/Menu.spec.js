@@ -24,7 +24,7 @@ describe('Menu.vue', () => {
       stubs: ['router-link', 'router-view'],
     });
     expect(JSON.stringify(wrapper.vm.defaultOpeneds)).toBe(JSON.stringify(['3']));
-    expect(wrapper.vm.isCollapsed).toBe(false);
+    expect(wrapper.vm.isCollapsed).toBeFalsy();
   });
 
   describe('handleResize', () => {
@@ -44,7 +44,7 @@ describe('Menu.vue', () => {
 
       window.innerWidth = 767;
       wrapper.vm.handleResize();
-      expect(wrapper.vm.isCollapsed).toBe(true);
+      expect(wrapper.vm.isCollapsed).toBeTruthy();
     });
   });
 
