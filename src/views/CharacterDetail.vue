@@ -131,7 +131,7 @@ export default {
   },
   methods: {
     handleResize() {
-      if (window.innerWidth < 768) {
+      if (utils.isMobile()) {
         this.avatarSize = 100;
       } else {
         this.avatarSize = 250;
