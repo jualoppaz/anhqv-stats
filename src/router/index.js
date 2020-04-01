@@ -50,7 +50,7 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  const element = document.querySelector('.el-main');
+  const element = document.querySelector(utils.LAYOUT.MAIN.QUERY_SELECTOR);
   if (element) element.scrollTop = 0;
   next();
 });
