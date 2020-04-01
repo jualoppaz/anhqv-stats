@@ -35,24 +35,25 @@ export default {
   },
   data() {
     return {
-      gutter: 50,
+      gutter: utils.VIEWS.CHARACTERS.GUTTER.DEFAULT,
     };
   },
   created() {
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
 
-    const loadingInstance = Loading.service({
-      target: '.el-main',
+    this.loadingInstance = Loading.service({
+      target: utils.LOADING.QUERY_SELECTOR,
       background: 'rgba(0, 0, 0, 0.8)',
     });
 
     this.$store.dispatch('characters/getAll')
       .finally(() => {
-        loadingInstance.close();
+        this.loadingInstance.close();
       });
   },
   beforeDestroy() {
+    this.loadingInstance.close();
     window.removeEventListener('resize', this.handleResize);
   },
   computed: {
@@ -63,9 +64,9 @@ export default {
   methods: {
     handleResize() {
       if (utils.isMobile()) {
-        this.gutter = 20;
+        this.gutter = utils.VIEWS.CHARACTERS.GUTTER.MOBILE;
       } else {
-        this.gutter = 50;
+        this.gutter = utils.VIEWS.CHARACTERS.GUTTER.DEFAULT;
       }
     },
   },

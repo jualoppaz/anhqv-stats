@@ -7,6 +7,23 @@ const constants = {
       MIN_WIDTH: 992,
     },
   },
+  LAYOUT: {
+    MAIN: {
+      ID: 'main',
+      QUERY_SELECTOR: '#main',
+    },
+  },
+  LOADING: {
+    QUERY_SELECTOR: 'body',
+  },
+  VIEWS: {
+    CHARACTERS: {
+      GUTTER: {
+        DEFAULT: 50,
+        MOBILE: 20,
+      },
+    },
+  },
 };
 
 export default constants;
