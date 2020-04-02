@@ -10,7 +10,7 @@
       class="character-card-info"
       style="padding: 14px;">
       <el-row>
-        <span><b>{{character.shortname}}</b></span>
+        <span class="character-name"><b>{{character.shortname}}</b></span>
       </el-row>
       <el-row>
         <el-button
