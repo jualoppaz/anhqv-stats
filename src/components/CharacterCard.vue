@@ -66,6 +66,13 @@ export default {
     text-align: left;
 
     .el-row{
+      .character-name{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: block;
+      }
+
       &:not(:last-child){
         margin-bottom: 20px;
       }
