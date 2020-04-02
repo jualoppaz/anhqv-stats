@@ -9,8 +9,9 @@
       <el-col
         class="character-col"
         :xs="24"
-        :sm="6"
-        :md="6"
+        :sm="12"
+        :md="8"
+        :lg="6"
         v-for="character in characters"
         :key="character.id">
         <CharacterCard :character="character">

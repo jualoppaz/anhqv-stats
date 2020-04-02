@@ -10,7 +10,7 @@
       class="character-card-info"
       style="padding: 14px;">
       <el-row>
-        <span><b>{{character.shortname}}</b></span>
+        <span class="character-name"><b>{{character.shortname}}</b></span>
       </el-row>
       <el-row>
         <el-button
@@ -51,13 +51,8 @@ export default {
   text-align: center;
 
   .image-container{
-    @media screen and (min-width: $tablet-min-width) {
-      height: 300px;
-    }
-
     .image{
       width: 100%;
-      max-height: 100%;
       display: block;
     }
   }
@@ -66,6 +61,13 @@ export default {
     text-align: left;
 
     .el-row{
+      .character-name{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: block;
+      }
+
       &:not(:last-child){
         margin-bottom: 20px;
       }
