@@ -28,6 +28,11 @@
         }
       }
     },
+    "CHAPTERS": {
+      "SEE_DETAIL": {
+        "TEXT": "Detalle"
+      }
+    },
     "SEASONS": {
       "DETAIL": {
         "TITLE": "Temporada {number}"
