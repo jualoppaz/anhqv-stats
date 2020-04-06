@@ -66,4 +66,25 @@ describe('anhqvClient', () => {
       });
     });
   });
+
+  describe('chapters', () => {
+    describe('getChapters', () => {
+      it('check url is well formed', (done) => {
+        const expectedUrl = '/chapters';
+        const expectedParams = {
+          season: '0',
+        };
+
+        mockClient.onGet().reply(200, {});
+
+        anhqvClient.getChapters(expectedParams)
+          .finally(() => {
+            expect(mockClient.history.get.length).toBe(1);
+            expect(mockClient.history.get[0].url).toBe(expectedUrl);
+            expect(mockClient.history.get[0].params).toEqual(expectedParams);
+            done();
+          });
+      });
+    });
+  });
 });
