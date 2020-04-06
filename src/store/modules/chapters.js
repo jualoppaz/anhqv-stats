@@ -7,8 +7,8 @@ const state = {
 const getters = {};
 
 const actions = {
-  getAll({ commit }, { season }) {
-    return Vue.anhqvClient.getChapters({ season })
+  getAll({ commit }, params) {
+    return Vue.anhqvClient.getChapters(params)
       .then((characters) => commit('setAll', characters.data));
   },
 };
