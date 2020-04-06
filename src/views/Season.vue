@@ -70,6 +70,10 @@ export default {
       }
     },
   },
+  beforeDestroy() {
+    this.loadingInstance.close();
+    window.removeEventListener('resize', this.handleResize);
+  },
 };
 </script>
 
