@@ -1,8 +1,5 @@
 <template>
   <div id="season">
-    <p>
-      Capítulos de la temporada {{seasonNumber}}.
-    </p>
     <el-row
       id="chapters-list"
       :gutter="gutter">
@@ -57,9 +54,6 @@ export default {
     ...mapState('chapters', {
       chapters: 'all',
     }),
-    seasonNumber() {
-      return this.$route.params.season_number;
-    },
   },
   methods: {
     handleResize() {

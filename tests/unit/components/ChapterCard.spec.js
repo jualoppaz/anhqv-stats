@@ -42,6 +42,7 @@ describe('ChapterCard.vue', () => {
         chapter: {
           name: 'Érase un X',
           slug: '0x01',
+          season: '0',
           image_url: 'http://path/to/image',
         },
       },
@@ -52,7 +53,8 @@ describe('ChapterCard.vue', () => {
     expect(wrapper.vm.$router.push).toHaveBeenCalledWith({
       name: 'ChapterDetail',
       params: {
-        slug: '0x01',
+        chapter_slug: '0x01',
+        season: '0',
       },
     });
   });

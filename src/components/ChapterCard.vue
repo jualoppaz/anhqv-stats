@@ -38,7 +38,8 @@ export default {
       this.$router.push({
         name: 'ChapterDetail',
         params: {
-          slug: this.chapter.slug,
+          season: this.chapter.season,
+          chapter_slug: this.chapter.slug,
         },
       });
     },

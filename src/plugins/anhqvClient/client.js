@@ -46,4 +46,14 @@ AnhqvClient.prototype.getChapters = function getChapters(params) {
     .then((response) => response.data);
 };
 
+/**
+ * Método que sirve para obtener el detalle de un capítulo dado su slug.
+ *
+ * @author jualoppaz
+ */
+AnhqvClient.prototype.getChapterBySlug = function getChapterBySlug(slug) {
+  return this.restClient.get(`/${CHAPTERS}/${slug}`)
+    .then((response) => response.data);
+};
+
 module.exports = (deps) => AnhqvClient.bind(null, deps);
