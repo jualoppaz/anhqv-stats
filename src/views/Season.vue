@@ -1,8 +1,5 @@
 <template>
   <div id="season">
-    <p>
-      Capítulos de la temporada {{seasonNumber}}.
-    </p>
     <el-row
       id="chapters-list"
       :gutter="gutter">
