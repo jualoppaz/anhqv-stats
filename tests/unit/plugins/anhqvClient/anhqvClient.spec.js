@@ -86,5 +86,21 @@ describe('anhqvClient', () => {
           });
       });
     });
+
+    describe('getChapterBySlug', () => {
+      it('check url is well formed', (done) => {
+        const slug = '0x01';
+        const expectedUrl = `/chapters/${slug}`;
+
+        mockClient.onGet().reply(200, {});
+
+        anhqvClient.getChapterBySlug(slug)
+          .finally(() => {
+            expect(mockClient.history.get.length).toBe(1);
+            expect(mockClient.history.get[0].url).toBe(expectedUrl);
+            done();
+          });
+      });
+    });
   });
 });
