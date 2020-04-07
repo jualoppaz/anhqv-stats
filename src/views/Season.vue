@@ -54,9 +54,6 @@ export default {
     ...mapState('chapters', {
       chapters: 'all',
     }),
-    seasonNumber() {
-      return this.$route.params.season_number;
-    },
   },
   methods: {
     handleResize() {
