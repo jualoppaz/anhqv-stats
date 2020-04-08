@@ -1,4 +1,8 @@
 {
+  "COMMON": {
+    "LOADING": "Cargando...",
+    "UNAVAILABLE": "No disponible"
+  },
   "MENU": {
     "CHARACTERS": {
       "TEXT": "Personajes"
