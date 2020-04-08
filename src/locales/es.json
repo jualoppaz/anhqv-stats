@@ -44,6 +44,9 @@
               "NAME": "Capítulo",
               "SEASON": "Temporada",
               "SUMMARY": "Sinopsis"
+            },
+            "VIDEO": {
+              "TITLE": "Vídeo del capítulo"
             }
           }
         }
