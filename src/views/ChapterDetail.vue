@@ -49,7 +49,8 @@
         <div slot="header" class="clearfix">
           <div id="title">{{videoTitle}}</div>
         </div>
-        <el-row>
+        <p v-if="loadingInstance.visible">{{ loadingText }}</p>
+        <el-row v-else-if="chapter.video_url">
           <el-col
             id="avatar"
             :xs="24"
@@ -62,18 +63,18 @@
               span: 12,
               offset: 6
             }">
-            <div class="embed-container">
+            <div
+              class="embed-container">
               <iframe
-                v-if="chapter.video_url"
                 :src="chapter.video_url"
                 frameborder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
               </iframe>
-              <p v-else>No disponible</p>
             </div>
           </el-col>
         </el-row>
+        <p v-else>{{ unavailableText }}</p>
       </el-card>
     </div>
   </div>
@@ -97,6 +98,8 @@ export default {
       seasonLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.SEASON'),
       summaryLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.SUMMARY'),
       videoTitle: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.VIDEO.TITLE'),
+      loadingText: this.$t('COMMON.LOADING'),
+      unavailableText: this.$t('COMMON.UNAVAILABLE'),
     };
   },
   created() {
