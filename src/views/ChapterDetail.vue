@@ -1,6 +1,6 @@
 <template>
   <div id="chapter-detail">
-   <div
+    <div
       id="chapter-info">
       <el-card>
         <div slot="header" class="clearfix">
@@ -43,6 +43,39 @@
         </el-row>
       </el-card>
     </div>
+    <div
+      id="chapter-video">
+      <el-card>
+        <div slot="header" class="clearfix">
+          <div id="title">{{videoTitle}}</div>
+        </div>
+        <el-row>
+          <el-col
+            id="avatar"
+            :xs="24"
+            :sm="24"
+            :md="{
+              span: 12,
+              offset: 6
+            }"
+            :lg="{
+              span: 12,
+              offset: 6
+            }">
+            <div class="embed-container">
+              <iframe
+                v-if="chapter.video_url"
+                :src="chapter.video_url"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+              <p v-else>No disponible</p>
+            </div>
+          </el-col>
+        </el-row>
+      </el-card>
+    </div>
   </div>
 </template>
 
@@ -63,6 +96,7 @@ export default {
       nameLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.NAME'),
       seasonLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.SEASON'),
       summaryLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.SUMMARY'),
+      videoTitle: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.VIDEO.TITLE'),
     };
   },
   created() {
@@ -122,6 +156,29 @@ export default {
 
     #summary{
       text-align: justify;
+    }
+  }
+
+  #chapter-video {
+    margin-top: 15px;
+
+    #title{
+      color: $color-text-red;
+      font-size: 20px;
+    }
+
+    .embed-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+    .embed-container iframe {
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
   }
 }
