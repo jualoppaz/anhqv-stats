@@ -8,7 +8,7 @@
         </el-header>
 
         <el-main id="main">
-          <router-view></router-view>
+          <router-view :key="$route.fullPath"></router-view>
         </el-main>
         <el-footer>
           <Footer/>

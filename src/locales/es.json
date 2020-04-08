@@ -28,9 +28,25 @@
         }
       }
     },
+    "CHAPTERS": {
+      "SEE_DETAIL": {
+        "TEXT": "Detalle"
+      }
+    },
     "SEASONS": {
       "DETAIL": {
-        "TITLE": "Temporada {number}"
+        "TITLE": "Temporada {number}",
+        "CHAPTERS": {
+          "DETAIL": {
+            "TITLE": "Capítulo {slug}",
+            "INFO": {
+              "TITLE": "Datos del capítulo",
+              "NAME": "Capítulo",
+              "SEASON": "Temporada",
+              "SUMMARY": "Sinopsis"
+            }
+          }
+        }
       }
     }
   }

@@ -46,6 +46,15 @@ const router = new Router({
         title: ({ route }) => i18n.t('VIEWS.SEASONS.DETAIL.TITLE', { number: route.params.season_number }),
       },
     },
+    {
+      path: '/temporadas/:season_number/capítulos/:chapter_slug',
+      name: 'ChapterDetail',
+      component: () => import('@/views/ChapterDetail'),
+      children: [],
+      meta: {
+        title: ({ route }) => i18n.t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.TITLE', { slug: route.params.chapter_slug }),
+      },
+    },
   ],
 });
 
