@@ -31,6 +31,11 @@
                 <p v-if="chapter.season" class="bold">{{chapter.season}}</p>
                 <p v-else><i class="el-icon-minus"></i></p>
               </el-col>
+              <el-col :xs="24" :sm="12" :md="8">
+                <p>{{durationLabel}}</p>
+                <p v-if="chapter.parsed_duration" class="bold">{{chapter.parsed_duration}}</p>
+                <p v-else><i class="el-icon-minus"></i></p>
+              </el-col>
             </el-row>
           </el-col>
         </el-row>
@@ -96,6 +101,7 @@ export default {
       chapterInfoTitle: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.TITLE'),
       nameLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.NAME'),
       seasonLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.SEASON'),
+      durationLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.DURATION'),
       summaryLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.SUMMARY'),
       videoTitle: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.VIDEO.TITLE'),
       loadingText: this.$t('COMMON.LOADING'),
