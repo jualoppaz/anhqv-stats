@@ -47,6 +47,7 @@
               "TITLE": "Datos del capítulo",
               "NAME": "Capítulo",
               "SEASON": "Temporada",
+              "DURATION": "Duración",
               "SUMMARY": "Sinopsis"
             },
             "VIDEO": {
