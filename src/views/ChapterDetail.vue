@@ -36,6 +36,15 @@
                 <p v-if="chapter.parsed_duration" class="bold">{{chapter.parsed_duration}}</p>
                 <p v-else><i class="el-icon-minus"></i></p>
               </el-col>
+              <el-col :xs="24" :sm="12" :md="8">
+                <p>{{releaseDateLabel}}</p>
+                <p
+                  v-if="chapter.parsed_release_date"
+                  class="bold">
+                  {{chapter.parsed_release_date}}
+                </p>
+                <p v-else><i class="el-icon-minus"></i></p>
+              </el-col>
             </el-row>
           </el-col>
         </el-row>
@@ -102,6 +111,7 @@ export default {
       nameLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.NAME'),
       seasonLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.SEASON'),
       durationLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.DURATION'),
+      releaseDateLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.RELEASE_DATE'),
       summaryLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.SUMMARY'),
       videoTitle: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.VIDEO.TITLE'),
       loadingText: this.$t('COMMON.LOADING'),
