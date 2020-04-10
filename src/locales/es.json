@@ -47,6 +47,8 @@
               "TITLE": "Datos del capítulo",
               "NAME": "Capítulo",
               "SEASON": "Temporada",
+              "DURATION": "Duración",
+              "RELEASE_DATE": "Fecha de estreno",
               "SUMMARY": "Sinopsis"
             },
             "VIDEO": {
