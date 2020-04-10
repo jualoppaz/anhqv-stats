@@ -20,6 +20,7 @@
 
 <script>
 
+import VueAdBlockDetect from 'vue-adblock-detect';
 import Menu from './components/Menu.vue';
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
@@ -30,6 +31,17 @@ export default {
     Menu,
     Header,
     Footer,
+  },
+  mixins: [VueAdBlockDetect],
+  beforeMount() {
+    this.detectAdBlock().then((response) => {
+      if (response) {
+        this.$alert(this.$t('COMMON.ADBLOCK.TEXT'), this.$t('COMMON.ADBLOCK.TITLE'), {
+          showConfirmButton: false,
+          showClose: false,
+        });
+      }
+    });
   },
 };
 </script>
