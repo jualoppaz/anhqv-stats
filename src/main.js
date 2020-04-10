@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import ElementUI from 'element-ui';
+import Adsense from 'vue-google-adsense/dist/Adsense.min';
 import App from './App.vue';
 import store from './store';
 import VueAnhqvClient from './plugins/vueAnhqvClient';
@@ -8,6 +9,11 @@ import 'element-ui/lib/theme-chalk/index.css';
 import i18n from './i18n';
 
 import router from './router';
+
+
+Vue.use(require('vue-script2'));
+
+Vue.use(Adsense);
 
 Vue.use(ElementUI);
 Vue.use(VueAnhqvClient, {
