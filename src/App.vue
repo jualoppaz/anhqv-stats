@@ -10,6 +10,7 @@
         <el-main id="main">
           <router-view :key="$route.fullPath"></router-view>
         </el-main>
+
         <el-footer>
           <Footer/>
         </el-footer>

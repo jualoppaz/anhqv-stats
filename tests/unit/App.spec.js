@@ -3,6 +3,12 @@ import VueRouter from 'vue-router';
 import ElementUI from 'element-ui';
 import App from '../../src/App.vue';
 
+jest.mock('vue-adblock-detect', () => ({
+  methods: {
+    detectAdBlock: jest.fn().mockResolvedValue(true),
+  },
+}));
+
 const localVue = createLocalVue();
 localVue.use(ElementUI);
 
