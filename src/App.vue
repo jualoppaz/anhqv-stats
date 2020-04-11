@@ -8,14 +8,6 @@
         </el-header>
 
         <el-main id="main">
-          <div id="adsense">
-            <Adsense
-              data-ad-client="ca-pub-2309187828170787"
-              data-ad-slot="4044329554"
-              data-ad-format="fluid"
-              data-full-width-responsive="true">
-            </Adsense>
-          </div>
           <router-view :key="$route.fullPath"></router-view>
         </el-main>
 
