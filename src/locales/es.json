@@ -17,7 +17,11 @@
   },
   "VIEWS": {
     "HOME": {
-      "TITLE": "Inicio"
+      "TITLE": "Inicio",
+      "DONATE": {
+        "TITLE": "Haz tu donación",
+        "TEXT": "Esta web es de acceso totalmente gratuito, pero conlleva una serie de gastos como el dominio y el hosting. Si quieres realizar una pequeña aportación para sufragar los mismos será bienvenida."
+      }
     },
     "CHARACTERS": {
       "TITLE": "Personajes",
