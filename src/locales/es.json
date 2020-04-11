@@ -18,9 +18,20 @@
   "VIEWS": {
     "HOME": {
       "TITLE": "Inicio",
+      "WELCOME": {
+        "TEXT": "<p>Bienvenido a la Web de la Comunidad más loca de la TV. En esta web encontrarás todo tipo de información y estadísticas de la famosa serie de TV <strong>Aquí no hay quien viva</strong>: personajes, actores, capítulos... y mucho más.</p>"
+      },
+      "CHARACTERS": {
+        "TITLE": "Personajes",
+        "TEXT": "<p>Disponemos de una amplia galería con la información de todos los personajes que aparecen en la serie, incluyendo personajes con apariciones puntuales.</p>"
+      },
       "DONATE": {
         "TITLE": "Haz tu donación",
-        "TEXT": "Esta web es de acceso totalmente gratuito, pero conlleva una serie de gastos como el dominio y el hosting. Si quieres realizar una pequeña aportación para sufragar los mismos será bienvenida."
+        "TEXT": "<p>Esta web es de acceso totalmente gratuito, pero conlleva una serie de gastos como el dominio y el hosting. Si quieres realizar una pequeña aportación para sufragar los mismos será bienvenida.</p>"
+      },
+      "CHAPTERS": {
+        "TITLE": "Capítulos",
+        "TEXT": "<p>Se pueden ver detalles de todos los capítulos de la serie agrupados por temporada, así como los capítulos en vídeo y curiosidades de los mismos.</p>"
       }
     },
     "CHARACTERS": {
