@@ -67,4 +67,12 @@ describe('utils/funcs', () => {
       expect(isDesktop).toBeFalsy();
     });
   });
+
+  describe('chapterSlugToText', () => {
+    it('it should return a natural text', () => {
+      const slug = '1x01-erase-una-mudanza';
+      const text = utils.chapterSlugToText(slug);
+      expect(text).toBe('1x01');
+    });
+  });
 });
