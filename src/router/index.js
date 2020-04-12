@@ -47,12 +47,12 @@ const router = new Router({
       },
     },
     {
-      path: '/temporadas/:season_number/capitulos/:chapter_slug',
+      path: '/temporadas/:season_number/capítulos/:chapter_slug',
       name: 'ChapterDetail',
       component: () => import('@/views/ChapterDetail'),
       children: [],
       meta: {
-        title: ({ route }) => i18n.t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.TITLE', { slug: route.params.chapter_slug }),
+        title: ({ route }) => i18n.t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.TITLE', { slug: utils.chapterSlugToText(route.params.chapter_slug) }),
       },
     },
   ],
