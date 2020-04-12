@@ -52,6 +52,54 @@
         </div>
       </el-col>
     </el-row>
+
+    <el-row>
+      <el-col
+        :xs="24">
+        <div id="references">
+          <h2 id="references-title">{{ referencesTitle }}</h2>
+          <div id="references-text" v-html="referencesText"></div>
+        </div>
+      </el-col>
+    </el-row>
+    <el-row
+      id="references-list"
+      :gutter="20">
+      <el-col
+        class="reference-item"
+        :xs="24"
+        :lg="12">
+        <el-card class="box-card">
+          <div slot="header" class="clearfix">
+            <span>ANHQV.ES</span>
+            <div class="links">
+              <a href="https://anhqv.es" target="_blank"><font-awesome-icon icon="link" /></a>
+              <a href="https://www.youtube.com/user/juancuestanhqv2014" target="_blank"><font-awesome-icon :icon="['fab', 'youtube']"/></a>
+            </div>
+          </div>
+          <div>
+            <p>{{anhqvText}}</p>
+          </div>
+        </el-card>
+      </el-col>
+      <el-col
+        class="reference-item"
+        :xs="24"
+        :lg="12">
+        <el-card class="box-card">
+          <div slot="header" class="clearfix">
+            <span>EscenasANHQV</span>
+            <div class="links">
+              <a href="https://twitter.com/EscenasANHQV" target="_blank"><font-awesome-icon :icon="['fab', 'twitter']"/></a>
+              <a href="https://www.instagram.com/escenas.anhqv/" target="_blank"><font-awesome-icon :icon="['fab', 'instagram']"/></a>
+            </div>
+          </div>
+          <div>
+            <p>{{escenasAnhqvText}}</p>
+          </div>
+        </el-card>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -69,13 +117,17 @@ export default {
       donateText: this.$t('VIEWS.HOME.DONATE.TEXT'),
       chaptersTitle: this.$t('VIEWS.HOME.CHAPTERS.TITLE'),
       chaptersText: this.$t('VIEWS.HOME.CHAPTERS.TEXT'),
+      referencesTitle: this.$t('VIEWS.HOME.REFERENCES.TITLE'),
+      referencesText: this.$t('VIEWS.HOME.REFERENCES.TEXT'),
+      anhqvText: this.$t('VIEWS.HOME.REFERENCES.LIST.ANHQV.TEXT'),
+      escenasAnhqvText: this.$t('VIEWS.HOME.REFERENCES.LIST.ESCENASANHQV.TEXT'),
     };
   },
   created() {},
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 #home {
   #welcome{
@@ -123,6 +175,50 @@ export default {
 
     #chapters-text{
       text-align: justify;
+    }
+  }
+
+  #references{
+    #references-title{
+      color: $color-text-green;
+    }
+  }
+
+  #references-list{
+    .reference-item{
+      &:not(:first-child){
+        margin-top: 15px;
+
+        @media screen and (min-width: $lg-desktop-min-width) {
+          margin-top: 0;
+        }
+      }
+
+      .links{
+        float: right;
+
+        a{
+          &:not(:first-child){
+            margin-left: 7px;
+          }
+        }
+      }
+    }
+
+    .fa-link{
+      color: $color-text-gray;
+    }
+
+    .fa-youtube{
+      color: $color-brand-youtube;
+    }
+
+    .fa-twitter{
+      color: $color-brand-twitter;
+    }
+
+    .fa-instagram{
+      color: $color-brand-instagram;
     }
   }
 }
