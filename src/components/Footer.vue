@@ -32,7 +32,7 @@ export default {
   }
 
   > div{
-    line-height: 40px;
+    line-height: 39.5px;
     @media screen and (min-width: $tablet-min-width){
       display: inline-block;
 
