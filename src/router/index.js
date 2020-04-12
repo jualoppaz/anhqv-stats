@@ -52,7 +52,7 @@ const router = new Router({
       component: () => import('@/views/ChapterDetail'),
       children: [],
       meta: {
-        title: ({ route }) => i18n.t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.TITLE', { slug: route.params.chapter_slug }),
+        title: ({ route }) => i18n.t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.TITLE', { slug: utils.chapterSlugToText(route.params.chapter_slug) }),
       },
     },
   ],
