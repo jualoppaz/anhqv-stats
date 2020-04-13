@@ -130,6 +130,7 @@ export default {
     this.$store.dispatch('chapters/getBySlug', { slug: this.$route.params.chapter_slug })
       .finally(() => {
         this.loadingInstance.close();
+        window.prerenderReady = true;
       });
   },
   beforeDestroy() {

@@ -51,6 +51,7 @@ export default {
     this.$store.dispatch('characters/getAll')
       .finally(() => {
         this.loadingInstance.close();
+        window.prerenderReady = true;
       });
   },
   beforeDestroy() {
