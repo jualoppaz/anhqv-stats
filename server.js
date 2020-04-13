@@ -10,6 +10,8 @@ app.get('/sitemap.xml', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'sitemap.xml'));
 });
 
+app.use(require('prerender-node').set('prerenderToken', process.env.PRERENDER_TOKEN));
+
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });
