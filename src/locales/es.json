@@ -32,6 +32,18 @@
       "CHAPTERS": {
         "TITLE": "Capítulos",
         "TEXT": "<p>Se pueden ver detalles de todos los capítulos de la serie agrupados por temporada, así como los capítulos en vídeo y curiosidades de los mismos.</p>"
+      },
+      "REFERENCES": {
+        "TITLE": "Referencias",
+        "TEXT": "<p>A continuación destacamos una serie de webs y perfiles en RRSS que hemos considerado interesantes y que han sido de gran utilidad para el desarrollo de esta web.</p>",
+        "LIST": {
+          "ANHQV": {
+            "TEXT": "Web oficial de la serie en la que encontrarás mucha información y curiosidades."
+          },
+          "ESCENASANHQV": {
+            "TEXT": "Cuenta que dispone de multitud de escenas y memes de la serie. Síguela en Twitter e Instagram."
+          }
+        }
       }
     },
     "CHARACTERS": {

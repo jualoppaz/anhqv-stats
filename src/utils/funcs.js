@@ -12,6 +12,17 @@ function slugToText(slug) {
 }
 
 /**
+ * Método que sirve para convertir el slug de un capítulo en texto legible.
+ *
+ * @param {*} slug Slug de un personaje
+ *
+ * @author jualoppaz
+ */
+function chapterSlugToText(slug) {
+  return slug.split('-')[0];
+}
+
+/**
  * Método que sirve para saber si nos encontramos en un dispositivo móbil.
  *
  * @author jualoppaz
@@ -43,6 +54,7 @@ function isDesktop() {
 
 export default {
   slugToText,
+  chapterSlugToText,
   isMobile,
   isTablet,
   isDesktop,

@@ -51,7 +51,7 @@
         <el-row v-if="chapter.summary">
           <el-col>
             <p>{{summaryLabel}}</p>
-            <p v-if="chapter.summary" id="summary">{{chapter.summary}}</p>
+            <div v-if="chapter.summary" id="summary" v-html="chapter.summary"></div>
             <p v-else><i class="el-icon-minus"></i></p>
           </el-col>
         </el-row>
@@ -174,7 +174,9 @@ export default {
     }
 
     #summary{
-      text-align: justify;
+      ::v-deep p {
+        text-align: justify;
+      }
     }
   }
 

@@ -6,6 +6,10 @@ const app = express();
 
 app.use(express.static(path.resolve(__dirname, 'dist')));
 
+app.get('/sitemap.xml', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'sitemap.xml'));
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });

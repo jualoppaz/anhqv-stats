@@ -10,7 +10,7 @@
       class="chapter-card-info"
       style="padding: 14px;">
       <el-row>
-        <span class="chapter-name"><b>{{chapter.slug}} - {{chapter.name}}</b></span>
+        <span class="chapter-name"><b>{{chapter.natural_id}} - {{chapter.name}}</b></span>
       </el-row>
       <el-row>
         <el-button
