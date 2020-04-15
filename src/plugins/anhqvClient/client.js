@@ -10,6 +10,7 @@ function AnhqvClient({
 
 const CHARACTERS = 'characters';
 const CHAPTERS = 'chapters';
+const ACTORS = 'actors';
 
 AnhqvClient.prototype.setBaseURL = function setBaseURL(baseURL) {
   this.restClient.defaults.baseURL = baseURL;
@@ -32,6 +33,16 @@ AnhqvClient.prototype.getCharacters = function getCharacters() {
  */
 AnhqvClient.prototype.getCharacterBySlug = function getCharacterBySlug(slug) {
   return this.restClient.get(`/${CHARACTERS}/${slug}`)
+    .then((response) => response.data);
+};
+
+/**
+ * Método que sirve para obtener el listado de actores.
+ *
+ * @author jualoppaz
+ */
+AnhqvClient.prototype.getActors = function getActors() {
+  return this.restClient.get(`/${ACTORS}`)
     .then((response) => response.data);
 };
 
