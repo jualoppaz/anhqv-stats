@@ -84,6 +84,9 @@
         }
       }
     },
+    "ACTORS": {
+      "TITLE": "Actores"
+    },
     "CHAPTERS": {
       "SEE_DETAIL": {
         "TEXT": "Detalle"
