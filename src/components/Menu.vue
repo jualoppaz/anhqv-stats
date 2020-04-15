@@ -17,33 +17,40 @@
           <span>{{charactersItemText}}</span>
         </router-link>
       </el-menu-item>
-      <el-submenu index="3">
+      <el-menu-item index="3">
+        <router-link :to="{ name: 'Actors' }">
+          <i class="el-icon-star-on"></i>
+          <span>{{actorsItemText}}</span>
+        </router-link>
+      </el-menu-item>
+      <el-submenu index="4">
         <template slot="title">
-          <i class="el-icon-video-camera-solid"></i><span slot="title">Temporadas</span>
+          <i class="el-icon-video-camera-solid"></i>
+          <span slot="title">{{seasonsItemText}}</span>
         </template>
-        <el-menu-item index="3-1">
+        <el-menu-item index="4-1">
           <router-link :to="{ name: 'SeasonDetails', params: { season_number: 1 } }">
-            <i class="el-icon-film"></i>1ª Temporada
+            <i class="el-icon-film"></i>{{firstSeasonItemText}}
           </router-link>
         </el-menu-item>
-        <el-menu-item index="3-2">
+        <el-menu-item index="4-2">
           <router-link :to="{ name: 'SeasonDetails', params: { season_number: 2 } }">
-            <i class="el-icon-film"></i>2ª Temporada
+            <i class="el-icon-film"></i>{{secondSeasonItemText}}
           </router-link>
         </el-menu-item>
-        <el-menu-item index="3-3">
+        <el-menu-item index="4-3">
           <router-link :to="{ name: 'SeasonDetails', params: { season_number: 3 } }">
-            <i class="el-icon-film"></i>3ª Temporada
+            <i class="el-icon-film"></i>{{thirdSeasonItemText}}
           </router-link>
         </el-menu-item>
-        <el-menu-item index="3-4">
+        <el-menu-item index="4-4">
           <router-link :to="{ name: 'SeasonDetails', params: { season_number: 4 } }">
-            <i class="el-icon-film"></i>4ª Temporada
+            <i class="el-icon-film"></i>{{fourthSeasonItemText}}
           </router-link>
         </el-menu-item>
-        <el-menu-item index="3-5">
+        <el-menu-item index="4-5">
           <router-link :to="{ name: 'SeasonDetails', params: { season_number: 5 } }">
-            <i class="el-icon-film"></i>5ª Temporada
+            <i class="el-icon-film"></i>{{fifthSeasonItemText}}
           </router-link>
         </el-menu-item>
       </el-submenu>
@@ -61,9 +68,16 @@ export default {
   data() {
     return {
       isCollapsed: false,
-      defaultOpeneds: ['3'],
+      defaultOpeneds: ['4'],
       charactersItemText: this.$t('MENU.CHARACTERS.TEXT'),
       homeItemText: this.$t('MENU.HOME.TEXT'),
+      actorsItemText: this.$t('MENU.ACTORS.TEXT'),
+      seasonsItemText: this.$t('MENU.SEASONS.TEXT'),
+      firstSeasonItemText: this.$t('MENU.SEASONS.FIRST_SEASON.TEXT'),
+      secondSeasonItemText: this.$t('MENU.SEASONS.SECOND_SEASON.TEXT'),
+      thirdSeasonItemText: this.$t('MENU.SEASONS.THIRD_SEASON.TEXT'),
+      fourthSeasonItemText: this.$t('MENU.SEASONS.FOURTH_SEASON.TEXT'),
+      fifthSeasonItemText: this.$t('MENU.SEASONS.FIFTH_SEASON.TEXT'),
     };
   },
   created() {
