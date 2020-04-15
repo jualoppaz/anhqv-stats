@@ -8,6 +8,9 @@
     }
   },
   "MENU": {
+    "ACTORS": {
+      "TEXT": "Actores"
+    },
     "CHARACTERS": {
       "TEXT": "Personajes"
     },
