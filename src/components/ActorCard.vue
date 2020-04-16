@@ -19,6 +19,12 @@
           v-on:click="goToDetail()">
           {{detailButtonText}}
         </el-button>
+        <font-awesome-icon
+          v-if="actor.deathdate"
+          class="ribbon"
+          icon="ribbon"
+          size="2x">
+        </font-awesome-icon>
       </el-row>
     </div>
   </el-card>
@@ -70,6 +76,10 @@ export default {
 
       &:not(:last-child){
         margin-bottom: 20px;
+      }
+
+      .ribbon{
+        float: right;
       }
     }
   }
