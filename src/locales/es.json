@@ -85,7 +85,22 @@
       }
     },
     "ACTORS": {
-      "TITLE": "Actores"
+      "TITLE": "Actores",
+      "SEE_DETAIL": {
+        "TEXT": "Detalle"
+      },
+      "DETAIL": {
+        "TITLE": "Actor | {actor}",
+        "INFO": {
+          "TITLE": "Datos del actor",
+          "NAME": "Nombre",
+          "SURNAME": "Primer apellido",
+          "SECOND_SURNAME": "Segundo apellido",
+          "SHORTNAME": "Conocido como",
+          "BIRTHDATE": "Fecha de nacimiento",
+          "DEATHDATE": "Fecha de fallecimiento"
+        }
+      }
     },
     "CHAPTERS": {
       "SEE_DETAIL": {
