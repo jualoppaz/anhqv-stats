@@ -6,6 +6,7 @@
     <el-menu :default-openeds="defaultOpeneds" :collapse="isCollapsed">
       <el-menu-item index="1">
         <router-link
+          exact
           to="/">
           <i class="el-icon-s-home"></i>
           <span>{{homeItemText}}</span>
@@ -129,7 +130,7 @@ export default {
           text-decoration: none;
           padding: 0 20px;
 
-          &.router-link-exact-active, &:focus{
+          &.router-link-active, &:focus{
             color: $color-text-blue;
 
             i {
