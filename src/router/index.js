@@ -46,6 +46,17 @@ const router = new Router({
       },
     },
     {
+      path: '/actores/:slug',
+      name: 'ActorDetail',
+      component: () => import('@/views/ActorDetail'),
+      children: [],
+      meta: {
+        title: ({ route }) => i18n.t('VIEWS.ACTORS.DETAIL.TITLE', {
+          actor: utils.slugToText(route.params.slug),
+        }),
+      },
+    },
+    {
       path: '/temporadas/:season_number',
       name: 'SeasonDetails',
       component: () => import('@/views/Season'),
