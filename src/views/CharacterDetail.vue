@@ -78,6 +78,7 @@ export default {
     this.$store.dispatch('characters/getBySlug', { slug: this.$route.params.slug })
       .finally(() => {
         this.loadingInstance.close();
+        window.prerenderReady = true;
       });
   },
   beforeDestroy() {

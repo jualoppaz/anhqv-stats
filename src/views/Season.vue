@@ -48,6 +48,7 @@ export default {
     this.$store.dispatch('chapters/getAll', { season: this.$route.params.season_number })
       .finally(() => {
         this.loadingInstance.close();
+        window.prerenderReady = true;
       });
   },
   computed: {

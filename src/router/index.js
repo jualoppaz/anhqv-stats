@@ -66,7 +66,7 @@ const router = new Router({
       },
     },
     {
-      path: '/temporadas/:season_number/capítulos/:chapter_slug',
+      path: '/temporadas/:season_number/capitulos/:chapter_slug',
       name: 'ChapterDetail',
       component: () => import('@/views/ChapterDetail'),
       children: [],

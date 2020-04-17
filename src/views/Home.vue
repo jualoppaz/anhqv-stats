@@ -123,7 +123,9 @@ export default {
       escenasAnhqvText: this.$t('VIEWS.HOME.REFERENCES.LIST.ESCENASANHQV.TEXT'),
     };
   },
-  created() {},
+  created() {
+    window.prerenderReady = true;
+  },
 };
 </script>
 
