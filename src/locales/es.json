@@ -8,11 +8,32 @@
     }
   },
   "MENU": {
+    "ACTORS": {
+      "TEXT": "Actores"
+    },
     "CHARACTERS": {
       "TEXT": "Personajes"
     },
     "HOME": {
       "TEXT": "Inicio"
+    },
+    "SEASONS": {
+      "TEXT": "Temporadas",
+      "FIRST_SEASON": {
+        "TEXT": "1ª Temporada"
+      },
+      "SECOND_SEASON": {
+        "TEXT": "2ª Temporada"
+      },
+      "THIRD_SEASON": {
+        "TEXT": "3ª Temporada"
+      },
+      "FOURTH_SEASON": {
+        "TEXT": "4ª Temporada"
+      },
+      "FIFTH_SEASON": {
+        "TEXT": "5ª Temporada"
+      }
     }
   },
   "VIEWS": {
@@ -60,6 +81,24 @@
           "SECOND_SURNAME": "Segundo apellido",
           "SHORTNAME": "Nombre corto",
           "NICKNAME": "Apodo"
+        }
+      }
+    },
+    "ACTORS": {
+      "TITLE": "Actores",
+      "SEE_DETAIL": {
+        "TEXT": "Detalle"
+      },
+      "DETAIL": {
+        "TITLE": "Actor | {actor}",
+        "INFO": {
+          "TITLE": "Datos del actor",
+          "NAME": "Nombre",
+          "SURNAME": "Primer apellido",
+          "SECOND_SURNAME": "Segundo apellido",
+          "SHORTNAME": "Conocido como",
+          "BIRTHDATE": "Fecha de nacimiento",
+          "DEATHDATE": "Fecha de fallecimiento"
         }
       }
     },

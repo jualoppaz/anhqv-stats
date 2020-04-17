@@ -23,7 +23,7 @@ describe('Menu.vue', () => {
       },
       stubs: ['router-link', 'router-view'],
     });
-    expect(JSON.stringify(wrapper.vm.defaultOpeneds)).toBe(JSON.stringify(['3']));
+    expect(JSON.stringify(wrapper.vm.defaultOpeneds)).toBe(JSON.stringify(['4']));
     expect(wrapper.vm.isCollapsed).toBeFalsy();
   });
 
