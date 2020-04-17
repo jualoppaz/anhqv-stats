@@ -32,6 +32,38 @@ describe('store/actors.js', () => {
           });
       });
     });
+
+    describe('getBySlug', () => {
+      it('it should call getActorBySlug method and setCurrent mutation', (done) => {
+        const expectedActor = {
+          name: 'John Doe',
+        };
+
+        const slug = 'john-doe';
+
+        const commit = jest.fn();
+
+        Vue.anhqvClient.getActorBySlug = jest.fn().mockResolvedValue(expectedActor);
+
+        actions.getBySlug({ commit }, { slug })
+          .then(() => {
+            expect(Vue.anhqvClient.getActorBySlug).toHaveBeenCalledWith(slug);
+
+            expect(commit).toHaveBeenCalledWith('setCurrent', expectedActor);
+            done();
+          });
+      });
+    });
+
+    describe('destroyCurrent', () => {
+      it('it should call setCurrent mutation', () => {
+        const commit = jest.fn();
+
+        actions.destroyCurrent({ commit });
+
+        expect(commit).toHaveBeenCalledWith('setCurrent', {});
+      });
+    });
   });
 
   describe('mutations', () => {
@@ -48,6 +80,18 @@ describe('store/actors.js', () => {
         mutations.setAll(state, actors);
 
         expect(state.all).toEqual(actors);
+      });
+    });
+
+    describe('setCurrent', () => {
+      it('it should modify current state property', () => {
+        const actor = {
+          name: 'John Doe',
+        };
+
+        mutations.setCurrent(state, actor);
+
+        expect(state.current).toEqual(actor);
       });
     });
   });

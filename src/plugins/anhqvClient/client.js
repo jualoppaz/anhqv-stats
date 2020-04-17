@@ -47,6 +47,16 @@ AnhqvClient.prototype.getActors = function getActors() {
 };
 
 /**
+ * Método que sirve para obtener el detalle de un actor dado su slug.
+ *
+ * @author jualoppaz
+ */
+AnhqvClient.prototype.getActorBySlug = function getActorBySlug(slug) {
+  return this.restClient.get(`/${ACTORS}/${slug}`)
+    .then((response) => response.data);
+};
+
+/**
  * Método que sirve para obtener el listado de capítulos que cumplan
  * con los criterios proporcionados.
  *

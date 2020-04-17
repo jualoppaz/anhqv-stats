@@ -36,7 +36,7 @@ export default {
   },
   data() {
     return {
-      gutter: utils.VIEWS.CHARACTERS.GUTTER.DEFAULT,
+      gutter: utils.VIEWS.ACTORS.GUTTER.DEFAULT,
     };
   },
   created() {
@@ -65,9 +65,9 @@ export default {
   methods: {
     handleResize() {
       if (utils.isMobile()) {
-        this.gutter = utils.VIEWS.CHARACTERS.GUTTER.MOBILE;
+        this.gutter = utils.VIEWS.ACTORS.GUTTER.MOBILE;
       } else {
-        this.gutter = utils.VIEWS.CHARACTERS.GUTTER.DEFAULT;
+        this.gutter = utils.VIEWS.ACTORS.GUTTER.DEFAULT;
       }
     },
   },

@@ -16,7 +16,6 @@
         <el-button
           type="primary"
           plain
-          disabled
           v-on:click="goToDetail()">
           {{detailButtonText}}
         </el-button>
@@ -37,7 +36,7 @@ export default {
   props: ['actor'],
   data() {
     return {
-      detailButtonText: this.$t('VIEWS.CHARACTERS.SEE_DETAIL.TEXT'),
+      detailButtonText: this.$t('VIEWS.ACTORS.SEE_DETAIL.TEXT'),
     };
   },
   methods: {

@@ -23,6 +23,12 @@ const constants = {
         MOBILE: 20,
       },
     },
+    ACTORS: {
+      GUTTER: {
+        DEFAULT: 50,
+        MOBILE: 20,
+      },
+    },
   },
 };
 
