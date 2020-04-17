@@ -16,7 +16,6 @@
         <el-button
           type="primary"
           plain
-          disabled
           v-on:click="goToDetail()">
           {{detailButtonText}}
         </el-button>
