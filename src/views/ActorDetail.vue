@@ -37,9 +37,9 @@
                   <p v-if="actor.parsed_birthdate" class="bold">{{actor.parsed_birthdate}}</p>
                   <p v-else><i class="el-icon-minus"></i></p>
                 </el-col>
-                <el-col :xs="24" :sm="12" :md="8" v-if="actor.deathdate">
+                <el-col :xs="24" :sm="12" :md="8" v-if="actor.parsed_deathdate">
                   <p>{{deathdateLabel}}</p>
-                  <p class="bold">{{actor.deathdate}}</p>
+                  <p class="bold">{{actor.parsed_deathdate}}</p>
                 </el-col>
               </el-row>
             </el-col>
