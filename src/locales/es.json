@@ -96,7 +96,7 @@
           "NAME": "Nombre",
           "SURNAME": "Primer apellido",
           "SECOND_SURNAME": "Segundo apellido",
-          "SHORTNAME": "Conocido como",
+          "SHORTNAME": "Nombre artístico",
           "BIRTHDATE": "Fecha de nacimiento",
           "DEATHDATE": "Fecha de fallecimiento"
         }
