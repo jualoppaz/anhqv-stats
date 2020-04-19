@@ -1,14 +1,15 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import ElementUI from 'element-ui';
-import Header from '../../../components/Header.vue';
+import Home from '../../../pages/index.vue';
 
 const localVue = createLocalVue();
 localVue.use(ElementUI);
 
-describe('Header.vue', () => {
+describe('Home.vue', () => {
   it('check initial data', () => {
-    const wrapper = shallowMount(Header, {
+    const wrapper = shallowMount(Home, {
       localVue,
+      stubs: ['nuxt-link', 'router-view', 'font-awesome-icon', 'Adsense'],
       mocks: {
         $t: () => {},
         $route: {
@@ -18,6 +19,7 @@ describe('Header.vue', () => {
         },
       },
     });
-    expect(wrapper.vm.title).toBe('DUMMY');
+
+    expect(wrapper.find('#welcome-image').exists()).toBe(true);
   });
 });

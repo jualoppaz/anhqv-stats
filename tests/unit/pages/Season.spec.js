@@ -1,38 +1,63 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
+
+import Vuex from 'vuex';
 import ElementUI from 'element-ui';
-import Menu from '../../../components/Menu.vue';
+import Season from '../../../pages/seasons/index.vue';
 
 jest.mock('../../../utils');
 // eslint-disable-next-line import/first
 import utils from '../../../utils';
 
-const localVue = createLocalVue();
-localVue.use(ElementUI);
+describe('Season.vue', () => {
+  let localVue;
+  let store;
+  let actions;
+  beforeAll(() => {
+    localVue = createLocalVue();
+    localVue.use(ElementUI);
 
-describe('Menu.vue', () => {
+    actions = {
+      getAll: jest.fn(),
+      destroyAll: jest.fn(),
+    };
+
+    localVue.use(Vuex);
+
+    store = new Vuex.Store({
+      modules: {
+        chapters: {
+          namespaced: true,
+          actions,
+        },
+      },
+    });
+  });
+
   beforeEach(() => {
     process.browser = false;
   });
 
   describe('check initial data', () => {
     it('it should load default data', () => {
-      const wrapper = shallowMount(Menu, {
+      const methods = {
+        handleResize: jest.fn(),
+      };
+
+      const wrapper = shallowMount(Season, {
         localVue,
+        store,
         mocks: {
           $t: () => {},
-          $i18n: {
-            locale: 'es',
-          },
           $route: {
-            meta: {
-              title: () => 'dummy',
+            params: {
+              season_number: () => '0',
             },
           },
         },
-        stubs: ['nuxt-link', 'router-view'],
+        methods,
       });
-      expect(JSON.stringify(wrapper.vm.defaultOpeneds)).toBe(JSON.stringify(['4']));
-      expect(wrapper.vm.isCollapsed).toBeFalsy();
+
+      expect(wrapper.vm.gutter).toEqual(50);
     });
 
     it('it should execute created hook in browser', () => {
@@ -43,20 +68,17 @@ describe('Menu.vue', () => {
       };
 
       // eslint-disable-next-line no-unused-vars
-      const wrapper = shallowMount(Menu, {
+      const wrapper = shallowMount(Season, {
         localVue,
+        store,
         mocks: {
           $t: () => {},
-          $i18n: {
-            locale: 'es',
-          },
           $route: {
-            meta: {
-              title: () => 'dummy',
+            params: {
+              season_number: () => '0',
             },
           },
         },
-        stubs: ['nuxt-link', 'router-view'],
         methods,
       });
 
@@ -65,19 +87,17 @@ describe('Menu.vue', () => {
   });
 
   describe('handleResize', () => {
-    it('isCollapsed must be true', () => {
+    it('gutter for mobile', () => {
       utils.isMobile.mockReturnValue(true);
 
-      const wrapper = shallowMount(Menu, {
+      const wrapper = shallowMount(Season, {
         localVue,
+        store,
         mocks: {
           $t: () => {},
-          $i18n: {
-            locale: 'es',
-          },
           $route: {
-            meta: {
-              title: () => 'dummy',
+            params: {
+              season_number: () => '0',
             },
           },
         },
@@ -85,22 +105,20 @@ describe('Menu.vue', () => {
       });
 
       wrapper.vm.handleResize();
-      expect(wrapper.vm.isCollapsed).toBeTruthy();
+      expect(wrapper.vm.gutter).toEqual(20);
     });
 
-    it('isCollapsed must be false', () => {
+    it('gutter for desktop', () => {
       utils.isMobile.mockReturnValue(false);
 
-      const wrapper = shallowMount(Menu, {
+      const wrapper = shallowMount(Season, {
         localVue,
+        store,
         mocks: {
           $t: () => {},
-          $i18n: {
-            locale: 'es',
-          },
           $route: {
-            meta: {
-              title: () => 'dummy',
+            params: {
+              season_number: () => '0',
             },
           },
         },
@@ -108,21 +126,19 @@ describe('Menu.vue', () => {
       });
 
       wrapper.vm.handleResize();
-      expect(wrapper.vm.isCollapsed).toBeFalsy();
+      expect(wrapper.vm.gutter).toEqual(50);
     });
   });
 
   it('check beforeDestroy function is called', () => {
-    const wrapper = shallowMount(Menu, {
+    const wrapper = shallowMount(Season, {
       localVue,
+      store,
       mocks: {
         $t: () => {},
-        $i18n: {
-          locale: 'es',
-        },
         $route: {
-          meta: {
-            title: () => 'dummy',
+          params: {
+            season_number: () => '0',
           },
         },
       },

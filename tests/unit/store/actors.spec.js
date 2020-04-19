@@ -1,5 +1,6 @@
+
 import Vue from 'vue';
-import store from '../../../src/store/modules/actors';
+import { state, actions, mutations } from '../../../store/actors';
 
 describe('store/actors.js', () => {
   beforeEach(() => {
@@ -7,8 +8,6 @@ describe('store/actors.js', () => {
   });
 
   describe('actions', () => {
-    const { actions } = store;
-
     describe('getAll', () => {
       it('it should call getActors method and setAll mutation', (done) => {
         const expectedActors = [
@@ -67,8 +66,6 @@ describe('store/actors.js', () => {
   });
 
   describe('mutations', () => {
-    const { mutations, state } = store;
-
     describe('setAll', () => {
       it('it should modify all state property', () => {
         const actors = [

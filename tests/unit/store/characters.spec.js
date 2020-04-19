@@ -1,5 +1,6 @@
+
 import Vue from 'vue';
-import store from '../../../src/store/modules/characters';
+import { state, actions, mutations } from '../../../store/characters';
 
 describe('store/characters.js', () => {
   beforeEach(() => {
@@ -7,8 +8,6 @@ describe('store/characters.js', () => {
   });
 
   describe('actions', () => {
-    const { actions } = store;
-
     describe('getAll', () => {
       it('it should call getCharacters method and setAll mutation', (done) => {
         const expectedCharacters = [
@@ -67,8 +66,6 @@ describe('store/characters.js', () => {
   });
 
   describe('mutations', () => {
-    const { mutations, state } = store;
-
     describe('setAll', () => {
       it('it should modify all state property', () => {
         const characters = [

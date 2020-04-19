@@ -1,38 +1,69 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
+import Vuex from 'vuex';
 import ElementUI from 'element-ui';
-import Menu from '../../../components/Menu.vue';
+import ChapterDetail from '../../../pages/seasons/_season_number/chapters/_slug/index.vue';
 
 jest.mock('../../../utils');
 // eslint-disable-next-line import/first
 import utils from '../../../utils';
 
-const localVue = createLocalVue();
-localVue.use(ElementUI);
+describe('ChapterDetail.vue', () => {
+  let localVue;
+  let store;
+  let actions;
+  let state;
+  beforeAll(() => {
+    localVue = createLocalVue();
+    localVue.use(ElementUI);
 
-describe('Menu.vue', () => {
+    state = {
+      current: {
+        name: 'Érase un X',
+      },
+    };
+
+    actions = {
+      getBySlug: jest.fn(),
+      destroyCurrent: jest.fn(),
+    };
+
+    localVue.use(Vuex);
+
+    store = new Vuex.Store({
+      modules: {
+        chapters: {
+          namespaced: true,
+          state,
+          actions,
+        },
+      },
+    });
+  });
+
   beforeEach(() => {
     process.browser = false;
   });
 
   describe('check initial data', () => {
     it('it should load default data', () => {
-      const wrapper = shallowMount(Menu, {
+      const methods = {
+        handleResize: jest.fn(),
+      };
+
+      // eslint-disable-next-line no-unused-vars
+      const wrapper = shallowMount(ChapterDetail, {
         localVue,
+        store,
         mocks: {
           $t: () => {},
-          $i18n: {
-            locale: 'es',
-          },
           $route: {
-            meta: {
-              title: () => 'dummy',
+            params: {
+              chapter_slug: '0x01',
             },
           },
         },
-        stubs: ['nuxt-link', 'router-view'],
+        methods,
       });
-      expect(JSON.stringify(wrapper.vm.defaultOpeneds)).toBe(JSON.stringify(['4']));
-      expect(wrapper.vm.isCollapsed).toBeFalsy();
     });
 
     it('it should execute created hook in browser', () => {
@@ -43,20 +74,17 @@ describe('Menu.vue', () => {
       };
 
       // eslint-disable-next-line no-unused-vars
-      const wrapper = shallowMount(Menu, {
+      const wrapper = shallowMount(ChapterDetail, {
         localVue,
+        store,
         mocks: {
           $t: () => {},
-          $i18n: {
-            locale: 'es',
-          },
           $route: {
-            meta: {
-              title: () => 'dummy',
+            params: {
+              chapter_slug: '0x01',
             },
           },
         },
-        stubs: ['nuxt-link', 'router-view'],
         methods,
       });
 
@@ -64,20 +92,19 @@ describe('Menu.vue', () => {
     });
   });
 
+
   describe('handleResize', () => {
-    it('isCollapsed must be true', () => {
+    it('avatarSize for mobile', () => {
       utils.isMobile.mockReturnValue(true);
 
-      const wrapper = shallowMount(Menu, {
+      const wrapper = shallowMount(ChapterDetail, {
         localVue,
+        store,
         mocks: {
           $t: () => {},
-          $i18n: {
-            locale: 'es',
-          },
           $route: {
-            meta: {
-              title: () => 'dummy',
+            params: {
+              slug: '0x01',
             },
           },
         },
@@ -85,22 +112,20 @@ describe('Menu.vue', () => {
       });
 
       wrapper.vm.handleResize();
-      expect(wrapper.vm.isCollapsed).toBeTruthy();
+      expect(wrapper.vm.avatarSize).toEqual(100);
     });
 
-    it('isCollapsed must be false', () => {
+    it('avatarSize for desktop', () => {
       utils.isMobile.mockReturnValue(false);
 
-      const wrapper = shallowMount(Menu, {
+      const wrapper = shallowMount(ChapterDetail, {
         localVue,
+        store,
         mocks: {
           $t: () => {},
-          $i18n: {
-            locale: 'es',
-          },
           $route: {
-            meta: {
-              title: () => 'dummy',
+            params: {
+              slug: '0x01',
             },
           },
         },
@@ -108,21 +133,19 @@ describe('Menu.vue', () => {
       });
 
       wrapper.vm.handleResize();
-      expect(wrapper.vm.isCollapsed).toBeFalsy();
+      expect(wrapper.vm.avatarSize).toEqual(250);
     });
   });
 
   it('check beforeDestroy function is called', () => {
-    const wrapper = shallowMount(Menu, {
+    const wrapper = shallowMount(ChapterDetail, {
       localVue,
+      store,
       mocks: {
         $t: () => {},
-        $i18n: {
-          locale: 'es',
-        },
         $route: {
-          meta: {
-            title: () => 'dummy',
+          params: {
+            slug: '0x01',
           },
         },
       },

@@ -1,18 +1,14 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
-import VueRouter from 'vue-router';
 import ElementUI from 'element-ui';
-import ChapterCard from '../../../src/components/ChapterCard.vue';
+import ChapterCard from '../../../components/ChapterCard.vue';
 
 const localVue = createLocalVue();
 localVue.use(ElementUI);
-
-const router = new VueRouter();
 
 describe('ChapterCard.vue', () => {
   it('check initial data', () => {
     const wrapper = shallowMount(ChapterCard, {
       localVue,
-      router,
       mocks: {
         $t: () => {},
       },
@@ -28,12 +24,13 @@ describe('ChapterCard.vue', () => {
   });
 
   it('it should navigate to detail page', () => {
-    router.push = jest.fn();
-
     const wrapper = shallowMount(ChapterCard, {
       localVue,
       mocks: {
         $t: () => {},
+        $i18n: {
+          locale: 'es',
+        },
         $router: {
           push: jest.fn(),
         },
@@ -51,10 +48,10 @@ describe('ChapterCard.vue', () => {
     wrapper.vm.goToDetail();
 
     expect(wrapper.vm.$router.push).toHaveBeenCalledWith({
-      name: 'ChapterDetail',
+      name: 'seasons-season_number-slug___es',
       params: {
-        chapter_slug: '0x01',
-        season: '0',
+        slug: '0x01',
+        season_number: '0',
       },
     });
   });
