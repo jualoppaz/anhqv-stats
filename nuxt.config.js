@@ -75,6 +75,9 @@ export default {
         },
       ],
     }],
+    ['@nuxtjs/google-adsense', {
+      id: 'ca-pub-2309187828170787',
+    }],
   ],
 
   styleResources: {

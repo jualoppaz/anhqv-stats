@@ -10,18 +10,17 @@
     <el-row
       :gutter="20"
     >
-      <!--<el-col
+      <el-col
         :xs="24"
       >
         <div id="adsense">
-          <Adsense
-            data-ad-client="ca-pub-2309187828170787"
+          <adsbygoogle
             data-ad-slot="4044329554"
             data-ad-format="fluid"
             data-full-width-responsive="true"
           />
         </div>
-      </el-col>-->
+      </el-col>
       <el-col
         :xs="24"
         :sm="8"
