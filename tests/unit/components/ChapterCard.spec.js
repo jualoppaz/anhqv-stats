@@ -50,7 +50,7 @@ describe('ChapterCard.vue', () => {
     wrapper.vm.goToDetail();
 
     expect(wrapper.vm.$router.push).toHaveBeenCalledWith({
-      name: 'seasons-season_number-slug___es',
+      name: 'seasons-season_number-chapters-slug___es',
       params: {
         slug: '0x01',
         season_number: '0',
