@@ -18,6 +18,7 @@ describe('CharacterCard.vue', () => {
           image_url: 'http://path/to/image',
         },
       },
+      stubs: ['el-card', 'el-row', 'el-button'],
     });
     expect(wrapper.props().character.shortname).toBe('John');
     expect(wrapper.props().character.image_url).toBe('http://path/to/image');
@@ -42,6 +43,7 @@ describe('CharacterCard.vue', () => {
           image_url: 'http://path/to/image',
         },
       },
+      stubs: ['el-card', 'el-row', 'el-button'],
     });
 
     wrapper.vm.goToDetail();

@@ -9,7 +9,7 @@ describe('Home.vue', () => {
   it('check initial data', () => {
     const wrapper = shallowMount(Home, {
       localVue,
-      stubs: ['nuxt-link', 'router-view', 'font-awesome-icon', 'Adsense'],
+      stubs: ['nuxt-link', 'router-view', 'font-awesome-icon', 'Adsense', 'el-row', 'el-col', 'el-card'],
       mocks: {
         $t: () => {},
         $route: {

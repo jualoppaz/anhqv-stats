@@ -1,4 +1,4 @@
-import { createLocalVue, mount } from '@vue/test-utils';
+import { createLocalVue, shallowMount } from '@vue/test-utils';
 import ElementUI from 'element-ui';
 import App from '../../layouts/default.vue';
 
@@ -13,9 +13,9 @@ localVue.use(ElementUI);
 
 describe('App.vue', () => {
   it('check header border-bottom', () => {
-    const wrapper = mount(App, {
+    // eslint-disable-next-line no-unused-vars
+    const wrapper = shallowMount(App, {
       localVue,
-      stubs: ['nuxt-link', 'router-view', 'nuxt'],
       mocks: {
         $t: () => {},
         $i18n: {},
@@ -25,8 +25,7 @@ describe('App.vue', () => {
           },
         },
       },
+      stubs: ['nuxt-link', 'router-view', 'nuxt', 'el-container', 'el-header', 'el-main', 'el-footer', 'Menu'],
     });
-
-    expect(wrapper.find('.el-header').exists()).toBe(true);
   });
 });

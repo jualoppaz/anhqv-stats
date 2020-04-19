@@ -18,6 +18,7 @@ describe('ChapterCard.vue', () => {
           image_url: 'http://path/to/image',
         },
       },
+      stubs: ['el-card', 'el-row', 'el-button'],
     });
     expect(wrapper.props().chapter.name).toBe('Érase un X');
     expect(wrapper.props().chapter.image_url).toBe('http://path/to/image');
@@ -43,6 +44,7 @@ describe('ChapterCard.vue', () => {
           image_url: 'http://path/to/image',
         },
       },
+      stubs: ['el-card', 'el-row', 'el-button'],
     });
 
     wrapper.vm.goToDetail();

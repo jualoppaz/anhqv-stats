@@ -62,6 +62,7 @@ describe('ChapterDetail.vue', () => {
             },
           },
         },
+        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
         methods,
       });
     });
@@ -85,6 +86,7 @@ describe('ChapterDetail.vue', () => {
             },
           },
         },
+        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
         methods,
       });
 
@@ -108,7 +110,7 @@ describe('ChapterDetail.vue', () => {
             },
           },
         },
-        stubs: ['nuxt-link', 'router-view'],
+        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
       });
 
       wrapper.vm.handleResize();
@@ -129,7 +131,7 @@ describe('ChapterDetail.vue', () => {
             },
           },
         },
-        stubs: ['nuxt-link', 'router-view'],
+        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
       });
 
       wrapper.vm.handleResize();
@@ -149,7 +151,7 @@ describe('ChapterDetail.vue', () => {
           },
         },
       },
-      stubs: ['nuxt-link', 'router-view'],
+      stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
     });
 
     window.removeEventListener = jest.fn();

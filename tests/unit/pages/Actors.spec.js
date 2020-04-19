@@ -1,5 +1,4 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
-
 import Vuex from 'vuex';
 import ElementUI from 'element-ui';
 import Actors from '../../../pages/actors/index.vue';
@@ -50,6 +49,7 @@ describe('Actors.vue', () => {
         mocks: {
           $t: () => {},
         },
+        stubs: ['nuxt-link', 'router-view', 'el-row'],
         methods,
       });
     });
@@ -68,6 +68,7 @@ describe('Actors.vue', () => {
         mocks: {
           $t: () => {},
         },
+        stubs: ['nuxt-link', 'router-view', 'el-row'],
         methods,
       });
 
@@ -85,7 +86,7 @@ describe('Actors.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view'],
+        stubs: ['nuxt-link', 'router-view', 'el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -101,7 +102,7 @@ describe('Actors.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view'],
+        stubs: ['nuxt-link', 'router-view', 'el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -116,7 +117,7 @@ describe('Actors.vue', () => {
       mocks: {
         $t: () => {},
       },
-      stubs: ['nuxt-link', 'router-view'],
+      stubs: ['nuxt-link', 'router-view', 'el-row'],
     });
 
     window.removeEventListener = jest.fn();

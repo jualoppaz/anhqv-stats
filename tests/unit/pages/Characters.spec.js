@@ -1,5 +1,4 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
-
 import Vuex from 'vuex';
 import ElementUI from 'element-ui';
 import Characters from '../../../pages/characters/index.vue';
@@ -50,6 +49,7 @@ describe('Characters.vue', () => {
         mocks: {
           $t: () => {},
         },
+        stubs: ['el-row'],
         methods,
       });
     });
@@ -68,6 +68,7 @@ describe('Characters.vue', () => {
         mocks: {
           $t: () => {},
         },
+        stubs: ['el-row'],
         methods,
       });
 
@@ -86,7 +87,7 @@ describe('Characters.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view'],
+        stubs: ['el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -102,7 +103,7 @@ describe('Characters.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view'],
+        stubs: ['el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -117,7 +118,7 @@ describe('Characters.vue', () => {
       mocks: {
         $t: () => {},
       },
-      stubs: ['nuxt-link', 'router-view'],
+      stubs: ['el-row'],
     });
 
     window.removeEventListener = jest.fn();

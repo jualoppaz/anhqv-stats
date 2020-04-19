@@ -1,5 +1,4 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
-
 import Vuex from 'vuex';
 import ElementUI from 'element-ui';
 import Season from '../../../pages/seasons/index.vue';
@@ -54,6 +53,7 @@ describe('Season.vue', () => {
             },
           },
         },
+        stubs: ['el-row'],
         methods,
       });
 
@@ -79,6 +79,7 @@ describe('Season.vue', () => {
             },
           },
         },
+        stubs: ['el-row'],
         methods,
       });
 
@@ -101,7 +102,7 @@ describe('Season.vue', () => {
             },
           },
         },
-        stubs: ['nuxt-link', 'router-view'],
+        stubs: ['el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -122,7 +123,7 @@ describe('Season.vue', () => {
             },
           },
         },
-        stubs: ['nuxt-link', 'router-view'],
+        stubs: ['el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -142,7 +143,7 @@ describe('Season.vue', () => {
           },
         },
       },
-      stubs: ['nuxt-link', 'router-view'],
+      stubs: ['el-row'],
     });
 
     window.removeEventListener = jest.fn();

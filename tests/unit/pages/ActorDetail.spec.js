@@ -1,5 +1,4 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
-
 import Vuex from 'vuex';
 import ElementUI from 'element-ui';
 import ActorDetail from '../../../pages/actors/_slug/index.vue';
@@ -62,6 +61,7 @@ describe('ActorDetail.vue', () => {
             },
           },
         },
+        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
         methods,
       });
 
@@ -87,6 +87,7 @@ describe('ActorDetail.vue', () => {
             },
           },
         },
+        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
         methods,
       });
 
@@ -109,7 +110,7 @@ describe('ActorDetail.vue', () => {
             },
           },
         },
-        stubs: ['nuxt-link', 'router-view'],
+        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
       });
 
       wrapper.vm.handleResize();
@@ -130,7 +131,7 @@ describe('ActorDetail.vue', () => {
             },
           },
         },
-        stubs: ['nuxt-link', 'router-view'],
+        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
       });
 
       wrapper.vm.handleResize();
@@ -150,7 +151,7 @@ describe('ActorDetail.vue', () => {
           },
         },
       },
-      stubs: ['nuxt-link', 'router-view'],
+      stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
     });
 
     window.removeEventListener = jest.fn();

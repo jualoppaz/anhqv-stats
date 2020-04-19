@@ -29,7 +29,7 @@ describe('Menu.vue', () => {
             },
           },
         },
-        stubs: ['nuxt-link', 'router-view'],
+        stubs: ['nuxt-link', 'router-view', 'el-submenu', 'el-menu', 'el-menu-item', 'el-aside'],
       });
       expect(JSON.stringify(wrapper.vm.defaultOpeneds)).toBe(JSON.stringify(['4']));
       expect(wrapper.vm.isCollapsed).toBeFalsy();
@@ -56,7 +56,7 @@ describe('Menu.vue', () => {
             },
           },
         },
-        stubs: ['nuxt-link', 'router-view'],
+        stubs: ['nuxt-link', 'router-view', 'el-submenu', 'el-menu', 'el-menu-item', 'el-aside'],
         methods,
       });
 
@@ -81,7 +81,7 @@ describe('Menu.vue', () => {
             },
           },
         },
-        stubs: ['nuxt-link', 'router-view'],
+        stubs: ['nuxt-link', 'router-view', 'el-submenu', 'el-menu', 'el-menu-item', 'el-aside'],
       });
 
       wrapper.vm.handleResize();
@@ -104,7 +104,7 @@ describe('Menu.vue', () => {
             },
           },
         },
-        stubs: ['nuxt-link', 'router-view'],
+        stubs: ['nuxt-link', 'router-view', 'el-submenu', 'el-menu', 'el-menu-item', 'el-aside'],
       });
 
       wrapper.vm.handleResize();
@@ -126,7 +126,7 @@ describe('Menu.vue', () => {
           },
         },
       },
-      stubs: ['nuxt-link', 'router-view'],
+      stubs: ['nuxt-link', 'router-view', 'el-submenu', 'el-menu', 'el-menu-item', 'el-aside'],
     });
 
     window.removeEventListener = jest.fn();
