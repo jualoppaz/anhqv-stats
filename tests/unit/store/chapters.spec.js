@@ -1,5 +1,6 @@
+
 import Vue from 'vue';
-import store from '../../../src/store/modules/chapters';
+import { state, actions, mutations } from '../../../store/chapters';
 
 describe('store/chapters.js', () => {
   beforeEach(() => {
@@ -7,8 +8,6 @@ describe('store/chapters.js', () => {
   });
 
   describe('actions', () => {
-    const { actions } = store;
-
     describe('getAll', () => {
       it('it should call getChapters method and setAll mutation', (done) => {
         const expectedChapters = [
@@ -72,8 +71,6 @@ describe('store/chapters.js', () => {
   });
 
   describe('mutations', () => {
-    const { mutations, state } = store;
-
     describe('setAll', () => {
       it('it should modify all state property', () => {
         const chapters = [

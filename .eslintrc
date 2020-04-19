@@ -1,11 +1,12 @@
 {
   "root": true,
   "env": {
+    "browser": true,
     "node": true
   },
   "extends": [
-    "plugin:vue/essential",
-    "eslint:recommended",
+    "@nuxtjs",
+    "plugin:nuxt/recommended",
     "airbnb-base"
   ],
   "parserOptions": {
@@ -31,7 +32,8 @@
     ],
     "no-debugger": [
       "warn"
-    ]
+    ],
+    "vue/no-v-html": "off"
   },
   "overrides": [
     {

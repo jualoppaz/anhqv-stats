@@ -1,18 +1,14 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
-import VueRouter from 'vue-router';
 import ElementUI from 'element-ui';
-import ActorCard from '../../../src/components/ActorCard.vue';
+import ActorCard from '../../../components/ActorCard.vue';
 
 const localVue = createLocalVue();
 localVue.use(ElementUI);
-
-const router = new VueRouter();
 
 describe('ActorCard.vue', () => {
   it('check initial data', () => {
     const wrapper = shallowMount(ActorCard, {
       localVue,
-      router,
       mocks: {
         $t: () => {},
       },
@@ -22,18 +18,20 @@ describe('ActorCard.vue', () => {
           image_url: 'http://path/to/image',
         },
       },
+      stubs: ['el-card', 'el-row', 'el-button'],
     });
     expect(wrapper.props().actor.shortname).toBe('John');
     expect(wrapper.props().actor.image_url).toBe('http://path/to/image');
   });
 
   it('it should navigate to detail page', () => {
-    router.push = jest.fn();
-
     const wrapper = shallowMount(ActorCard, {
       localVue,
       mocks: {
         $t: () => {},
+        $i18n: {
+          locale: 'es',
+        },
         $router: {
           push: jest.fn(),
         },
@@ -45,12 +43,13 @@ describe('ActorCard.vue', () => {
           image_url: 'http://path/to/image',
         },
       },
+      stubs: ['el-card', 'el-row', 'el-button'],
     });
 
     wrapper.vm.goToDetail();
 
     expect(wrapper.vm.$router.push).toHaveBeenCalledWith({
-      name: 'ActorDetail',
+      name: 'actors-slug___es',
       params: {
         slug: 'john-doe',
       },

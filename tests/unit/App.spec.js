@@ -1,7 +1,6 @@
-import { createLocalVue, mount } from '@vue/test-utils';
-import VueRouter from 'vue-router';
+import { createLocalVue, shallowMount } from '@vue/test-utils';
 import ElementUI from 'element-ui';
-import App from '../../src/App.vue';
+import App from '../../layouts/default.vue';
 
 jest.mock('vue-adblock-detect', () => ({
   methods: {
@@ -12,24 +11,21 @@ jest.mock('vue-adblock-detect', () => ({
 const localVue = createLocalVue();
 localVue.use(ElementUI);
 
-const router = new VueRouter();
-
 describe('App.vue', () => {
   it('check header border-bottom', () => {
-    const wrapper = mount(App, {
+    // eslint-disable-next-line no-unused-vars
+    const wrapper = shallowMount(App, {
       localVue,
-      router,
-      stubs: ['router-link', 'router-view'],
       mocks: {
         $t: () => {},
+        $i18n: {},
         $route: {
           meta: {
             title: () => 'dummy',
           },
         },
       },
+      stubs: ['nuxt-link', 'router-view', 'nuxt', 'el-container', 'el-header', 'el-main', 'el-footer', 'Menu'],
     });
-
-    expect(wrapper.find('.el-header').exists()).toBe(true);
   });
 });
