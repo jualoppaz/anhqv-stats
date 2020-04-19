@@ -44,7 +44,7 @@ export default {
   methods: {
     goToDetail() {
       this.$router.push({
-        name: `seasons-season_number-slug___${this.$i18n.locale}`,
+        name: `seasons-season_number-chapters-slug___${this.$i18n.locale}`,
         params: {
           season_number: this.chapter.season,
           slug: this.chapter.slug,
