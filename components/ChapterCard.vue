@@ -38,7 +38,7 @@ export default {
   },
   data() {
     return {
-      detailButtonText: this.$t('VIEWS.CHAPTERS.SEE_DETAIL.TEXT'),
+      detailButtonText: this.$t('VIEWS.SEASONS.SEE_DETAIL.TEXT'),
     };
   },
   methods: {
