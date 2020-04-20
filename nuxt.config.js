@@ -4,6 +4,9 @@ import es from './locales/es';
 
 export default {
   mode: 'universal',
+  env: {
+    VUE_APP_API_URL: process.env.VUE_APP_API_URL,
+  },
   /*
   ** Headers of the page
   */
