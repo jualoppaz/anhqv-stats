@@ -2,8 +2,14 @@
 
 import es from './locales/es';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
+require('dotenv').config();
+
 export default {
   mode: 'universal',
+  env: {
+    apiUrl: process.env.VUE_APP_API_URL,
+  },
   /*
   ** Headers of the page
   */
