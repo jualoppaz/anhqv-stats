@@ -12,11 +12,6 @@ describe('Home.vue', () => {
       stubs: ['nuxt-link', 'router-view', 'font-awesome-icon', 'Adsense', 'el-row', 'el-col', 'el-card'],
       mocks: {
         $t: () => {},
-        $route: {
-          meta: {
-            title: () => 'dummy',
-          },
-        },
       },
     });
 

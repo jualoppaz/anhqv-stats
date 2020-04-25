@@ -19,11 +19,6 @@ describe('App.vue', () => {
       mocks: {
         $t: () => {},
         $i18n: {},
-        $route: {
-          meta: {
-            title: () => 'dummy',
-          },
-        },
       },
       stubs: ['nuxt-link', 'router-view', 'nuxt', 'el-container', 'el-header', 'el-main', 'el-footer', 'Menu'],
     });
