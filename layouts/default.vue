@@ -67,9 +67,38 @@ body{
         }
 
         #main {
+          padding: 0;
 
-          @media screen and (min-width: $tablet-min-width){
-            padding: 50px;
+          .banner {
+            h1 {
+              padding: 5px;
+              height: 75px;
+              line-height: 75px;
+              font-size: 20px;
+              text-align: center;
+              background: $color-text-blue; // #66b3ff;
+              box-shadow: inset 0 8px 8px -8px rgba(0,0,0,.3), inset 0 -8px 8px -8px rgba(0,0,0,.3);
+              color: $color-text-white;
+              margin: 0;
+
+              text-overflow: ellipsis;
+              overflow: hidden;
+              white-space: nowrap;
+
+              @media screen and (min-width: $tablet-min-width){
+                height: 150px;
+                line-height: 150px;
+                font-size: 50px;
+              }
+            }
+          }
+
+          .wrapper {
+            padding: 20px;
+
+            @media screen and (min-width: $tablet-min-width){
+              padding: 50px;
+            }
           }
         }
 
