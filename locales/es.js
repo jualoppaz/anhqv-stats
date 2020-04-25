@@ -111,7 +111,7 @@ export default
         TITLE: 'Temporada {number}',
         CHAPTERS: {
           DETAIL: {
-            TITLE: 'Capítulo {slug}',
+            TITLE: '{slug} - {name}',
             INFO: {
               TITLE: 'Datos del capítulo',
               NAME: 'Capítulo',
