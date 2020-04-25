@@ -11,6 +11,10 @@ describe('Actors.vue', () => {
   let localVue;
   let store;
   let actions;
+
+  let configsState;
+  let configsMutations;
+
   beforeAll(() => {
     localVue = createLocalVue();
     localVue.use(ElementUI);
@@ -20,6 +24,14 @@ describe('Actors.vue', () => {
       destroyAll: jest.fn(),
     };
 
+    configsState = {
+      currentTitle: '',
+    };
+
+    configsMutations = {
+      setCurrentTitle: jest.fn(),
+    };
+
     localVue.use(Vuex);
 
     store = new Vuex.Store({
@@ -27,6 +39,11 @@ describe('Actors.vue', () => {
         actors: {
           namespaced: true,
           actions,
+        },
+        configs: {
+          namespaced: true,
+          state: configsState,
+          mutations: configsMutations,
         },
       },
     });

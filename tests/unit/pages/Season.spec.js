@@ -11,6 +11,10 @@ describe('Season.vue', () => {
   let localVue;
   let store;
   let actions;
+
+  let configsState;
+  let configsMutations;
+
   beforeAll(() => {
     localVue = createLocalVue();
     localVue.use(ElementUI);
@@ -27,6 +31,11 @@ describe('Season.vue', () => {
         chapters: {
           namespaced: true,
           actions,
+        },
+        configs: {
+          namespaced: true,
+          state: configsState,
+          mutations: configsMutations,
         },
       },
     });

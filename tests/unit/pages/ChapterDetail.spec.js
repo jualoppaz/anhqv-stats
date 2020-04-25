@@ -12,6 +12,10 @@ describe('ChapterDetail.vue', () => {
   let store;
   let actions;
   let state;
+
+  let configsState;
+  let configsMutations;
+
   beforeAll(() => {
     localVue = createLocalVue();
     localVue.use(ElementUI);
@@ -27,6 +31,14 @@ describe('ChapterDetail.vue', () => {
       destroyCurrent: jest.fn(),
     };
 
+    configsState = {
+      currentTitle: '',
+    };
+
+    configsMutations = {
+      setCurrentTitle: jest.fn(),
+    };
+
     localVue.use(Vuex);
 
     store = new Vuex.Store({
@@ -35,6 +47,11 @@ describe('ChapterDetail.vue', () => {
           namespaced: true,
           state,
           actions,
+        },
+        configs: {
+          namespaced: true,
+          state: configsState,
+          mutations: configsMutations,
         },
       },
     });

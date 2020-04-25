@@ -13,6 +13,7 @@ describe('Header.vue', () => {
         $t: () => {},
       },
     });
-    expect(wrapper.vm.title).toBe('DUMMY');
+
+    expect(wrapper.text()).toBe('ANHQV STATS');
   });
 });
