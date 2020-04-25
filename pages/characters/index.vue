@@ -1,24 +1,29 @@
 <template>
   <div id="characters">
-    <p>
-      Aquí puedes ver el detalle de todos y cada uno de los personajes que aparecen en la serie.
-    </p>
-    <el-row
-      id="characters-list"
-      :gutter="gutter"
-    >
-      <el-col
-        v-for="character in characters"
-        :key="character.id"
-        class="character-col"
-        :xs="24"
-        :sm="12"
-        :md="8"
-        :lg="6"
+    <div class="banner">
+      <h1>{{ title }}</h1>
+    </div>
+    <div class="wrapper">
+      <p>
+        Aquí puedes ver el detalle de todos y cada uno de los personajes que aparecen en la serie.
+      </p>
+      <el-row
+        id="characters-list"
+        :gutter="gutter"
       >
-        <CharacterCard :character="character" />
-      </el-col>
-    </el-row>
+        <el-col
+          v-for="character in characters"
+          :key="character.id"
+          class="character-col"
+          :xs="24"
+          :sm="12"
+          :md="8"
+          :lg="6"
+        >
+          <CharacterCard :character="character" />
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
@@ -62,6 +67,9 @@ export default {
     ...mapState('characters', {
       characters: 'all',
     }),
+    ...mapState('configs', {
+      title: 'currentTitle',
+    }),
   },
   created() {
     if (process.browser) {
@@ -69,6 +77,8 @@ export default {
       window.addEventListener('resize', this.handleResize);
       this.handleResize();
     }
+
+    this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.CHARACTERS.TITLE'));
   },
   beforeDestroy() {
     if (this.loadingInstance) this.loadingInstance.close();

@@ -1,24 +1,29 @@
 <template>
   <div id="actors">
-    <p>
-      Aquí puedes ver el detalle de todos y cada uno de los actores que aparecen en la serie.
-    </p>
-    <el-row
-      id="actors-list"
-      :gutter="gutter"
-    >
-      <el-col
-        v-for="actor in actors"
-        :key="actor.id"
-        class="actor-col"
-        :xs="24"
-        :sm="12"
-        :md="8"
-        :lg="6"
+    <div class="banner">
+      <h1>{{ title }}</h1>
+    </div>
+    <div class="wrapper">
+      <p>
+        Aquí puedes ver el detalle de todos y cada uno de los actores que aparecen en la serie.
+      </p>
+      <el-row
+        id="actors-list"
+        :gutter="gutter"
       >
-        <ActorCard :actor="actor" />
-      </el-col>
-    </el-row>
+        <el-col
+          v-for="actor in actors"
+          :key="actor.id"
+          class="actor-col"
+          :xs="24"
+          :sm="12"
+          :md="8"
+          :lg="6"
+        >
+          <ActorCard :actor="actor" />
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
@@ -48,6 +53,8 @@ export default {
       });
     }
 
+    this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.ACTORS.TITLE'));
+
     return this.$store.dispatch('actors/getAll')
       .finally(() => {
         if (this.loadingInstance) this.loadingInstance.close();
@@ -61,6 +68,9 @@ export default {
   computed: {
     ...mapState('actors', {
       actors: 'all',
+    }),
+    ...mapState('configs', {
+      title: 'currentTitle',
     }),
   },
   created() {

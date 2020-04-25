@@ -23,11 +23,6 @@ describe('Menu.vue', () => {
           $i18n: {
             locale: 'es',
           },
-          $route: {
-            meta: {
-              title: () => 'dummy',
-            },
-          },
         },
         stubs: ['nuxt-link', 'router-view', 'el-submenu', 'el-menu', 'el-menu-item', 'el-aside'],
       });
@@ -50,11 +45,6 @@ describe('Menu.vue', () => {
           $i18n: {
             locale: 'es',
           },
-          $route: {
-            meta: {
-              title: () => 'dummy',
-            },
-          },
         },
         stubs: ['nuxt-link', 'router-view', 'el-submenu', 'el-menu', 'el-menu-item', 'el-aside'],
         methods,
@@ -75,11 +65,6 @@ describe('Menu.vue', () => {
           $i18n: {
             locale: 'es',
           },
-          $route: {
-            meta: {
-              title: () => 'dummy',
-            },
-          },
         },
         stubs: ['nuxt-link', 'router-view', 'el-submenu', 'el-menu', 'el-menu-item', 'el-aside'],
       });
@@ -98,11 +83,6 @@ describe('Menu.vue', () => {
           $i18n: {
             locale: 'es',
           },
-          $route: {
-            meta: {
-              title: () => 'dummy',
-            },
-          },
         },
         stubs: ['nuxt-link', 'router-view', 'el-submenu', 'el-menu', 'el-menu-item', 'el-aside'],
       });
@@ -119,11 +99,6 @@ describe('Menu.vue', () => {
         $t: () => {},
         $i18n: {
           locale: 'es',
-        },
-        $route: {
-          meta: {
-            title: () => 'dummy',
-          },
         },
       },
       stubs: ['nuxt-link', 'router-view', 'el-submenu', 'el-menu', 'el-menu-item', 'el-aside'],

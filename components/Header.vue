@@ -1,19 +1,13 @@
 <template>
   <div id="header">
-    <h1>{{ title }}</h1>
+    <h1>ANHQV STATS</h1>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'Header',
-  computed: {
-    title() {
-      return this.$route.meta.title && this.$route.meta.title({
-        route: this.$route,
-      }).toUpperCase();
-    },
-  },
 };
 </script>
 

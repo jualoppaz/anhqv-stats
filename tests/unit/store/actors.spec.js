@@ -63,6 +63,16 @@ describe('store/actors.js', () => {
         expect(commit).toHaveBeenCalledWith('setCurrent', {});
       });
     });
+
+    describe('destroyAll', () => {
+      it('it should call setAll mutation', () => {
+        const commit = jest.fn();
+
+        actions.destroyAll({ commit });
+
+        expect(commit).toHaveBeenCalledWith('setAll', []);
+      });
+    });
   });
 
   describe('mutations', () => {

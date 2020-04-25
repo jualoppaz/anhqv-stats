@@ -1,75 +1,80 @@
 <template>
   <div id="actor-detail">
-    <div
-      id="actor-info"
-    >
-      <el-card>
-        <div slot="header" class="clearfix">
-          <div id="title">
-            {{ actorInfoTitle }}
+    <div class="banner">
+      <h1>{{ title }}</h1>
+    </div>
+    <div class="wrapper">
+      <div
+        id="actor-info"
+      >
+        <el-card>
+          <div slot="header" class="clearfix">
+            <div id="title">
+              {{ actorInfoTitle }}
+            </div>
           </div>
-        </div>
-        <el-row>
-          <el-col id="avatar" :xs="24" :sm="24" :md="6">
-            <el-avatar :src="actor.image_url" :size="avatarSize" />
-          </el-col>
-          <el-col :xs="24" :sm="24" :md="{ span: 14, offset: 2 }">
-            <el-row class="actor-info-row">
-              <el-col :xs="24" :sm="12" :md="8">
-                <p>{{ nameLabel }}</p>
-                <p v-if="actor.name" class="bold">
-                  {{ actor.name }}
-                </p>
-                <p v-else>
-                  <i class="el-icon-minus" />
-                </p>
-              </el-col>
-              <el-col :xs="24" :sm="12" :md="8">
-                <p>{{ surnameLabel }}</p>
-                <p v-if="actor.surname" class="bold">
-                  {{ actor.surname }}
-                </p>
-                <p v-else>
-                  <i class="el-icon-minus" />
-                </p>
-              </el-col>
-              <el-col :xs="24" :sm="12" :md="8">
-                <p>{{ secondSurnameLabel }}</p>
-                <p v-if="actor.second_surname" class="bold">
-                  {{ actor.second_surname }}
-                </p>
-                <p v-else>
-                  <i class="el-icon-minus" />
-                </p>
-              </el-col>
-              <el-col :xs="24" :sm="12" :md="8">
-                <p>{{ shortnameLabel }}</p>
-                <p v-if="actor.shortname" class="bold">
-                  {{ actor.shortname }}
-                </p>
-                <p v-else>
-                  <i class="el-icon-minus" />
-                </p>
-              </el-col>
-              <el-col :xs="24" :sm="12" :md="8">
-                <p>{{ birthdateLabel }}</p>
-                <p v-if="actor.parsed_birthdate" class="bold">
-                  {{ actor.parsed_birthdate }}
-                </p>
-                <p v-else>
-                  <i class="el-icon-minus" />
-                </p>
-              </el-col>
-              <el-col v-if="actor.parsed_deathdate" :xs="24" :sm="12" :md="8">
-                <p>{{ deathdateLabel }}</p>
-                <p class="bold">
-                  {{ actor.parsed_deathdate }}
-                </p>
-              </el-col>
-            </el-row>
-          </el-col>
-        </el-row>
-      </el-card>
+          <el-row>
+            <el-col id="avatar" :xs="24" :sm="24" :md="6">
+              <el-avatar :src="actor.image_url" :size="avatarSize" />
+            </el-col>
+            <el-col :xs="24" :sm="24" :md="{ span: 14, offset: 2 }">
+              <el-row class="actor-info-row">
+                <el-col :xs="24" :sm="12" :md="8">
+                  <p>{{ nameLabel }}</p>
+                  <p v-if="actor.name" class="bold">
+                    {{ actor.name }}
+                  </p>
+                  <p v-else>
+                    <i class="el-icon-minus" />
+                  </p>
+                </el-col>
+                <el-col :xs="24" :sm="12" :md="8">
+                  <p>{{ surnameLabel }}</p>
+                  <p v-if="actor.surname" class="bold">
+                    {{ actor.surname }}
+                  </p>
+                  <p v-else>
+                    <i class="el-icon-minus" />
+                  </p>
+                </el-col>
+                <el-col :xs="24" :sm="12" :md="8">
+                  <p>{{ secondSurnameLabel }}</p>
+                  <p v-if="actor.second_surname" class="bold">
+                    {{ actor.second_surname }}
+                  </p>
+                  <p v-else>
+                    <i class="el-icon-minus" />
+                  </p>
+                </el-col>
+                <el-col :xs="24" :sm="12" :md="8">
+                  <p>{{ shortnameLabel }}</p>
+                  <p v-if="actor.shortname" class="bold">
+                    {{ actor.shortname }}
+                  </p>
+                  <p v-else>
+                    <i class="el-icon-minus" />
+                  </p>
+                </el-col>
+                <el-col :xs="24" :sm="12" :md="8">
+                  <p>{{ birthdateLabel }}</p>
+                  <p v-if="actor.parsed_birthdate" class="bold">
+                    {{ actor.parsed_birthdate }}
+                  </p>
+                  <p v-else>
+                    <i class="el-icon-minus" />
+                  </p>
+                </el-col>
+                <el-col v-if="actor.parsed_deathdate" :xs="24" :sm="12" :md="8">
+                  <p>{{ deathdateLabel }}</p>
+                  <p class="bold">
+                    {{ actor.parsed_deathdate }}
+                  </p>
+                </el-col>
+              </el-row>
+            </el-col>
+          </el-row>
+        </el-card>
+      </div>
     </div>
   </div>
 </template>
@@ -97,9 +102,14 @@ export default {
       });
     }
 
+    this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.ACTORS.DETAIL.TITLE', { actor: '' }));
+
     return this.$store.dispatch('actors/getBySlug', { slug: this.$route.params.slug })
+      .then(() => {
+        this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.ACTORS.DETAIL.TITLE', { actor: this.actor.shortname }));
+      })
       .finally(() => {
-        this.loadingInstance.close();
+        if (this.loadingInstance) this.loadingInstance.close();
       });
   },
   data() {
@@ -117,6 +127,9 @@ export default {
   computed: {
     ...mapState('actors', {
       actor: 'current',
+    }),
+    ...mapState('configs', {
+      title: 'currentTitle',
     }),
   },
   created() {
