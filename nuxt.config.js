@@ -87,7 +87,10 @@ export default {
   ],
 
   styleResources: {
-    scss: ['./assets/styles/*.scss'],
+    scss: [
+      './assets/styles/_variables.scss',
+      './assets/styles/_global.scss',
+    ],
   },
   /*
   ** Axios module configuration
