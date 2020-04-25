@@ -1,126 +1,131 @@
 <template>
   <div id="chapter-detail">
-    <div
-      id="chapter-info"
-    >
-      <el-card>
-        <div slot="header" class="clearfix">
-          <div id="title">
-            {{ chapterInfoTitle }}
-          </div>
-        </div>
-        <el-row>
-          <el-col
-            id="avatar"
-            :xs="24"
-            :sm="24"
-            :md="12"
-            :lg="6"
-          >
-            <el-avatar :src="chapter.image_url" :size="avatarSize" shape="square" />
-          </el-col>
-          <el-col
-            :xs="24"
-            :sm="24"
-            :md="12"
-            :lg="{ span: 14, offset: 2 }"
-          >
-            <el-row class="chapter-info-row">
-              <el-col :xs="24" :sm="12" :md="8">
-                <p>{{ nameLabel }}</p>
-                <p v-if="chapter.name" class="bold">
-                  {{ chapter.name }}
-                </p>
-                <p v-else>
-                  <i class="el-icon-minus" />
-                </p>
-              </el-col>
-              <el-col :xs="24" :sm="12" :md="8">
-                <p>{{ seasonLabel }}</p>
-                <p v-if="chapter.season" class="bold">
-                  {{ chapter.season }}
-                </p>
-                <p v-else>
-                  <i class="el-icon-minus" />
-                </p>
-              </el-col>
-              <el-col :xs="24" :sm="12" :md="8">
-                <p>{{ durationLabel }}</p>
-                <p v-if="chapter.parsed_duration" class="bold">
-                  {{ chapter.parsed_duration }}
-                </p>
-                <p v-else>
-                  <i class="el-icon-minus" />
-                </p>
-              </el-col>
-              <el-col :xs="24" :sm="12" :md="8">
-                <p>{{ releaseDateLabel }}</p>
-                <p
-                  v-if="chapter.parsed_release_date"
-                  class="bold"
-                >
-                  {{ chapter.parsed_release_date }}
-                </p>
-                <p v-else>
-                  <i class="el-icon-minus" />
-                </p>
-              </el-col>
-            </el-row>
-          </el-col>
-        </el-row>
-        <el-row v-if="chapter.summary">
-          <el-col>
-            <p>{{ summaryLabel }}</p>
-            <div v-if="chapter.summary" id="summary" v-html="chapter.summary" />
-            <p v-else>
-              <i class="el-icon-minus" />
-            </p>
-          </el-col>
-        </el-row>
-      </el-card>
+    <div class="banner">
+      <h1>{{ title }}</h1>
     </div>
-    <div
-      id="chapter-video"
-    >
-      <el-card>
-        <div slot="header" class="clearfix">
-          <div id="title">
-            {{ videoTitle }}
-          </div>
-        </div>
-        <p v-if="loading()">
-          {{ loadingText }}
-        </p>
-        <el-row v-else-if="chapter.video_url">
-          <el-col
-            id="avatar"
-            :xs="24"
-            :sm="24"
-            :md="{
-              span: 12,
-              offset: 6
-            }"
-            :lg="{
-              span: 12,
-              offset: 6
-            }"
-          >
-            <div
-              class="embed-container"
-            >
-              <iframe
-                :src="chapter.video_url"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              />
+    <div class="wrapper">
+      <div
+        id="chapter-info"
+      >
+        <el-card>
+          <div slot="header" class="clearfix">
+            <div id="title">
+              {{ chapterInfoTitle }}
             </div>
-          </el-col>
-        </el-row>
-        <p v-else>
-          {{ unavailableText }}
-        </p>
-      </el-card>
+          </div>
+          <el-row>
+            <el-col
+              id="avatar"
+              :xs="24"
+              :sm="24"
+              :md="12"
+              :lg="6"
+            >
+              <el-avatar :src="chapter.image_url" :size="avatarSize" shape="square" />
+            </el-col>
+            <el-col
+              :xs="24"
+              :sm="24"
+              :md="12"
+              :lg="{ span: 14, offset: 2 }"
+            >
+              <el-row class="chapter-info-row">
+                <el-col :xs="24" :sm="12" :md="8">
+                  <p>{{ nameLabel }}</p>
+                  <p v-if="chapter.name" class="bold">
+                    {{ chapter.name }}
+                  </p>
+                  <p v-else>
+                    <i class="el-icon-minus" />
+                  </p>
+                </el-col>
+                <el-col :xs="24" :sm="12" :md="8">
+                  <p>{{ seasonLabel }}</p>
+                  <p v-if="chapter.season" class="bold">
+                    {{ chapter.season }}
+                  </p>
+                  <p v-else>
+                    <i class="el-icon-minus" />
+                  </p>
+                </el-col>
+                <el-col :xs="24" :sm="12" :md="8">
+                  <p>{{ durationLabel }}</p>
+                  <p v-if="chapter.parsed_duration" class="bold">
+                    {{ chapter.parsed_duration }}
+                  </p>
+                  <p v-else>
+                    <i class="el-icon-minus" />
+                  </p>
+                </el-col>
+                <el-col :xs="24" :sm="12" :md="8">
+                  <p>{{ releaseDateLabel }}</p>
+                  <p
+                    v-if="chapter.parsed_release_date"
+                    class="bold"
+                  >
+                    {{ chapter.parsed_release_date }}
+                  </p>
+                  <p v-else>
+                    <i class="el-icon-minus" />
+                  </p>
+                </el-col>
+              </el-row>
+            </el-col>
+          </el-row>
+          <el-row v-if="chapter.summary">
+            <el-col>
+              <p>{{ summaryLabel }}</p>
+              <div v-if="chapter.summary" id="summary" v-html="chapter.summary" />
+              <p v-else>
+                <i class="el-icon-minus" />
+              </p>
+            </el-col>
+          </el-row>
+        </el-card>
+      </div>
+      <div
+        id="chapter-video"
+      >
+        <el-card>
+          <div slot="header" class="clearfix">
+            <div id="title">
+              {{ videoTitle }}
+            </div>
+          </div>
+          <p v-if="loading()">
+            {{ loadingText }}
+          </p>
+          <el-row v-else-if="chapter.video_url">
+            <el-col
+              id="avatar"
+              :xs="24"
+              :sm="24"
+              :md="{
+                span: 12,
+                offset: 6
+              }"
+              :lg="{
+                span: 12,
+                offset: 6
+              }"
+            >
+              <div
+                class="embed-container"
+              >
+                <iframe
+                  :src="chapter.video_url"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                />
+              </div>
+            </el-col>
+          </el-row>
+          <p v-else>
+            {{ unavailableText }}
+          </p>
+        </el-card>
+      </div>
     </div>
   </div>
 </template>
@@ -148,7 +153,15 @@ export default {
       });
     }
 
+    this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.TITLE', { slug: '' }));
+
     return this.$store.dispatch('chapters/getBySlug', { slug: this.$route.params.slug })
+      .then(() => {
+        this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.TITLE', {
+          slug: this.chapter.natural_id,
+          name: this.chapter.name,
+        }));
+      })
       .finally(() => {
         if (this.loadingInstance) this.loadingInstance.close();
       });
@@ -170,6 +183,9 @@ export default {
   computed: {
     ...mapState('chapters', {
       chapter: 'current',
+    }),
+    ...mapState('configs', {
+      title: 'currentTitle',
     }),
   },
   created() {
