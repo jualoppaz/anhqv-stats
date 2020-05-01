@@ -107,8 +107,6 @@ export default {
 
     const { seoConfig } = this;
 
-    console.log('SeoConfig', seoConfig);
-
     if (seoConfig.title) obj.title = seoConfig.title;
 
     return obj;
