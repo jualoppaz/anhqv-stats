@@ -142,7 +142,11 @@ export default {
   name: 'Home',
   components: {},
   async fetch() {
-    return this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.HOME.TITLE'));
+    this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.HOME.TITLE'));
+
+    return this.$store.dispatch('seo-configs/getSeoConfigBySlug', {
+      slug: 'home',
+    });
   },
   data() {
     return {
@@ -163,8 +167,20 @@ export default {
     ...mapState('configs', {
       title: 'currentTitle',
     }),
+    ...mapState('seo-configs', {
+      seoConfig: 'currentSeoConfig',
+    }),
   },
   created() {},
+  head() {
+    const obj = {};
+
+    const { seoConfig } = this;
+
+    if (seoConfig.title) obj.title = seoConfig.title;
+
+    return obj;
+  },
 };
 </script>
 
