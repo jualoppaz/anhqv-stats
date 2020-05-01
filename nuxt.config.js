@@ -14,6 +14,9 @@ export default {
   ** Headers of the page
   */
   head: {
+    htmlAttrs: {
+      lang: 'es',
+    },
     title: 'ANHQV STATS',
     meta: [
       { charset: 'utf-8' },
