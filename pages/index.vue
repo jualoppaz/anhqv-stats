@@ -330,22 +330,6 @@ export default {
         }
       }
     }
-
-    .fa-link{
-      color: $color-text-gray;
-    }
-
-    .fa-youtube{
-      color: $color-brand-youtube;
-    }
-
-    .fa-twitter{
-      color: $color-brand-twitter;
-    }
-
-    .fa-instagram{
-      color: $color-brand-instagram;
-    }
   }
 }
 </style>
