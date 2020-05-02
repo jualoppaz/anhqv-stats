@@ -104,7 +104,14 @@ export default {
 
     this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.ACTORS.DETAIL.TITLE', { actor: '' }));
 
-    return this.$store.dispatch('actors/getBySlug', { slug: this.$route.params.slug })
+    return Promise.all([
+      this.$store.dispatch('seo-configs/getSeoConfigBySlug', {
+        slug: `actor-${this.$route.params.slug}`,
+      }),
+      this.$store.dispatch('actors/getBySlug', {
+        slug: this.$route.params.slug,
+      }),
+    ])
       .then(() => {
         this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.ACTORS.DETAIL.TITLE', { actor: this.actor.shortname }));
       })
@@ -131,6 +138,9 @@ export default {
     ...mapState('configs', {
       title: 'currentTitle',
     }),
+    ...mapState('seo-configs', {
+      seoConfig: 'currentSeoConfig',
+    }),
   },
   created() {
     if (process.browser) {
@@ -152,6 +162,15 @@ export default {
         this.avatarSize = 250;
       }
     },
+  },
+  head() {
+    const obj = {};
+
+    const { seoConfig } = this;
+
+    if (seoConfig.title) obj.title = seoConfig.title;
+
+    return obj;
   },
 };
 </script>

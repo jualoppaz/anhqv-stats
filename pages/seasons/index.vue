@@ -51,7 +51,14 @@ export default {
 
     this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.SEASONS.DETAIL.TITLE', { number: this.$route.params.season_number }));
 
-    return this.$store.dispatch('chapters/getAll', { season: this.$route.params.season_number })
+    return Promise.all([
+      this.$store.dispatch('seo-configs/getSeoConfigBySlug', {
+        slug: `season-${this.$route.params.season_number}-chapters`,
+      }),
+      this.$store.dispatch('chapters/getAll', {
+        season: this.$route.params.season_number,
+      }),
+    ])
       .finally(() => {
         if (this.loadingInstance) this.loadingInstance.close();
       });
@@ -68,6 +75,9 @@ export default {
     }),
     ...mapState('configs', {
       title: 'currentTitle',
+    }),
+    ...mapState('seo-configs', {
+      seoConfig: 'currentSeoConfig',
     }),
   },
   created() {
@@ -90,6 +100,15 @@ export default {
         this.gutter = utils.VIEWS.CHARACTERS.GUTTER.DEFAULT;
       }
     },
+  },
+  head() {
+    const obj = {};
+
+    const { seoConfig } = this;
+
+    if (seoConfig.title) obj.title = seoConfig.title;
+
+    return obj;
   },
 };
 </script>

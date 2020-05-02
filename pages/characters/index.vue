@@ -53,7 +53,12 @@ export default {
       });
     }
 
-    return this.$store.dispatch('characters/getAll')
+    return Promise.all([
+      this.$store.dispatch('seo-configs/getSeoConfigBySlug', {
+        slug: 'characters',
+      }),
+      this.$store.dispatch('characters/getAll'),
+    ])
       .finally(() => {
         if (this.loadingInstance) this.loadingInstance.close();
       });
@@ -69,6 +74,9 @@ export default {
     }),
     ...mapState('configs', {
       title: 'currentTitle',
+    }),
+    ...mapState('seo-configs', {
+      seoConfig: 'currentSeoConfig',
     }),
   },
   created() {
@@ -93,6 +101,15 @@ export default {
         this.gutter = utils.VIEWS.CHARACTERS.GUTTER.DEFAULT;
       }
     },
+  },
+  head() {
+    const obj = {};
+
+    const { seoConfig } = this;
+
+    if (seoConfig.title) obj.title = seoConfig.title;
+
+    return obj;
   },
 };
 </script>

@@ -55,7 +55,12 @@ export default {
 
     this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.ACTORS.TITLE'));
 
-    return this.$store.dispatch('actors/getAll')
+    return Promise.all([
+      this.$store.dispatch('seo-configs/getSeoConfigBySlug', {
+        slug: 'actors',
+      }),
+      this.$store.dispatch('actors/getAll'),
+    ])
       .finally(() => {
         if (this.loadingInstance) this.loadingInstance.close();
       });
@@ -71,6 +76,9 @@ export default {
     }),
     ...mapState('configs', {
       title: 'currentTitle',
+    }),
+    ...mapState('seo-configs', {
+      seoConfig: 'currentSeoConfig',
     }),
   },
   created() {
@@ -93,6 +101,15 @@ export default {
         this.gutter = utils.VIEWS.ACTORS.GUTTER.DEFAULT;
       }
     },
+  },
+  head() {
+    const obj = {};
+
+    const { seoConfig } = this;
+
+    if (seoConfig.title) obj.title = seoConfig.title;
+
+    return obj;
   },
 };
 </script>

@@ -111,4 +111,7 @@ export default {
     */
     extend(config) { },
   },
+  router: {
+    middleware: ['scroll-top'],
+  },
 };
