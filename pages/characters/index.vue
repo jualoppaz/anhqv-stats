@@ -1,24 +1,57 @@
 <template>
   <div id="characters">
-    <p>
-      Aquí puedes ver el detalle de todos y cada uno de los personajes que aparecen en la serie.
-    </p>
-    <el-row
-      id="characters-list"
-      :gutter="gutter"
-    >
-      <el-col
-        v-for="character in characters"
-        :key="character.id"
-        class="character-col"
-        :xs="24"
-        :sm="12"
-        :md="8"
-        :lg="6"
+    <div class="banner">
+      <h1>{{ title }}</h1>
+    </div>
+    <div class="wrapper">
+      <p>
+        Aquí puedes ver el detalle de todos y cada uno de los personajes que aparecen en la serie.
+      </p>
+      <el-row
+        id="characters-list"
+        :gutter="gutter"
       >
-        <CharacterCard :character="character" />
-      </el-col>
-    </el-row>
+        <el-col
+          v-for="character in characters"
+          :key="character.id"
+          class="character-col"
+          :xs="24"
+          :sm="12"
+          :md="8"
+          :lg="6"
+        >
+          <CharacterCard :character="character" />
+        </el-col>
+      </el-row>
+      <el-row
+        class="social-networks"
+      >
+        <h2>{{ shareText }}</h2>
+        <social-sharing
+          :url="seoConfig.canonical_url"
+          :title="seoConfig.title"
+          :description="seoConfig.description"
+          inline-template
+        >
+          <div class="networks-inline-list">
+            <network network="twitter">
+              <font-awesome-icon
+                class="twitter-icon"
+                :icon="['fab', 'twitter']"
+                size="2x"
+              />
+            </network>
+            <network network="facebook">
+              <font-awesome-icon
+                class="facebook-icon"
+                :icon="['fab', 'facebook']"
+                size="2x"
+              />
+            </network>
+          </div>
+        </social-sharing>
+      </el-row>
+    </div>
   </div>
 </template>
 
@@ -48,7 +81,14 @@ export default {
       });
     }
 
-    return this.$store.dispatch('characters/getAll')
+    this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.CHARACTERS.TITLE'));
+
+    return Promise.all([
+      this.$store.dispatch('seo-configs/getSeoConfigBySlug', {
+        slug: 'characters',
+      }),
+      this.$store.dispatch('characters/getAll'),
+    ])
       .finally(() => {
         if (this.loadingInstance) this.loadingInstance.close();
       });
@@ -56,19 +96,24 @@ export default {
   data() {
     return {
       gutter: utils.VIEWS.CHARACTERS.GUTTER.DEFAULT,
+      shareText: this.$t('COMMON.SOCIAL_SHARING.SHARE'),
     };
   },
   computed: {
     ...mapState('characters', {
       characters: 'all',
     }),
+    ...mapState('configs', {
+      title: 'currentTitle',
+    }),
+    ...mapState('seo-configs', {
+      seoConfig: 'currentSeoConfig',
+    }),
   },
-  created() {
-    if (process.browser) {
-      // eslint-disable-next-line nuxt/no-globals-in-created
-      window.addEventListener('resize', this.handleResize);
-      this.handleResize();
-    }
+  mounted() {
+    // eslint-disable-next-line nuxt/no-globals-in-created
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
   },
   beforeDestroy() {
     if (this.loadingInstance) this.loadingInstance.close();
@@ -83,6 +128,85 @@ export default {
         this.gutter = utils.VIEWS.CHARACTERS.GUTTER.DEFAULT;
       }
     },
+  },
+  head() {
+    const obj = {
+      meta: [],
+      link: [],
+    };
+
+    const { seoConfig } = this;
+
+    if (seoConfig.title) obj.title = seoConfig.title;
+    // Standard metas
+    if (seoConfig.description) {
+      obj.meta.push({
+        hid: 'description',
+        name: 'description',
+        content: seoConfig.description,
+      });
+    }
+    if (seoConfig.canonical_url) {
+      obj.link.push({
+        rel: 'canonical',
+        href: seoConfig.canonical_url,
+      });
+    }
+
+    // Open Graph metas
+    if (seoConfig.og_title) {
+      obj.meta.push({
+        hid: 'og:title',
+        property: 'og:title',
+        content: seoConfig.og_title,
+      });
+    }
+    if (seoConfig.og_type) {
+      obj.meta.push({
+        hid: 'og:type',
+        property: 'og:type',
+        content: seoConfig.og_type,
+      });
+    }
+    if (seoConfig.og_image) {
+      obj.meta.push({
+        hid: 'og:image',
+        property: 'og:image',
+        content: seoConfig.og_image,
+      });
+    }
+    if (seoConfig.og_url) {
+      obj.meta.push({
+        hid: 'og:url',
+        property: 'og:url',
+        content: seoConfig.og_url,
+      });
+    }
+    if (seoConfig.og_description) {
+      obj.meta.push({
+        hid: 'og:description',
+        property: 'og:description',
+        content: seoConfig.og_description,
+      });
+    }
+
+    // Twitter metas
+    if (seoConfig.twitter_site) {
+      obj.meta.push({
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: seoConfig.twitter_site,
+      });
+    }
+    if (seoConfig.twitter_card) {
+      obj.meta.push({
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: seoConfig.twitter_card,
+      });
+    }
+
+    return obj;
   },
 };
 </script>

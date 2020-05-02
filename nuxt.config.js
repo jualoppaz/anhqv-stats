@@ -14,11 +14,14 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    htmlAttrs: {
+      lang: 'es',
+    },
+    title: 'ANHQV STATS',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
+      { hid: 'description', name: 'description', content: 'Información y estadísticas Aquí No Hay Quien Viva: personajes, actores, capítulos... y mucho más. ✅ Disponible API REST documentada.' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -40,6 +43,7 @@ export default {
   plugins: [
     '@/plugins/element-ui',
     '@/plugins/nuxt-anhqv-client.js',
+    '@/plugins/nuxt-social-sharing.js',
   ],
   /*
   ** Nuxt.js dev-modules
@@ -87,7 +91,10 @@ export default {
   ],
 
   styleResources: {
-    scss: ['./assets/styles/*.scss'],
+    scss: [
+      './assets/styles/_variables.scss',
+      './assets/styles/_global.scss',
+    ],
   },
   /*
   ** Axios module configuration
@@ -104,5 +111,8 @@ export default {
     ** You can extend webpack config here
     */
     extend(config) { },
+  },
+  router: {
+    middleware: ['scroll-top'],
   },
 };

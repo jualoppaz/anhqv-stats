@@ -15,13 +15,21 @@
         <span class="chapter-name"><b>{{ chapter.natural_id }} - {{ chapter.name }}</b></span>
       </el-row>
       <el-row>
-        <el-button
-          type="primary"
-          plain
-          @click="goToDetail()"
+        <nuxt-link
+          :to="{
+            name: `seasons-season_number-chapters-slug___${$i18n.locale}`,
+            params: {
+              slug: chapter.slug,
+            },
+          }"
         >
-          {{ detailButtonText }}
-        </el-button>
+          <el-button
+            type="primary"
+            plain
+          >
+            {{ detailButtonText }}
+          </el-button>
+        </nuxt-link>
       </el-row>
     </div>
   </el-card>
@@ -41,17 +49,7 @@ export default {
       detailButtonText: this.$t('VIEWS.SEASONS.SEE_DETAIL.TEXT'),
     };
   },
-  methods: {
-    goToDetail() {
-      this.$router.push({
-        name: `seasons-season_number-chapters-slug___${this.$i18n.locale}`,
-        params: {
-          season_number: this.chapter.season,
-          slug: this.chapter.slug,
-        },
-      });
-    },
-  },
+  methods: {},
 };
 </script>
 

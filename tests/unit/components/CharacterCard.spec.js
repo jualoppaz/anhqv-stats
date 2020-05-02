@@ -11,48 +11,19 @@ describe('CharacterCard.vue', () => {
       localVue,
       mocks: {
         $t: () => {},
-      },
-      propsData: {
-        character: {
-          shortname: 'John',
-          image_url: 'http://path/to/image',
-        },
-      },
-      stubs: ['el-card', 'el-row', 'el-button'],
-    });
-    expect(wrapper.props().character.shortname).toBe('John');
-    expect(wrapper.props().character.image_url).toBe('http://path/to/image');
-  });
-
-  it('it should navigate to detail page', () => {
-    const wrapper = shallowMount(CharacterCard, {
-      localVue,
-      mocks: {
-        $t: () => {},
         $i18n: {
           locale: 'es',
         },
-        $router: {
-          push: jest.fn(),
-        },
       },
       propsData: {
         character: {
           shortname: 'John',
-          slug: 'john-doe',
           image_url: 'http://path/to/image',
         },
       },
-      stubs: ['el-card', 'el-row', 'el-button'],
+      stubs: ['el-card', 'el-row', 'el-button', 'nuxt-link'],
     });
-
-    wrapper.vm.goToDetail();
-
-    expect(wrapper.vm.$router.push).toHaveBeenCalledWith({
-      name: 'characters-slug___es',
-      params: {
-        slug: 'john-doe',
-      },
-    });
+    expect(wrapper.props().character.shortname).toBe('John');
+    expect(wrapper.props().character.image_url).toBe('http://path/to/image');
   });
 });

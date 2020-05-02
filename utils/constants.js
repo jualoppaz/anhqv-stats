@@ -29,6 +29,12 @@ const constants = {
         MOBILE: 20,
       },
     },
+    SEASONS: {
+      GUTTER: {
+        DEFAULT: 50,
+        MOBILE: 20,
+      },
+    },
   },
 };
 

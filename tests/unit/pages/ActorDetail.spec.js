@@ -1,5 +1,7 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import Vuex from 'vuex';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import VueMeta from 'vue-meta';
 import ElementUI from 'element-ui';
 import ActorDetail from '../../../pages/actors/_slug/index.vue';
 
@@ -12,9 +14,17 @@ describe('ActorDetail.vue', () => {
   let store;
   let actions;
   let state;
+
+  let configsState;
+  let configsMutations;
+
+  let seoConfigState;
+  let seoConfigActions;
+
   beforeAll(() => {
     localVue = createLocalVue();
     localVue.use(ElementUI);
+    localVue.use(VueMeta, { keyName: 'head' });
 
     state = {
       current: {
@@ -27,6 +37,33 @@ describe('ActorDetail.vue', () => {
       destroyCurrent: jest.fn(),
     };
 
+    configsState = {
+      currentTitle: '',
+    };
+
+    configsMutations = {
+      setCurrentTitle: jest.fn(),
+    };
+
+    seoConfigState = {
+      currentSeoConfig: {
+        title: 'Actor title',
+        description: 'Actor description',
+        canonical_url: 'http://actor.com',
+        og_title: 'Actor og:title',
+        og_type: 'Actor og:type',
+        og_image: 'Actor og:image',
+        og_url: 'Actor og:url',
+        og_description: 'Actor og:description',
+        twitter_site: 'Actor twitter:site',
+        twitter_card: 'Actor twitter:card',
+      },
+    };
+
+    seoConfigActions = {
+      getSeoConfigBySlug: jest.fn(),
+    };
+
     localVue.use(Vuex);
 
     store = new Vuex.Store({
@@ -35,6 +72,16 @@ describe('ActorDetail.vue', () => {
           namespaced: true,
           state,
           actions,
+        },
+        configs: {
+          namespaced: true,
+          state: configsState,
+          mutations: configsMutations,
+        },
+        'seo-configs': {
+          namespaced: true,
+          state: seoConfigState,
+          actions: seoConfigActions,
         },
       },
     });
@@ -61,7 +108,7 @@ describe('ActorDetail.vue', () => {
             },
           },
         },
-        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
+        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
         methods,
       });
 
@@ -87,11 +134,67 @@ describe('ActorDetail.vue', () => {
             },
           },
         },
-        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
+        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
         methods,
       });
 
       expect(methods.handleResize).toHaveBeenCalled();
+    });
+
+    it('has correct <head> content', () => {
+      const wrapper = shallowMount(ActorDetail, {
+        localVue,
+        store,
+        mocks: {
+          $t: () => {},
+          $route: {
+            params: {
+              slug: 'john-doe',
+            },
+          },
+        },
+        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
+      });
+
+      const { title } = wrapper.vm.$metaInfo;
+      const descriptionMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'description',
+      );
+      const canonicalUrlLink = wrapper.vm.$metaInfo.link.find(
+        (item) => item.rel === 'canonical',
+      );
+      const ogTitleMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:title',
+      );
+      const ogTypeMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:type',
+      );
+      const ogImageMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:image',
+      );
+      const ogUrlMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:url',
+      );
+      const ogDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:description',
+      );
+      const twitterSiteMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:site',
+      );
+      const twitterCardMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:card',
+      );
+
+      expect(title).toEqual('Actor title');
+      expect(descriptionMeta.content).toEqual('Actor description');
+      expect(canonicalUrlLink.href).toEqual('http://actor.com');
+      expect(ogTitleMeta.content).toEqual('Actor og:title');
+      expect(ogTypeMeta.content).toEqual('Actor og:type');
+      expect(ogImageMeta.content).toEqual('Actor og:image');
+      expect(ogUrlMeta.content).toEqual('Actor og:url');
+      expect(ogDescriptionMeta.content).toEqual('Actor og:description');
+      expect(twitterSiteMeta.content).toEqual('Actor twitter:site');
+      expect(twitterCardMeta.content).toEqual('Actor twitter:card');
     });
   });
 
@@ -110,7 +213,7 @@ describe('ActorDetail.vue', () => {
             },
           },
         },
-        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
+        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
       });
 
       wrapper.vm.handleResize();
@@ -131,7 +234,7 @@ describe('ActorDetail.vue', () => {
             },
           },
         },
-        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
+        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
       });
 
       wrapper.vm.handleResize();
@@ -151,7 +254,7 @@ describe('ActorDetail.vue', () => {
           },
         },
       },
-      stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
+      stubs: ['el-card', 'el-row', 'el-col', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
     });
 
     window.removeEventListener = jest.fn();

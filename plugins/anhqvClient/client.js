@@ -11,6 +11,7 @@ function AnhqvClient({
 const CHARACTERS = 'characters';
 const CHAPTERS = 'chapters';
 const ACTORS = 'actors';
+const SEO_CONFIGS = 'seo-configs';
 
 AnhqvClient.prototype.setBaseURL = function setBaseURL(baseURL) {
   this.restClient.defaults.baseURL = baseURL;
@@ -74,6 +75,17 @@ AnhqvClient.prototype.getChapters = function getChapters(params) {
  */
 AnhqvClient.prototype.getChapterBySlug = function getChapterBySlug(slug) {
   return this.restClient.get(`/${CHAPTERS}/${slug}`)
+    .then((response) => response.data);
+};
+
+/**
+ * Método que sirve para obtener el conjunto de configuraciones de SEO
+ * de una página identificada por su slug.
+ *
+ * @author jualoppaz
+ */
+AnhqvClient.prototype.getSeoConfigBySlug = function getSeoConfigBySlug(slug) {
+  return this.restClient.get(`/${SEO_CONFIGS}/${slug}`)
     .then((response) => response.data);
 };
 

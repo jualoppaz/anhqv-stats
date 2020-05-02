@@ -11,13 +11,9 @@ describe('Header.vue', () => {
       localVue,
       mocks: {
         $t: () => {},
-        $route: {
-          meta: {
-            title: () => 'dummy',
-          },
-        },
       },
     });
-    expect(wrapper.vm.title).toBe('DUMMY');
+
+    expect(wrapper.text()).toBe('ANHQV STATS');
   });
 });
