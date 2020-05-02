@@ -117,6 +117,13 @@ export default {
         content: seoConfig.description,
       });
     }
+    if (seoConfig.og_title) {
+      obj.meta.push({
+        hid: 'og:title',
+        name: 'og:title',
+        content: seoConfig.og_title,
+      });
+    }
 
     return obj;
   },
