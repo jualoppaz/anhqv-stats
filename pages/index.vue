@@ -171,7 +171,6 @@ export default {
       seoConfig: 'currentSeoConfig',
     }),
   },
-  created() {},
   head() {
     const obj = {
       meta: [],

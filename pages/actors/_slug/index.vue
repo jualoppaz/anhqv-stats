@@ -142,12 +142,10 @@ export default {
       seoConfig: 'currentSeoConfig',
     }),
   },
-  created() {
-    if (process.browser) {
-      // eslint-disable-next-line nuxt/no-globals-in-created
-      window.addEventListener('resize', this.handleResize);
-      this.handleResize();
-    }
+  mounted() {
+    // eslint-disable-next-line nuxt/no-globals-in-created
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
   },
   beforeDestroy() {
     if (this.loadingInstance) this.loadingInstance.close();

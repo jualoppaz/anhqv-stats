@@ -53,6 +53,8 @@ export default {
       });
     }
 
+    this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.CHARACTERS.TITLE'));
+
     return Promise.all([
       this.$store.dispatch('seo-configs/getSeoConfigBySlug', {
         slug: 'characters',
@@ -79,14 +81,10 @@ export default {
       seoConfig: 'currentSeoConfig',
     }),
   },
-  created() {
-    if (process.browser) {
-      // eslint-disable-next-line nuxt/no-globals-in-created
-      window.addEventListener('resize', this.handleResize);
-      this.handleResize();
-    }
-
-    this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.CHARACTERS.TITLE'));
+  mounted() {
+    // eslint-disable-next-line nuxt/no-globals-in-created
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
   },
   beforeDestroy() {
     if (this.loadingInstance) this.loadingInstance.close();

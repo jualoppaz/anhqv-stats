@@ -82,12 +82,10 @@ export default {
       fifthSeasonItemText: this.$t('MENU.SEASONS.FIFTH_SEASON.TEXT'),
     };
   },
-  created() {
-    if (process.browser) {
-      // eslint-disable-next-line nuxt/no-globals-in-created
-      window.addEventListener('resize', this.handleResize);
-      this.handleResize();
-    }
+  mounted() {
+    // eslint-disable-next-line nuxt/no-globals-in-created
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize);
