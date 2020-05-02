@@ -15,13 +15,21 @@
         <span class="character-name"><b>{{ character.shortname }}</b></span>
       </el-row>
       <el-row>
-        <el-button
-          type="primary"
-          plain
-          @click="goToDetail()"
+        <nuxt-link
+          :to="{
+            name: `characters-slug___${$i18n.locale}`,
+            params: {
+              slug: character.slug,
+            },
+          }"
         >
-          {{ detailButtonText }}
-        </el-button>
+          <el-button
+            type="primary"
+            plain
+          >
+            {{ detailButtonText }}
+          </el-button>
+        </nuxt-link>
       </el-row>
     </div>
   </el-card>
@@ -41,16 +49,7 @@ export default {
       detailButtonText: this.$t('VIEWS.CHARACTERS.SEE_DETAIL.TEXT'),
     };
   },
-  methods: {
-    goToDetail() {
-      this.$router.push({
-        name: `characters-slug___${this.$i18n.locale}`,
-        params: {
-          slug: this.character.slug,
-        },
-      });
-    },
-  },
+  methods: {},
 };
 </script>
 

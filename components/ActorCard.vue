@@ -15,13 +15,21 @@
         <span class="actor-name"><b>{{ actor.shortname }}</b></span>
       </el-row>
       <el-row>
-        <el-button
-          type="primary"
-          plain
-          @click="goToDetail()"
+        <nuxt-link
+          :to="{
+            name: `actors-slug___${$i18n.locale}`,
+            params: {
+              slug: actor.slug,
+            },
+          }"
         >
-          {{ detailButtonText }}
-        </el-button>
+          <el-button
+            type="primary"
+            plain
+          >
+            {{ detailButtonText }}
+          </el-button>
+        </nuxt-link>
         <font-awesome-icon
           v-if="actor.deathdate"
           class="ribbon"
@@ -47,16 +55,7 @@ export default {
       detailButtonText: this.$t('VIEWS.ACTORS.SEE_DETAIL.TEXT'),
     };
   },
-  methods: {
-    goToDetail() {
-      this.$router.push({
-        name: `actors-slug___${this.$i18n.locale}`,
-        params: {
-          slug: this.actor.slug,
-        },
-      });
-    },
-  },
+  methods: {},
 };
 </script>
 
