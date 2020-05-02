@@ -1,5 +1,7 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import Vuex from 'vuex';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import VueMeta from 'vue-meta';
 import ElementUI from 'element-ui';
 import Actors from '../../../pages/actors/index.vue';
 
@@ -15,9 +17,13 @@ describe('Actors.vue', () => {
   let configsState;
   let configsMutations;
 
+  let seoConfigState;
+  let seoConfigActions;
+
   beforeAll(() => {
     localVue = createLocalVue();
     localVue.use(ElementUI);
+    localVue.use(VueMeta, { keyName: 'head' });
 
     actions = {
       getAll: jest.fn(),
@@ -32,6 +38,25 @@ describe('Actors.vue', () => {
       setCurrentTitle: jest.fn(),
     };
 
+    seoConfigState = {
+      currentSeoConfig: {
+        title: 'Actors title',
+        description: 'Actors description',
+        canonical_url: 'http://actors.com',
+        og_title: 'Actors og:title',
+        og_type: 'Actors og:type',
+        og_image: 'Actors og:image',
+        og_url: 'Actors og:url',
+        og_description: 'Actors og:description',
+        twitter_site: 'Actors twitter:site',
+        twitter_card: 'Actors twitter:card',
+      },
+    };
+
+    seoConfigActions = {
+      getSeoConfigBySlug: jest.fn(),
+    };
+
     localVue.use(Vuex);
 
     store = new Vuex.Store({
@@ -44,6 +69,11 @@ describe('Actors.vue', () => {
           namespaced: true,
           state: configsState,
           mutations: configsMutations,
+        },
+        'seo-configs': {
+          namespaced: true,
+          state: seoConfigState,
+          actions: seoConfigActions,
         },
       },
     });
@@ -66,7 +96,7 @@ describe('Actors.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view', 'el-row'],
+        stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
         methods,
       });
     });
@@ -85,11 +115,62 @@ describe('Actors.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view', 'el-row'],
+        stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
         methods,
       });
 
       expect(methods.handleResize).toHaveBeenCalled();
+    });
+
+    it('has correct <head> content', () => {
+      const wrapper = shallowMount(Actors, {
+        localVue,
+        store,
+        mocks: {
+          $t: () => {},
+        },
+        stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+      });
+
+      const { title } = wrapper.vm.$metaInfo;
+      const descriptionMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'description',
+      );
+      const canonicalUrlLink = wrapper.vm.$metaInfo.link.find(
+        (item) => item.rel === 'canonical',
+      );
+      const ogTitleMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:title',
+      );
+      const ogTypeMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:type',
+      );
+      const ogImageMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:image',
+      );
+      const ogUrlMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:url',
+      );
+      const ogDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:description',
+      );
+      const twitterSiteMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:site',
+      );
+      const twitterCardMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:card',
+      );
+
+      expect(title).toEqual('Actors title');
+      expect(descriptionMeta.content).toEqual('Actors description');
+      expect(canonicalUrlLink.href).toEqual('http://actors.com');
+      expect(ogTitleMeta.content).toEqual('Actors og:title');
+      expect(ogTypeMeta.content).toEqual('Actors og:type');
+      expect(ogImageMeta.content).toEqual('Actors og:image');
+      expect(ogUrlMeta.content).toEqual('Actors og:url');
+      expect(ogDescriptionMeta.content).toEqual('Actors og:description');
+      expect(twitterSiteMeta.content).toEqual('Actors twitter:site');
+      expect(twitterCardMeta.content).toEqual('Actors twitter:card');
     });
   });
 
@@ -103,7 +184,7 @@ describe('Actors.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view', 'el-row'],
+        stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
       });
 
       wrapper.vm.handleResize();
@@ -119,7 +200,7 @@ describe('Actors.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view', 'el-row'],
+        stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
       });
 
       wrapper.vm.handleResize();
@@ -134,7 +215,7 @@ describe('Actors.vue', () => {
       mocks: {
         $t: () => {},
       },
-      stubs: ['nuxt-link', 'router-view', 'el-row'],
+      stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
     });
 
     window.removeEventListener = jest.fn();

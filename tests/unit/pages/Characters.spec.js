@@ -1,5 +1,7 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import Vuex from 'vuex';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import VueMeta from 'vue-meta';
 import ElementUI from 'element-ui';
 import Characters from '../../../pages/characters/index.vue';
 
@@ -15,9 +17,13 @@ describe('Characters.vue', () => {
   let configsState;
   let configsMutations;
 
+  let seoConfigState;
+  let seoConfigActions;
+
   beforeAll(() => {
     localVue = createLocalVue();
     localVue.use(ElementUI);
+    localVue.use(VueMeta, { keyName: 'head' });
 
     actions = {
       getAll: jest.fn(),
@@ -32,6 +38,25 @@ describe('Characters.vue', () => {
       setCurrentTitle: jest.fn(),
     };
 
+    seoConfigState = {
+      currentSeoConfig: {
+        title: 'Characters title',
+        description: 'Characters description',
+        canonical_url: 'http://characters.com',
+        og_title: 'Characters og:title',
+        og_type: 'Characters og:type',
+        og_image: 'Characters og:image',
+        og_url: 'Characters og:url',
+        og_description: 'Characters og:description',
+        twitter_site: 'Characters twitter:site',
+        twitter_card: 'Characters twitter:card',
+      },
+    };
+
+    seoConfigActions = {
+      getSeoConfigBySlug: jest.fn(),
+    };
+
     localVue.use(Vuex);
 
     store = new Vuex.Store({
@@ -44,6 +69,11 @@ describe('Characters.vue', () => {
           namespaced: true,
           state: configsState,
           mutations: configsMutations,
+        },
+        'seo-configs': {
+          namespaced: true,
+          state: seoConfigState,
+          actions: seoConfigActions,
         },
       },
     });
@@ -66,7 +96,7 @@ describe('Characters.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['el-row'],
+        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
         methods,
       });
     });
@@ -85,11 +115,62 @@ describe('Characters.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['el-row'],
+        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
         methods,
       });
 
       expect(methods.handleResize).toHaveBeenCalled();
+    });
+
+    it('has correct <head> content', () => {
+      const wrapper = shallowMount(Characters, {
+        localVue,
+        store,
+        mocks: {
+          $t: () => {},
+        },
+        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+      });
+
+      const { title } = wrapper.vm.$metaInfo;
+      const descriptionMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'description',
+      );
+      const canonicalUrlLink = wrapper.vm.$metaInfo.link.find(
+        (item) => item.rel === 'canonical',
+      );
+      const ogTitleMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:title',
+      );
+      const ogTypeMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:type',
+      );
+      const ogImageMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:image',
+      );
+      const ogUrlMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:url',
+      );
+      const ogDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:description',
+      );
+      const twitterSiteMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:site',
+      );
+      const twitterCardMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:card',
+      );
+
+      expect(title).toEqual('Characters title');
+      expect(descriptionMeta.content).toEqual('Characters description');
+      expect(canonicalUrlLink.href).toEqual('http://characters.com');
+      expect(ogTitleMeta.content).toEqual('Characters og:title');
+      expect(ogTypeMeta.content).toEqual('Characters og:type');
+      expect(ogImageMeta.content).toEqual('Characters og:image');
+      expect(ogUrlMeta.content).toEqual('Characters og:url');
+      expect(ogDescriptionMeta.content).toEqual('Characters og:description');
+      expect(twitterSiteMeta.content).toEqual('Characters twitter:site');
+      expect(twitterCardMeta.content).toEqual('Characters twitter:card');
     });
   });
 
@@ -104,7 +185,7 @@ describe('Characters.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['el-row'],
+        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
       });
 
       wrapper.vm.handleResize();
@@ -120,7 +201,7 @@ describe('Characters.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['el-row'],
+        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
       });
 
       wrapper.vm.handleResize();
@@ -135,7 +216,7 @@ describe('Characters.vue', () => {
       mocks: {
         $t: () => {},
       },
-      stubs: ['el-row'],
+      stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
     });
 
     window.removeEventListener = jest.fn();
