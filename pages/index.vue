@@ -241,6 +241,13 @@ export default {
         content: seoConfig.twitter_site,
       });
     }
+    if (seoConfig.twitter_card) {
+      obj.meta.push({
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: seoConfig.twitter_card,
+      });
+    }
 
     return obj;
   },
