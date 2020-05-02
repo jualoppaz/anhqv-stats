@@ -155,7 +155,14 @@ export default {
 
     this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.TITLE', { slug: '' }));
 
-    return this.$store.dispatch('chapters/getBySlug', { slug: this.$route.params.slug })
+    return Promise.all([
+      this.$store.dispatch('seo-configs/getSeoConfigBySlug', {
+        slug: this.$route.params.slug,
+      }),
+      this.$store.dispatch('chapters/getBySlug', {
+        slug: this.$route.params.slug,
+      }),
+    ])
       .then(() => {
         this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.TITLE', {
           slug: this.chapter.natural_id,
@@ -187,6 +194,9 @@ export default {
     ...mapState('configs', {
       title: 'currentTitle',
     }),
+    ...mapState('seo-configs', {
+      seoConfig: 'currentSeoConfig',
+    }),
   },
   created() {
     if (process.browser) {
@@ -211,6 +221,15 @@ export default {
     loading() {
       return this.loadingInstance && this.loadingInstance.visible;
     },
+  },
+  head() {
+    const obj = {};
+
+    const { seoConfig } = this;
+
+    if (seoConfig.title) obj.title = seoConfig.title;
+
+    return obj;
   },
 };
 </script>
