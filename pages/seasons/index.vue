@@ -110,6 +110,7 @@ export default {
     const { seoConfig } = this;
 
     if (seoConfig.title) obj.title = seoConfig.title;
+    // Standard metas
     if (seoConfig.description) {
       obj.meta.push({
         hid: 'description',
@@ -117,6 +118,14 @@ export default {
         content: seoConfig.description,
       });
     }
+    if (seoConfig.canonical_url) {
+      obj.link.push({
+        rel: 'canonical',
+        href: seoConfig.canonical_url,
+      });
+    }
+
+    // Open Graph metas
     if (seoConfig.og_title) {
       obj.meta.push({
         hid: 'og:title',
@@ -153,10 +162,12 @@ export default {
       });
     }
 
-    if (seoConfig.canonical_url) {
-      obj.link.push({
-        rel: 'canonical',
-        href: seoConfig.canonical_url,
+    // Twitter metas
+    if (seoConfig.twitter_site) {
+      obj.meta.push({
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: seoConfig.twitter_site,
       });
     }
 
