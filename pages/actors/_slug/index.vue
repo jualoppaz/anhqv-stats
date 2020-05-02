@@ -172,6 +172,7 @@ export default {
     const { seoConfig } = this;
 
     if (seoConfig.title) obj.title = seoConfig.title;
+    // Standard metas
     if (seoConfig.description) {
       obj.meta.push({
         hid: 'description',
@@ -179,46 +180,56 @@ export default {
         content: seoConfig.description,
       });
     }
+    if (seoConfig.canonical_url) {
+      obj.link.push({
+        rel: 'canonical',
+        href: seoConfig.canonical_url,
+      });
+    }
+
+    // Open Graph metas
     if (seoConfig.og_title) {
       obj.meta.push({
         hid: 'og:title',
-        name: 'og:title',
+        property: 'og:title',
         content: seoConfig.og_title,
       });
     }
     if (seoConfig.og_type) {
       obj.meta.push({
         hid: 'og:type',
-        name: 'og:type',
+        property: 'og:type',
         content: seoConfig.og_type,
       });
     }
     if (seoConfig.og_image) {
       obj.meta.push({
         hid: 'og:image',
-        name: 'og:image',
+        property: 'og:image',
         content: seoConfig.og_image,
       });
     }
     if (seoConfig.og_url) {
       obj.meta.push({
         hid: 'og:url',
-        name: 'og:url',
+        property: 'og:url',
         content: seoConfig.og_url,
       });
     }
     if (seoConfig.og_description) {
       obj.meta.push({
         hid: 'og:description',
-        name: 'og:description',
+        property: 'og:description',
         content: seoConfig.og_description,
       });
     }
 
-    if (seoConfig.canonical_url) {
-      obj.link.push({
-        rel: 'canonical',
-        href: seoConfig.canonical_url,
+    // Twitter metas
+    if (seoConfig.twitter_site) {
+      obj.meta.push({
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: seoConfig.twitter_site,
       });
     }
 
