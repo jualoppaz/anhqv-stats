@@ -4,8 +4,6 @@ export const state = () => ({
   currentSeoConfig: {},
 });
 
-export const getters = {};
-
 export const actions = {
   getSeoConfigBySlug({ commit }, { slug }) {
     return Vue.anhqvClient.getSeoConfigBySlug(slug)
