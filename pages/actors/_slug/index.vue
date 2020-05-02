@@ -164,11 +164,20 @@ export default {
     },
   },
   head() {
-    const obj = {};
+    const obj = {
+      meta: [],
+    };
 
     const { seoConfig } = this;
 
     if (seoConfig.title) obj.title = seoConfig.title;
+    if (seoConfig.description) {
+      obj.meta.push({
+        hid: 'description',
+        name: 'description',
+        content: seoConfig.description,
+      });
+    }
 
     return obj;
   },
