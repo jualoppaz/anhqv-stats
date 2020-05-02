@@ -130,6 +130,13 @@ export default {
         content: seoConfig.og_type,
       });
     }
+    if (seoConfig.og_image) {
+      obj.meta.push({
+        hid: 'og:image',
+        name: 'og:image',
+        content: seoConfig.og_image,
+      });
+    }
 
     return obj;
   },
