@@ -104,6 +104,7 @@ export default {
   head() {
     const obj = {
       meta: [],
+      link: [],
     };
 
     const { seoConfig } = this;
@@ -149,6 +150,13 @@ export default {
         hid: 'og:description',
         name: 'og:description',
         content: seoConfig.og_description,
+      });
+    }
+
+    if (seoConfig.canonical_url) {
+      obj.link.push({
+        rel: 'canonical',
+        href: seoConfig.canonical_url,
       });
     }
 
