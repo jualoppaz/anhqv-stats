@@ -202,6 +202,13 @@ export default {
         content: seoConfig.og_image,
       });
     }
+    if (seoConfig.og_url) {
+      obj.meta.push({
+        hid: 'og:url',
+        name: 'og:url',
+        content: seoConfig.og_url,
+      });
+    }
 
     return obj;
   },
