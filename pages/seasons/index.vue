@@ -93,7 +93,7 @@ export default {
   },
   data() {
     return {
-      gutter: 50,
+      gutter: utils.VIEWS.SEASONS.GUTTER.DEFAULT,
       detailButtonText: this.$t('VIEWS.SEASONS.SEE_DETAIL.TEXT'),
       shareText: this.$t('COMMON.SOCIAL_SHARING.SHARE'),
     };
@@ -122,9 +122,9 @@ export default {
   methods: {
     handleResize() {
       if (utils.isMobile()) {
-        this.gutter = utils.VIEWS.CHARACTERS.GUTTER.MOBILE;
+        this.gutter = utils.VIEWS.SEASONS.GUTTER.MOBILE;
       } else {
-        this.gutter = utils.VIEWS.CHARACTERS.GUTTER.DEFAULT;
+        this.gutter = utils.VIEWS.SEASONS.GUTTER.DEFAULT;
       }
     },
   },
