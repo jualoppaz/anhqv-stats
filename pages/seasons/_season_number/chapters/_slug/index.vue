@@ -244,6 +244,13 @@ export default {
         content: seoConfig.og_title,
       });
     }
+    if (seoConfig.og_type) {
+      obj.meta.push({
+        hid: 'og:type',
+        name: 'og:type',
+        content: seoConfig.og_type,
+      });
+    }
 
     return obj;
   },
