@@ -43,6 +43,7 @@ export default {
   plugins: [
     '@/plugins/element-ui',
     '@/plugins/nuxt-anhqv-client.js',
+    '@/plugins/nuxt-social-sharing.js',
   ],
   /*
   ** Nuxt.js dev-modules

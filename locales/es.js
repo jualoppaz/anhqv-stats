@@ -7,6 +7,9 @@ export default
       TITLE: '🛑 AdBlock detectado',
       TEXT: 'Este sitio web tiene como única financiación los anuncios de Google AdSense. Para visitar este sitio web, por favor, desactiva AdBlock.',
     },
+    SOCIAL_SHARING: {
+      SHARE: 'Comparte y comenta en tu red social favorita',
+    },
   },
   MENU: {
     ACTORS: {
