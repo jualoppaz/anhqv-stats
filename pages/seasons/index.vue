@@ -144,6 +144,13 @@ export default {
         content: seoConfig.og_url,
       });
     }
+    if (seoConfig.og_description) {
+      obj.meta.push({
+        hid: 'og:description',
+        name: 'og:description',
+        content: seoConfig.og_description,
+      });
+    }
 
     return obj;
   },
