@@ -126,18 +126,60 @@ describe('Season.vue', () => {
     });
 
     it('has correct <head> content', () => {
+      const mockedMetas = {
+        link: [
+          {
+            href: 'http://season.com',
+            rel: 'canonical',
+          },
+        ],
+        meta: [
+          {
+            content: 'Season description',
+            hid: 'description',
+            name: 'description',
+          }, {
+            content: 'Season og:title',
+            hid: 'og:title',
+            property: 'og:title',
+          }, {
+            content: 'Season og:type',
+            hid: 'og:type',
+            property: 'og:type',
+          }, {
+            content: 'Season og:image',
+            hid: 'og:image',
+            property: 'og:image',
+          }, {
+            content: 'Season og:url',
+            hid: 'og:url',
+            property: 'og:url',
+          }, {
+            content: 'Season og:description',
+            hid: 'og:description',
+            property: 'og:description',
+          }, {
+            content: 'Season twitter:site',
+            hid: 'twitter:site',
+            name: 'twitter:site',
+          }, {
+            content: 'Season twitter:card',
+            hid: 'twitter:card',
+            name: 'twitter:card',
+          },
+        ],
+        title: 'Season title',
+      };
+
+      utils.getCommonMetas.mockReturnValue(mockedMetas);
+
       const wrapper = shallowMount(Season, {
         localVue,
         store,
+        stubs: ['nuxt-link', 'router-view', 'font-awesome-icon', 'Adsense', 'el-row', 'el-col', 'el-card', 'adsbygoogle', 'social-sharing', 'network'],
         mocks: {
           $t: () => {},
-          $route: {
-            params: {
-              season_number: () => '0',
-            },
-          },
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
       });
 
       const { title } = wrapper.vm.$metaInfo;
@@ -169,16 +211,16 @@ describe('Season.vue', () => {
         (item) => item.hid === 'twitter:card',
       );
 
-      expect(title).toEqual('Chapters title');
-      expect(descriptionMeta.content).toEqual('Chapters description');
-      expect(canonicalUrlLink.href).toEqual('http://chapters.com');
-      expect(ogTitleMeta.content).toEqual('Chapters og:title');
-      expect(ogTypeMeta.content).toEqual('Chapters og:type');
-      expect(ogImageMeta.content).toEqual('Chapters og:image');
-      expect(ogUrlMeta.content).toEqual('Chapters og:url');
-      expect(ogDescriptionMeta.content).toEqual('Chapters og:description');
-      expect(twitterSiteMeta.content).toEqual('Chapters twitter:site');
-      expect(twitterCardMeta.content).toEqual('Chapters twitter:card');
+      expect(title).toEqual('Season title');
+      expect(descriptionMeta.content).toEqual('Season description');
+      expect(canonicalUrlLink.href).toEqual('http://season.com');
+      expect(ogTitleMeta.content).toEqual('Season og:title');
+      expect(ogTypeMeta.content).toEqual('Season og:type');
+      expect(ogImageMeta.content).toEqual('Season og:image');
+      expect(ogUrlMeta.content).toEqual('Season og:url');
+      expect(ogDescriptionMeta.content).toEqual('Season og:description');
+      expect(twitterSiteMeta.content).toEqual('Season twitter:site');
+      expect(twitterCardMeta.content).toEqual('Season twitter:card');
     });
   });
 

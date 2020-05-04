@@ -5,6 +5,10 @@ import VueMeta from 'vue-meta';
 import ElementUI from 'element-ui';
 import Home from '../../../pages/index.vue';
 
+jest.mock('../../../utils');
+// eslint-disable-next-line import/first
+import utils from '../../../utils';
+
 describe('Home.vue', () => {
   let localVue;
   let store;
@@ -79,6 +83,53 @@ describe('Home.vue', () => {
   });
 
   it('has correct <head> content', () => {
+    const mockedMetas = {
+      link: [
+        {
+          href: 'http://home.com',
+          rel: 'canonical',
+        },
+      ],
+      meta: [
+        {
+          content: 'Home description',
+          hid: 'description',
+          name: 'description',
+        }, {
+          content: 'Home og:title',
+          hid: 'og:title',
+          property: 'og:title',
+        }, {
+          content: 'Home og:type',
+          hid: 'og:type',
+          property: 'og:type',
+        }, {
+          content: 'Home og:image',
+          hid: 'og:image',
+          property: 'og:image',
+        }, {
+          content: 'Home og:url',
+          hid: 'og:url',
+          property: 'og:url',
+        }, {
+          content: 'Home og:description',
+          hid: 'og:description',
+          property: 'og:description',
+        }, {
+          content: 'Home twitter:site',
+          hid: 'twitter:site',
+          name: 'twitter:site',
+        }, {
+          content: 'Home twitter:card',
+          hid: 'twitter:card',
+          name: 'twitter:card',
+        },
+      ],
+      title: 'Home title',
+    };
+
+    utils.getCommonMetas.mockReturnValue(mockedMetas);
+
     const wrapper = shallowMount(Home, {
       localVue,
       store,

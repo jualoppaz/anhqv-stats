@@ -123,13 +123,60 @@ describe('Actors.vue', () => {
     });
 
     it('has correct <head> content', () => {
+      const mockedMetas = {
+        link: [
+          {
+            href: 'http://actors.com',
+            rel: 'canonical',
+          },
+        ],
+        meta: [
+          {
+            content: 'Actors description',
+            hid: 'description',
+            name: 'description',
+          }, {
+            content: 'Actors og:title',
+            hid: 'og:title',
+            property: 'og:title',
+          }, {
+            content: 'Actors og:type',
+            hid: 'og:type',
+            property: 'og:type',
+          }, {
+            content: 'Actors og:image',
+            hid: 'og:image',
+            property: 'og:image',
+          }, {
+            content: 'Actors og:url',
+            hid: 'og:url',
+            property: 'og:url',
+          }, {
+            content: 'Actors og:description',
+            hid: 'og:description',
+            property: 'og:description',
+          }, {
+            content: 'Actors twitter:site',
+            hid: 'twitter:site',
+            name: 'twitter:site',
+          }, {
+            content: 'Actors twitter:card',
+            hid: 'twitter:card',
+            name: 'twitter:card',
+          },
+        ],
+        title: 'Actors title',
+      };
+
+      utils.getCommonMetas.mockReturnValue(mockedMetas);
+
       const wrapper = shallowMount(Actors, {
         localVue,
         store,
+        stubs: ['nuxt-link', 'router-view', 'font-awesome-icon', 'Adsense', 'el-row', 'el-col', 'el-card', 'adsbygoogle', 'social-sharing', 'network'],
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
       });
 
       const { title } = wrapper.vm.$metaInfo;

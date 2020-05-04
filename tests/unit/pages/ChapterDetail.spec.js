@@ -141,18 +141,60 @@ describe('ChapterDetail.vue', () => {
     });
 
     it('has correct <head> content', () => {
+      const mockedMetas = {
+        link: [
+          {
+            href: 'http://chapter.com',
+            rel: 'canonical',
+          },
+        ],
+        meta: [
+          {
+            content: 'Chapter description',
+            hid: 'description',
+            name: 'description',
+          }, {
+            content: 'Chapter og:title',
+            hid: 'og:title',
+            property: 'og:title',
+          }, {
+            content: 'Chapter og:type',
+            hid: 'og:type',
+            property: 'og:type',
+          }, {
+            content: 'Chapter og:image',
+            hid: 'og:image',
+            property: 'og:image',
+          }, {
+            content: 'Chapter og:url',
+            hid: 'og:url',
+            property: 'og:url',
+          }, {
+            content: 'Chapter og:description',
+            hid: 'og:description',
+            property: 'og:description',
+          }, {
+            content: 'Chapter twitter:site',
+            hid: 'twitter:site',
+            name: 'twitter:site',
+          }, {
+            content: 'Chapter twitter:card',
+            hid: 'twitter:card',
+            name: 'twitter:card',
+          },
+        ],
+        title: 'Chapter title',
+      };
+
+      utils.getCommonMetas.mockReturnValue(mockedMetas);
+
       const wrapper = shallowMount(ChapterDetail, {
         localVue,
         store,
+        stubs: ['nuxt-link', 'router-view', 'font-awesome-icon', 'Adsense', 'el-row', 'el-col', 'el-card', 'adsbygoogle', 'social-sharing', 'network'],
         mocks: {
           $t: () => {},
-          $route: {
-            params: {
-              chapter_slug: '0x01',
-            },
-          },
         },
-        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
       });
 
       const { title } = wrapper.vm.$metaInfo;
