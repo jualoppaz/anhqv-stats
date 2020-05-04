@@ -19,6 +19,7 @@ module.exports = {
     '<rootDir>/pages/**/*.vue',
     '<rootDir>/plugins/anhqvClient/client.js',
     '<rootDir>/store/**/*.js',
+    '<rootDir>/utils/**/*.js',
   ],
   verbose: true,
 };
