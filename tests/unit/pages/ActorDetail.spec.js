@@ -142,18 +142,76 @@ describe('ActorDetail.vue', () => {
     });
 
     it('has correct <head> content', () => {
+      const mockedMetas = {
+        link: [
+          {
+            href: 'http://actor.com',
+            rel: 'canonical',
+          },
+        ],
+        meta: [
+          {
+            content: 'Actor description',
+            hid: 'description',
+            name: 'description',
+          }, {
+            content: 'Actor og:title',
+            hid: 'og:title',
+            property: 'og:title',
+          }, {
+            content: 'Actor og:type',
+            hid: 'og:type',
+            property: 'og:type',
+          }, {
+            content: 'Actor og:image',
+            hid: 'og:image',
+            property: 'og:image',
+          }, {
+            content: 'Actor og:url',
+            hid: 'og:url',
+            property: 'og:url',
+          }, {
+            content: 'Actor og:description',
+            hid: 'og:description',
+            property: 'og:description',
+          }, {
+            content: 'Actor og:site_name',
+            hid: 'og:site_name',
+            property: 'og:site_name',
+          }, {
+            content: 'Actor twitter:site',
+            hid: 'twitter:site',
+            name: 'twitter:site',
+          }, {
+            content: 'Actor twitter:card',
+            hid: 'twitter:card',
+            name: 'twitter:card',
+          }, {
+            content: 'Actor twitter:image',
+            hid: 'twitter:image',
+            name: 'twitter:image',
+          }, {
+            content: 'Actor twitter:title',
+            hid: 'twitter:title',
+            name: 'twitter:title',
+          }, {
+            content: 'Actor twitter:description',
+            hid: 'twitter:description',
+            name: 'twitter:description',
+          },
+        ],
+        title: 'Actor title',
+      };
+
+      utils.getCommonMetas.mockReturnValue(mockedMetas);
+
       const wrapper = shallowMount(ActorDetail, {
         localVue,
         store,
+        stubs: ['nuxt-link', 'router-view', 'font-awesome-icon', 'Adsense', 'el-row', 'el-col', 'el-card', 'adsbygoogle', 'social-sharing', 'network'],
         mocks: {
           $t: () => {},
-          $route: {
-            params: {
-              slug: 'john-doe',
-            },
-          },
         },
-        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
       });
 
       const { title } = wrapper.vm.$metaInfo;
@@ -178,11 +236,23 @@ describe('ActorDetail.vue', () => {
       const ogDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'og:description',
       );
+      const ogSiteNameMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:site_name',
+      );
       const twitterSiteMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:site',
       );
       const twitterCardMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:card',
+      );
+      const twitterImageMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:image',
+      );
+      const twitterTitleMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:title',
+      );
+      const twitterDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:description',
       );
 
       expect(title).toEqual('Actor title');
@@ -192,9 +262,13 @@ describe('ActorDetail.vue', () => {
       expect(ogTypeMeta.content).toEqual('Actor og:type');
       expect(ogImageMeta.content).toEqual('Actor og:image');
       expect(ogUrlMeta.content).toEqual('Actor og:url');
+      expect(ogSiteNameMeta.content).toEqual('Actor og:site_name');
       expect(ogDescriptionMeta.content).toEqual('Actor og:description');
       expect(twitterSiteMeta.content).toEqual('Actor twitter:site');
       expect(twitterCardMeta.content).toEqual('Actor twitter:card');
+      expect(twitterImageMeta.content).toEqual('Actor twitter:image');
+      expect(twitterTitleMeta.content).toEqual('Actor twitter:title');
+      expect(twitterDescriptionMeta.content).toEqual('Actor twitter:description');
     });
   });
 
