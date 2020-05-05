@@ -116,6 +116,13 @@ function getCommonMetas(seoConfig) {
       content: seoConfig.og_description,
     });
   }
+  if (seoConfig.og_site_name) {
+    obj.meta.push({
+      hid: 'og:site_name',
+      property: 'og:site_name',
+      content: seoConfig.og_site_name,
+    });
+  }
 
   // Twitter metas
   if (seoConfig.twitter_site) {
@@ -130,6 +137,27 @@ function getCommonMetas(seoConfig) {
       hid: 'twitter:card',
       name: 'twitter:card',
       content: seoConfig.twitter_card,
+    });
+  }
+  if (seoConfig.twitter_image) {
+    obj.meta.push({
+      hid: 'twitter:image',
+      name: 'twitter:image',
+      content: seoConfig.twitter_image,
+    });
+  }
+  if (seoConfig.twitter_title) {
+    obj.meta.push({
+      hid: 'twitter:title',
+      name: 'twitter:title',
+      content: seoConfig.twitter_title,
+    });
+  }
+  if (seoConfig.twitter_description) {
+    obj.meta.push({
+      hid: 'twitter:description',
+      name: 'twitter:description',
+      content: seoConfig.twitter_description,
     });
   }
 
