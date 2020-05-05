@@ -87,8 +87,12 @@ describe('utils/funcs', () => {
         og_image: 'OpenGraph image',
         og_url: 'OpenGraph url',
         og_description: 'OpenGraph description',
+        og_site_name: 'OpenGraph site name',
         twitter_site: 'Twitter site',
         twitter_card: 'Twitter card',
+        twitter_image: 'Twitter image',
+        twitter_title: 'Twitter title',
+        twitter_description: 'Twitter description',
       };
 
       const expectedData = {
@@ -124,6 +128,10 @@ describe('utils/funcs', () => {
             hid: 'og:description',
             property: 'og:description',
           }, {
+            content: 'OpenGraph site name',
+            hid: 'og:site_name',
+            property: 'og:site_name',
+          }, {
             content: 'Twitter site',
             hid: 'twitter:site',
             name: 'twitter:site',
@@ -131,6 +139,18 @@ describe('utils/funcs', () => {
             content: 'Twitter card',
             hid: 'twitter:card',
             name: 'twitter:card',
+          }, {
+            content: 'Twitter image',
+            hid: 'twitter:image',
+            name: 'twitter:image',
+          }, {
+            content: 'Twitter title',
+            hid: 'twitter:title',
+            name: 'twitter:title',
+          }, {
+            content: 'Twitter description',
+            hid: 'twitter:description',
+            name: 'twitter:description',
           },
         ],
         title: 'Page title',

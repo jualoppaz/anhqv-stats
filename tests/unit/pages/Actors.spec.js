@@ -156,6 +156,10 @@ describe('Actors.vue', () => {
             hid: 'og:description',
             property: 'og:description',
           }, {
+            content: 'Actors og:site_name',
+            hid: 'og:site_name',
+            property: 'og:site_name',
+          }, {
             content: 'Actors twitter:site',
             hid: 'twitter:site',
             name: 'twitter:site',
@@ -163,6 +167,18 @@ describe('Actors.vue', () => {
             content: 'Actors twitter:card',
             hid: 'twitter:card',
             name: 'twitter:card',
+          }, {
+            content: 'Actors twitter:image',
+            hid: 'twitter:image',
+            name: 'twitter:image',
+          }, {
+            content: 'Actors twitter:title',
+            hid: 'twitter:title',
+            name: 'twitter:title',
+          }, {
+            content: 'Actors twitter:description',
+            hid: 'twitter:description',
+            name: 'twitter:description',
           },
         ],
         title: 'Actors title',
@@ -201,11 +217,23 @@ describe('Actors.vue', () => {
       const ogDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'og:description',
       );
+      const ogSiteNameMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:site_name',
+      );
       const twitterSiteMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:site',
       );
       const twitterCardMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:card',
+      );
+      const twitterImageMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:image',
+      );
+      const twitterTitleMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:title',
+      );
+      const twitterDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:description',
       );
 
       expect(title).toEqual('Actors title');
@@ -215,9 +243,13 @@ describe('Actors.vue', () => {
       expect(ogTypeMeta.content).toEqual('Actors og:type');
       expect(ogImageMeta.content).toEqual('Actors og:image');
       expect(ogUrlMeta.content).toEqual('Actors og:url');
+      expect(ogSiteNameMeta.content).toEqual('Actors og:site_name');
       expect(ogDescriptionMeta.content).toEqual('Actors og:description');
       expect(twitterSiteMeta.content).toEqual('Actors twitter:site');
       expect(twitterCardMeta.content).toEqual('Actors twitter:card');
+      expect(twitterImageMeta.content).toEqual('Actors twitter:image');
+      expect(twitterTitleMeta.content).toEqual('Actors twitter:title');
+      expect(twitterDescriptionMeta.content).toEqual('Actors twitter:description');
     });
   });
 

@@ -175,6 +175,10 @@ describe('CharacterDetail.vue', () => {
             hid: 'og:description',
             property: 'og:description',
           }, {
+            content: 'Character og:site_name',
+            hid: 'og:site_name',
+            property: 'og:site_name',
+          }, {
             content: 'Character twitter:site',
             hid: 'twitter:site',
             name: 'twitter:site',
@@ -182,6 +186,18 @@ describe('CharacterDetail.vue', () => {
             content: 'Character twitter:card',
             hid: 'twitter:card',
             name: 'twitter:card',
+          }, {
+            content: 'Character twitter:image',
+            hid: 'twitter:image',
+            name: 'twitter:image',
+          }, {
+            content: 'Character twitter:title',
+            hid: 'twitter:title',
+            name: 'twitter:title',
+          }, {
+            content: 'Character twitter:description',
+            hid: 'twitter:description',
+            name: 'twitter:description',
           },
         ],
         title: 'Character title',
@@ -220,11 +236,23 @@ describe('CharacterDetail.vue', () => {
       const ogDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'og:description',
       );
+      const ogSiteNameMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:site_name',
+      );
       const twitterSiteMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:site',
       );
       const twitterCardMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:card',
+      );
+      const twitterImageMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:image',
+      );
+      const twitterTitleMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:title',
+      );
+      const twitterDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:description',
       );
 
       expect(title).toEqual('Character title');
@@ -234,9 +262,13 @@ describe('CharacterDetail.vue', () => {
       expect(ogTypeMeta.content).toEqual('Character og:type');
       expect(ogImageMeta.content).toEqual('Character og:image');
       expect(ogUrlMeta.content).toEqual('Character og:url');
+      expect(ogSiteNameMeta.content).toEqual('Character og:site_name');
       expect(ogDescriptionMeta.content).toEqual('Character og:description');
       expect(twitterSiteMeta.content).toEqual('Character twitter:site');
       expect(twitterCardMeta.content).toEqual('Character twitter:card');
+      expect(twitterImageMeta.content).toEqual('Character twitter:image');
+      expect(twitterTitleMeta.content).toEqual('Character twitter:title');
+      expect(twitterDescriptionMeta.content).toEqual('Character twitter:description');
     });
   });
 

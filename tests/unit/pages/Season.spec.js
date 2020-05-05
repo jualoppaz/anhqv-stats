@@ -159,6 +159,10 @@ describe('Season.vue', () => {
             hid: 'og:description',
             property: 'og:description',
           }, {
+            content: 'Season og:site_name',
+            hid: 'og:site_name',
+            property: 'og:site_name',
+          }, {
             content: 'Season twitter:site',
             hid: 'twitter:site',
             name: 'twitter:site',
@@ -166,6 +170,18 @@ describe('Season.vue', () => {
             content: 'Season twitter:card',
             hid: 'twitter:card',
             name: 'twitter:card',
+          }, {
+            content: 'Season twitter:image',
+            hid: 'twitter:image',
+            name: 'twitter:image',
+          }, {
+            content: 'Season twitter:title',
+            hid: 'twitter:title',
+            name: 'twitter:title',
+          }, {
+            content: 'Season twitter:description',
+            hid: 'twitter:description',
+            name: 'twitter:description',
           },
         ],
         title: 'Season title',
@@ -204,11 +220,23 @@ describe('Season.vue', () => {
       const ogDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'og:description',
       );
+      const ogSiteNameMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:site_name',
+      );
       const twitterSiteMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:site',
       );
       const twitterCardMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:card',
+      );
+      const twitterImageMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:image',
+      );
+      const twitterTitleMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:title',
+      );
+      const twitterDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:description',
       );
 
       expect(title).toEqual('Season title');
@@ -218,9 +246,13 @@ describe('Season.vue', () => {
       expect(ogTypeMeta.content).toEqual('Season og:type');
       expect(ogImageMeta.content).toEqual('Season og:image');
       expect(ogUrlMeta.content).toEqual('Season og:url');
+      expect(ogSiteNameMeta.content).toEqual('Season og:site_name');
       expect(ogDescriptionMeta.content).toEqual('Season og:description');
       expect(twitterSiteMeta.content).toEqual('Season twitter:site');
       expect(twitterCardMeta.content).toEqual('Season twitter:card');
+      expect(twitterImageMeta.content).toEqual('Season twitter:image');
+      expect(twitterTitleMeta.content).toEqual('Season twitter:title');
+      expect(twitterDescriptionMeta.content).toEqual('Season twitter:description');
     });
   });
 

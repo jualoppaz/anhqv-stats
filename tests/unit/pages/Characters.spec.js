@@ -156,6 +156,10 @@ describe('Characters.vue', () => {
             hid: 'og:description',
             property: 'og:description',
           }, {
+            content: 'Characters og:site_name',
+            hid: 'og:site_name',
+            property: 'og:site_name',
+          }, {
             content: 'Characters twitter:site',
             hid: 'twitter:site',
             name: 'twitter:site',
@@ -163,6 +167,18 @@ describe('Characters.vue', () => {
             content: 'Characters twitter:card',
             hid: 'twitter:card',
             name: 'twitter:card',
+          }, {
+            content: 'Characters twitter:image',
+            hid: 'twitter:image',
+            name: 'twitter:image',
+          }, {
+            content: 'Characters twitter:title',
+            hid: 'twitter:title',
+            name: 'twitter:title',
+          }, {
+            content: 'Characters twitter:description',
+            hid: 'twitter:description',
+            name: 'twitter:description',
           },
         ],
         title: 'Characters title',
@@ -201,11 +217,23 @@ describe('Characters.vue', () => {
       const ogDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'og:description',
       );
+      const ogSiteNameMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:site_name',
+      );
       const twitterSiteMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:site',
       );
       const twitterCardMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:card',
+      );
+      const twitterImageMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:image',
+      );
+      const twitterTitleMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:title',
+      );
+      const twitterDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:description',
       );
 
       expect(title).toEqual('Characters title');
@@ -215,9 +243,13 @@ describe('Characters.vue', () => {
       expect(ogTypeMeta.content).toEqual('Characters og:type');
       expect(ogImageMeta.content).toEqual('Characters og:image');
       expect(ogUrlMeta.content).toEqual('Characters og:url');
+      expect(ogSiteNameMeta.content).toEqual('Characters og:site_name');
       expect(ogDescriptionMeta.content).toEqual('Characters og:description');
       expect(twitterSiteMeta.content).toEqual('Characters twitter:site');
       expect(twitterCardMeta.content).toEqual('Characters twitter:card');
+      expect(twitterImageMeta.content).toEqual('Characters twitter:image');
+      expect(twitterTitleMeta.content).toEqual('Characters twitter:title');
+      expect(twitterDescriptionMeta.content).toEqual('Characters twitter:description');
     });
   });
 

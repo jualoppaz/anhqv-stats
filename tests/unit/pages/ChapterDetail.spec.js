@@ -174,6 +174,10 @@ describe('ChapterDetail.vue', () => {
             hid: 'og:description',
             property: 'og:description',
           }, {
+            content: 'Chapter og:site_name',
+            hid: 'og:site_name',
+            property: 'og:site_name',
+          }, {
             content: 'Chapter twitter:site',
             hid: 'twitter:site',
             name: 'twitter:site',
@@ -181,6 +185,18 @@ describe('ChapterDetail.vue', () => {
             content: 'Chapter twitter:card',
             hid: 'twitter:card',
             name: 'twitter:card',
+          }, {
+            content: 'Chapter twitter:image',
+            hid: 'twitter:image',
+            name: 'twitter:image',
+          }, {
+            content: 'Chapter twitter:title',
+            hid: 'twitter:title',
+            name: 'twitter:title',
+          }, {
+            content: 'Chapter twitter:description',
+            hid: 'twitter:description',
+            name: 'twitter:description',
           },
         ],
         title: 'Chapter title',
@@ -219,11 +235,23 @@ describe('ChapterDetail.vue', () => {
       const ogDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'og:description',
       );
+      const ogSiteNameMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:site_name',
+      );
       const twitterSiteMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:site',
       );
       const twitterCardMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:card',
+      );
+      const twitterImageMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:image',
+      );
+      const twitterTitleMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:title',
+      );
+      const twitterDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:description',
       );
 
       expect(title).toEqual('Chapter title');
@@ -233,9 +261,13 @@ describe('ChapterDetail.vue', () => {
       expect(ogTypeMeta.content).toEqual('Chapter og:type');
       expect(ogImageMeta.content).toEqual('Chapter og:image');
       expect(ogUrlMeta.content).toEqual('Chapter og:url');
+      expect(ogSiteNameMeta.content).toEqual('Chapter og:site_name');
       expect(ogDescriptionMeta.content).toEqual('Chapter og:description');
       expect(twitterSiteMeta.content).toEqual('Chapter twitter:site');
       expect(twitterCardMeta.content).toEqual('Chapter twitter:card');
+      expect(twitterImageMeta.content).toEqual('Chapter twitter:image');
+      expect(twitterTitleMeta.content).toEqual('Chapter twitter:title');
+      expect(twitterDescriptionMeta.content).toEqual('Chapter twitter:description');
     });
   });
 
