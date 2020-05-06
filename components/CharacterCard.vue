@@ -5,7 +5,7 @@
     :body-style="{ padding: '0px' }"
   >
     <div class="image-container">
-      <img :src="character.image_url" class="image">
+      <img :src="character.image_url" :alt="character.image_alt" class="image">
     </div>
     <div
       class="character-card-info"
