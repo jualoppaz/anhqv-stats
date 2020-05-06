@@ -96,6 +96,10 @@ describe('Home.vue', () => {
           hid: 'description',
           name: 'description',
         }, {
+          content: 'Home, keywords',
+          hid: 'keywords',
+          name: 'keywords',
+        }, {
           content: 'Home og:title',
           hid: 'og:title',
           property: 'og:title',
@@ -159,6 +163,9 @@ describe('Home.vue', () => {
     const descriptionMeta = wrapper.vm.$metaInfo.meta.find(
       (item) => item.hid === 'description',
     );
+    const keywordsMeta = wrapper.vm.$metaInfo.meta.find(
+      (item) => item.hid === 'keywords',
+    );
     const canonicalUrlLink = wrapper.vm.$metaInfo.link.find(
       (item) => item.rel === 'canonical',
     );
@@ -198,6 +205,7 @@ describe('Home.vue', () => {
 
     expect(title).toEqual('Home title');
     expect(descriptionMeta.content).toEqual('Home description');
+    expect(keywordsMeta.content).toEqual('Home, keywords');
     expect(canonicalUrlLink.href).toEqual('http://home.com');
     expect(ogTitleMeta.content).toEqual('Home og:title');
     expect(ogTypeMeta.content).toEqual('Home og:type');

@@ -154,6 +154,10 @@ describe('ChapterDetail.vue', () => {
             hid: 'description',
             name: 'description',
           }, {
+            content: 'Chapter, keywords',
+            hid: 'keywords',
+            name: 'keywords',
+          }, {
             content: 'Chapter og:title',
             hid: 'og:title',
             property: 'og:title',
@@ -217,6 +221,9 @@ describe('ChapterDetail.vue', () => {
       const descriptionMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'description',
       );
+      const keywordsMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'keywords',
+      );
       const canonicalUrlLink = wrapper.vm.$metaInfo.link.find(
         (item) => item.rel === 'canonical',
       );
@@ -256,6 +263,7 @@ describe('ChapterDetail.vue', () => {
 
       expect(title).toEqual('Chapter title');
       expect(descriptionMeta.content).toEqual('Chapter description');
+      expect(keywordsMeta.content).toEqual('Chapter, keywords');
       expect(canonicalUrlLink.href).toEqual('http://chapter.com');
       expect(ogTitleMeta.content).toEqual('Chapter og:title');
       expect(ogTypeMeta.content).toEqual('Chapter og:type');

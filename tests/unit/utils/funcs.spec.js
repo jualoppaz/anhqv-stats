@@ -81,6 +81,7 @@ describe('utils/funcs', () => {
       const seoConfig = {
         title: 'Page title',
         description: 'Page description',
+        keywords: 'Page, keywords',
         canonical_url: 'Page canonical url',
         og_title: 'OpenGraph title',
         og_type: 'OpenGraph type',
@@ -107,6 +108,10 @@ describe('utils/funcs', () => {
             content: 'Page description',
             hid: 'description',
             name: 'description',
+          }, {
+            content: 'Page, keywords',
+            hid: 'keywords',
+            name: 'keywords',
           }, {
             content: 'OpenGraph title',
             hid: 'og:title',
