@@ -155,6 +155,10 @@ describe('ActorDetail.vue', () => {
             hid: 'description',
             name: 'description',
           }, {
+            content: 'Actor, keywords',
+            hid: 'keywords',
+            name: 'keywords',
+          }, {
             content: 'Actor og:title',
             hid: 'og:title',
             property: 'og:title',
@@ -218,6 +222,9 @@ describe('ActorDetail.vue', () => {
       const descriptionMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'description',
       );
+      const keywordsMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'keywords',
+      );
       const canonicalUrlLink = wrapper.vm.$metaInfo.link.find(
         (item) => item.rel === 'canonical',
       );
@@ -257,6 +264,7 @@ describe('ActorDetail.vue', () => {
 
       expect(title).toEqual('Actor title');
       expect(descriptionMeta.content).toEqual('Actor description');
+      expect(keywordsMeta.content).toEqual('Actor, keywords');
       expect(canonicalUrlLink.href).toEqual('http://actor.com');
       expect(ogTitleMeta.content).toEqual('Actor og:title');
       expect(ogTypeMeta.content).toEqual('Actor og:type');

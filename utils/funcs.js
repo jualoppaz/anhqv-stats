@@ -73,6 +73,13 @@ function getCommonMetas(seoConfig) {
       content: seoConfig.description,
     });
   }
+  if (seoConfig.keywords) {
+    obj.meta.push({
+      hid: 'keywords',
+      name: 'keywords',
+      content: seoConfig.keywords,
+    });
+  }
   if (seoConfig.canonical_url) {
     obj.link.push({
       rel: 'canonical',
