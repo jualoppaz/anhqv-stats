@@ -102,8 +102,22 @@
             <div slot="header" class="clearfix">
               <span>ANHQV.ES</span>
               <div class="links">
-                <a href="https://anhqv.es" target="_blank"><font-awesome-icon icon="link" /></a>
-                <a href="https://www.youtube.com/user/juancuestanhqv2014" target="_blank"><font-awesome-icon :icon="['fab', 'youtube']" /></a>
+                <a
+                  href="https://anhqv.es"
+                  target="_blank"
+                  rel="nofollow"
+                  :title="anhqvLinkWebTitle"
+                >
+                  <font-awesome-icon icon="link" />
+                </a>
+                <a
+                  href="https://www.youtube.com/user/juancuestanhqv2014"
+                  target="_blank"
+                  rel="nofollow"
+                  :title="anhqvLinkYoutubeTitle"
+                >
+                  <font-awesome-icon :icon="['fab', 'youtube']" />
+                </a>
               </div>
             </div>
             <div>
@@ -122,8 +136,22 @@
             <div slot="header" class="clearfix">
               <span>EscenasANHQV</span>
               <div class="links">
-                <a href="https://twitter.com/EscenasANHQV" target="_blank"><font-awesome-icon :icon="['fab', 'twitter']" /></a>
-                <a href="https://www.instagram.com/escenas.anhqv/" target="_blank"><font-awesome-icon :icon="['fab', 'instagram']" /></a>
+                <a
+                  href="https://twitter.com/EscenasANHQV"
+                  target="_blank"
+                  rel="nofollow"
+                  :title="escenasAnhqvLinkTwitterTitle"
+                >
+                  <font-awesome-icon :icon="['fab', 'twitter']" />
+                </a>
+                <a
+                  href="https://www.instagram.com/escenas.anhqv/"
+                  target="_blank"
+                  rel="nofollow"
+                  :title="escenasAnhqvLinkInstagramTitle"
+                >
+                  <font-awesome-icon :icon="['fab', 'instagram']" />
+                </a>
               </div>
             </div>
             <div>
@@ -195,6 +223,10 @@ export default {
       escenasAnhqvText: this.$t('VIEWS.HOME.REFERENCES.LIST.ESCENASANHQV.TEXT'),
       shareText: this.$t('COMMON.SOCIAL_SHARING.SHARE'),
       welcomeImageAlt: this.$t('VIEWS.HOME.WELCOME.IMAGE.ALT'),
+      anhqvLinkWebTitle: this.$t('VIEWS.HOME.REFERENCES.LIST.ANHQV.LINK.WEB.TITLE'),
+      anhqvLinkYoutubeTitle: this.$t('VIEWS.HOME.REFERENCES.LIST.ANHQV.LINK.YOUTUBE.TITLE'),
+      escenasAnhqvLinkTwitterTitle: this.$t('VIEWS.HOME.REFERENCES.LIST.ESCENASANHQV.LINK.TWITTER.TITLE'),
+      escenasAnhqvLinkInstagramTitle: this.$t('VIEWS.HOME.REFERENCES.LIST.ESCENASANHQV.LINK.INSTAGRAM.TITLE'),
     };
   },
   computed: {
