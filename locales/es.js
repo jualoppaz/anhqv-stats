@@ -14,29 +14,53 @@ export default
   MENU: {
     ACTORS: {
       TEXT: 'Actores',
+      LINK: {
+        TITLE: 'Sección de Actores',
+      },
     },
     CHARACTERS: {
       TEXT: 'Personajes',
+      LINK: {
+        TITLE: 'Sección de Personajes',
+      },
     },
     HOME: {
       TEXT: 'Inicio',
+      LINK: {
+        TITLE: 'Página de inicio',
+      },
     },
     SEASONS: {
       TEXT: 'Temporadas',
       FIRST_SEASON: {
         TEXT: '1ª Temporada',
+        LINK: {
+          TITLE: 'Capítulos de la Primera Temporada',
+        },
       },
       SECOND_SEASON: {
         TEXT: '2ª Temporada',
+        LINK: {
+          TITLE: 'Capítulos de la Segunda Temporada',
+        },
       },
       THIRD_SEASON: {
         TEXT: '3ª Temporada',
+        LINK: {
+          TITLE: 'Capítulos de la Tercera Temporada',
+        },
       },
       FOURTH_SEASON: {
         TEXT: '4ª Temporada',
+        LINK: {
+          TITLE: 'Capítulos de la Cuarta Temporada',
+        },
       },
       FIFTH_SEASON: {
         TEXT: '5ª Temporada',
+        LINK: {
+          TITLE: 'Capítulos de la Quinta Temporada',
+        },
       },
     },
   },
@@ -67,9 +91,25 @@ export default
         LIST: {
           ANHQV: {
             TEXT: 'Web oficial de la serie en la que encontrarás mucha información y curiosidades.',
+            LINK: {
+              WEB: {
+                TITLE: 'Web anhqv.es',
+              },
+              YOUTUBE: {
+                TITLE: 'Canal de Youtube de anhqv.es',
+              },
+            },
           },
           ESCENASANHQV: {
             TEXT: 'Cuenta que dispone de multitud de escenas y memes de la serie. Síguela en Twitter e Instagram.',
+            LINK: {
+              TWITTER: {
+                TITLE: 'Twitter de Escenas ANHQV',
+              },
+              INSTAGRAM: {
+                TITLE: 'Instagram de Escenas ANHQV',
+              },
+            },
           },
         },
       },
