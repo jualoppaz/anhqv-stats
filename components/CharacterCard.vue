@@ -22,6 +22,7 @@
               slug: character.slug,
             },
           }"
+          :title="detailLinkTitle"
         >
           <el-button
             type="primary"
@@ -48,6 +49,13 @@ export default {
     return {
       detailButtonText: this.$t('VIEWS.CHARACTERS.SEE_DETAIL.TEXT'),
     };
+  },
+  computed: {
+    detailLinkTitle() {
+      let res = this.character.name;
+      if (this.character.surname) res += ` ${this.character.surname}`;
+      return res;
+    },
   },
   methods: {},
 };
