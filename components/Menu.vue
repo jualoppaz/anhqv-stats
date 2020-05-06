@@ -1,7 +1,7 @@
 <template>
   <el-aside id="aside-menu">
     <div id="logo">
-      <img src="../assets/banner.gif">
+      <img src="/images/menu/anhqv.jpg">
     </div>
     <el-menu :default-openeds="defaultOpeneds" :collapse="isCollapsed">
       <el-menu-item index="1">

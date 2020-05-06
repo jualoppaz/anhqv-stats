@@ -7,7 +7,10 @@
       <div id="welcome">
         <div id="welcome-text" v-html="welcomeText" />
         <div id="welcome-image">
-          <img src="/images/home.jpg">
+          <img
+            src="/images/home.jpg"
+            :alt="welcomeImageAlt"
+          >
         </div>
       </div>
 
@@ -191,6 +194,7 @@ export default {
       anhqvText: this.$t('VIEWS.HOME.REFERENCES.LIST.ANHQV.TEXT'),
       escenasAnhqvText: this.$t('VIEWS.HOME.REFERENCES.LIST.ESCENASANHQV.TEXT'),
       shareText: this.$t('COMMON.SOCIAL_SHARING.SHARE'),
+      welcomeImageAlt: this.$t('VIEWS.HOME.WELCOME.IMAGE.ALT'),
     };
   },
   computed: {

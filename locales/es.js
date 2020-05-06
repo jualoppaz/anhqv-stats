@@ -45,6 +45,9 @@ export default
       TITLE: 'Inicio',
       WELCOME: {
         TEXT: '<p>Bienvenido a la Web de la Comunidad más loca de la TV. En esta web encontrarás todo tipo de información y estadísticas de la famosa serie de TV <strong>Aquí no hay quien viva</strong>: personajes, actores, capítulos... y mucho más.</p>',
+        IMAGE: {
+          ALT: 'Gran parte del elenco de la serie Aquí No Hay Quien Viva',
+        },
       },
       CHARACTERS: {
         TITLE: 'Personajes',
