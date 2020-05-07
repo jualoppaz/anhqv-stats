@@ -108,7 +108,7 @@ describe('ActorDetail.vue', () => {
             },
           },
         },
-        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
         methods,
       });
 
@@ -134,7 +134,7 @@ describe('ActorDetail.vue', () => {
             },
           },
         },
-        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
         methods,
       });
 
@@ -212,7 +212,7 @@ describe('ActorDetail.vue', () => {
       const wrapper = shallowMount(ActorDetail, {
         localVue,
         store,
-        stubs: ['nuxt-link', 'router-view', 'font-awesome-icon', 'Adsense', 'el-row', 'el-col', 'el-card', 'adsbygoogle', 'social-sharing', 'network'],
+        stubs: ['nuxt-link', 'router-view', 'font-awesome-icon', 'Adsense', 'el-row', 'el-col', 'el-card', 'adsbygoogle'],
         mocks: {
           $t: () => {},
         },
@@ -295,7 +295,7 @@ describe('ActorDetail.vue', () => {
             },
           },
         },
-        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
       });
 
       wrapper.vm.handleResize();
@@ -316,7 +316,7 @@ describe('ActorDetail.vue', () => {
             },
           },
         },
-        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
       });
 
       wrapper.vm.handleResize();
@@ -336,7 +336,7 @@ describe('ActorDetail.vue', () => {
           },
         },
       },
-      stubs: ['el-card', 'el-row', 'el-col', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
+      stubs: ['el-card', 'el-row', 'el-col', 'el-avatar'],
     });
 
     window.removeEventListener = jest.fn();

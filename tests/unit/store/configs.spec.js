@@ -7,6 +7,12 @@ describe('store/configs.js', () => {
     Vue.anhqvClient = {};
   });
 
+  describe('state', () => {
+    expect(state()).toEqual({
+      currentTitle: '',
+    });
+  });
+
   describe('mutations', () => {
     describe('setCurrentTitle', () => {
       it('it should modify currentTitle state property', () => {

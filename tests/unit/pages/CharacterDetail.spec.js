@@ -108,7 +108,7 @@ describe('CharacterDetail.vue', () => {
             },
           },
         },
-        stubs: ['el-card', 'el-col', 'el-row', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-card', 'el-col', 'el-row', 'el-avatar'],
         methods,
       });
 
@@ -134,7 +134,7 @@ describe('CharacterDetail.vue', () => {
             },
           },
         },
-        stubs: ['el-card', 'el-col', 'el-row', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-card', 'el-col', 'el-row', 'el-avatar'],
         methods,
       });
 
@@ -295,7 +295,7 @@ describe('CharacterDetail.vue', () => {
             },
           },
         },
-        stubs: ['el-card', 'el-col', 'el-row', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-card', 'el-col', 'el-row', 'el-avatar'],
       });
 
       wrapper.vm.handleResize();
@@ -316,7 +316,7 @@ describe('CharacterDetail.vue', () => {
             },
           },
         },
-        stubs: ['el-card', 'el-col', 'el-row', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-card', 'el-col', 'el-row', 'el-avatar'],
       });
 
       wrapper.vm.handleResize();
@@ -336,7 +336,7 @@ describe('CharacterDetail.vue', () => {
           },
         },
       },
-      stubs: ['el-card', 'el-col', 'el-row', 'el-avatar', 'social-sharing', 'font-awesome-icon', 'network'],
+      stubs: ['el-card', 'el-col', 'el-row', 'el-avatar'],
     });
 
     window.removeEventListener = jest.fn();

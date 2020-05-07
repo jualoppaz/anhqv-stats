@@ -92,7 +92,7 @@ describe('Season.vue', () => {
             },
           },
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-row'],
         methods,
       });
 
@@ -118,7 +118,7 @@ describe('Season.vue', () => {
             },
           },
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-row'],
         methods,
       });
 
@@ -279,7 +279,7 @@ describe('Season.vue', () => {
             },
           },
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -300,7 +300,7 @@ describe('Season.vue', () => {
             },
           },
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -320,7 +320,7 @@ describe('Season.vue', () => {
           },
         },
       },
-      stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+      stubs: ['el-row'],
     });
 
     window.removeEventListener = jest.fn();

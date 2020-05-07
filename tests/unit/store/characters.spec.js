@@ -7,6 +7,13 @@ describe('store/characters.js', () => {
     Vue.anhqvClient = {};
   });
 
+  describe('state', () => {
+    expect(state()).toEqual({
+      all: [],
+      current: {},
+    });
+  });
+
   describe('actions', () => {
     describe('getAll', () => {
       it('it should call getCharacters method and setAll mutation', (done) => {
