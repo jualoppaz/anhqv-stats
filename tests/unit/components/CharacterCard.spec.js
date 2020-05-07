@@ -48,6 +48,6 @@ describe('CharacterCard.vue', () => {
     });
     expect(wrapper.props().character.shortname).toBe('John');
     expect(wrapper.props().character.image_url).toBe('http://path/to/image');
-    expect(wrapper.vm.detailLinkTitle).toEqual('John Smith');
+    expect(wrapper.vm.characterName).toEqual('John Smith');
   });
 });
