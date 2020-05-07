@@ -12,7 +12,7 @@
       style="padding: 14px;"
     >
       <el-row>
-        <span class="character-name"><b>{{ character.shortname }}</b></span>
+        <span class="character-name"><b>{{ characterName }}</b></span>
       </el-row>
       <el-row>
         <nuxt-link
@@ -22,7 +22,7 @@
               slug: character.slug,
             },
           }"
-          :title="detailLinkTitle"
+          :title="characterName"
         >
           <el-button
             type="primary"
@@ -51,7 +51,7 @@ export default {
     };
   },
   computed: {
-    detailLinkTitle() {
+    characterName() {
       let res = this.character.name;
       if (this.character.surname) res += ` ${this.character.surname}`;
       return res;
