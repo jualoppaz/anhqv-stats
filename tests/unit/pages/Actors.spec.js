@@ -96,7 +96,7 @@ describe('Actors.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['nuxt-link', 'router-view', 'el-row'],
         methods,
       });
     });
@@ -115,7 +115,7 @@ describe('Actors.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['nuxt-link', 'router-view', 'el-row'],
         methods,
       });
 
@@ -271,7 +271,7 @@ describe('Actors.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['nuxt-link', 'router-view', 'el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -287,7 +287,7 @@ describe('Actors.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['nuxt-link', 'router-view', 'el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -302,7 +302,7 @@ describe('Actors.vue', () => {
       mocks: {
         $t: () => {},
       },
-      stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+      stubs: ['nuxt-link', 'router-view', 'el-row'],
     });
 
     window.removeEventListener = jest.fn();

@@ -96,7 +96,7 @@ describe('Characters.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-row'],
         methods,
       });
     });
@@ -115,7 +115,7 @@ describe('Characters.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-row'],
         methods,
       });
 
@@ -272,7 +272,7 @@ describe('Characters.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -288,7 +288,7 @@ describe('Characters.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -303,7 +303,7 @@ describe('Characters.vue', () => {
       mocks: {
         $t: () => {},
       },
-      stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+      stubs: ['el-row'],
     });
 
     window.removeEventListener = jest.fn();
