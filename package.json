@@ -8,9 +8,8 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "heroku-postbuild": "npm run build",
-    "i18n:report": "vue-cli-service i18n:report --src \"./**/*.?(js|vue)\" --locales \"./locales/**/*.json\""
     "test:unit": "jest",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.28",
