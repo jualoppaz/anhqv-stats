@@ -4,9 +4,7 @@
       <h1>{{ title }}</h1>
     </div>
     <div class="wrapper">
-      <p>
-        Aquí puedes ver el detalle de todos y cada uno de los personajes que aparecen en la serie.
-      </p>
+      <div id="characters-text" v-html="charactersText" />
       <el-row
         id="characters-list"
         :gutter="gutter"
@@ -78,6 +76,7 @@ export default {
   data() {
     return {
       gutter: utils.VIEWS.CHARACTERS.GUTTER.DEFAULT,
+      charactersText: this.$t('VIEWS.CHARACTERS.TEXT'),
       shareText: this.$t('COMMON.SOCIAL_SHARING.SHARE'),
     };
   },
