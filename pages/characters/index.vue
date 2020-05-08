@@ -119,6 +119,10 @@ export default {
 <style lang="scss">
 
 #characters {
+  #characters-text{
+    text-align: justify;
+  }
+
   #characters-list{
     .character-col{
       padding: 6px;
