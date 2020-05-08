@@ -116,6 +116,7 @@ export default
     },
     CHARACTERS: {
       TITLE: 'Personajes',
+      TEXT: '<p>Aquí puedes ver el detalle de todos y cada uno de los personajes que aparecen en la serie, desde los personajes principales y artistas invitados hasta personajes extra.</p>',
       SEE_DETAIL: {
         TEXT: 'Detalle',
       },
