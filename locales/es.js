@@ -68,7 +68,7 @@ export default
     HOME: {
       TITLE: 'Inicio',
       WELCOME: {
-        TEXT: '<p>Bienvenido a la Web de la Comunidad más loca de la TV. En esta web encontrarás todo tipo de información y estadísticas de la famosa serie de TV <strong>Aquí no hay quien viva</strong>: personajes, actores, capítulos... y mucho más.</p>',
+        TEXT: '<p>Bienvenido a la Web de la Comunidad más loca de la TV, la de Desengaño 21. En esta web encontrarás todo tipo de información y estadísticas de la famosa serie de TV <strong>Aquí no hay quien viva</strong>: personajes, actores, capítulos... y mucho más.</p><p>Sirva esta web como homenaje a la (considerada por muchos) mejor serie que se ha producido en España. Es sin duda una serie que ha marcado a toda una generación, en la cual me incluyo, ya que nos vemos reflejados en cada escena, ya sea por experiencias vividas o presenciadas en nuestro día a día.</p><p>Sirva esta web de homenaje a todos los actores que han participado en ella, especialmente a los que ya no se encuentran entre nosotros.</p>',
         IMAGE: {
           ALT: 'Gran parte del elenco de la serie Aquí No Hay Quien Viva',
         },
