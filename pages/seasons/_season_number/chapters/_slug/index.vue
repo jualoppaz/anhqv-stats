@@ -21,7 +21,12 @@
               :md="12"
               :lg="6"
             >
-              <el-avatar :src="chapter.image_url" :size="avatarSize" shape="square" />
+              <el-avatar
+                :src="chapter.image_url"
+                :size="avatarSize"
+                shape="square"
+                :alt="chapter.image_alt"
+              />
             </el-col>
             <el-col
               :xs="24"
