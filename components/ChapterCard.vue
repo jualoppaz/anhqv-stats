@@ -5,7 +5,7 @@
     :body-style="{ padding: '0px' }"
   >
     <div class="image-container">
-      <img :src="chapter.image_url" class="image">
+      <img :src="chapter.image_url" class="image" :alt="chapter.image_alt">
     </div>
     <div
       class="chapter-card-info"
