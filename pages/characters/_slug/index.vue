@@ -15,7 +15,7 @@
           </div>
           <el-row>
             <el-col id="avatar" :xs="24" :sm="24" :md="6">
-              <el-avatar :src="character.image_url" :size="avatarSize" />
+              <el-avatar :src="character.image_url" :size="avatarSize" :alt="character.image_alt" />
             </el-col>
             <el-col :xs="24" :sm="24" :md="{ span: 14, offset: 2 }">
               <el-row class="character-info-row">
