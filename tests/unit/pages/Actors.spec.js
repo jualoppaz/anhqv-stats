@@ -96,7 +96,7 @@ describe('Actors.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['nuxt-link', 'router-view', 'el-row'],
         methods,
       });
     });
@@ -115,7 +115,7 @@ describe('Actors.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['nuxt-link', 'router-view', 'el-row'],
         methods,
       });
 
@@ -123,18 +123,88 @@ describe('Actors.vue', () => {
     });
 
     it('has correct <head> content', () => {
+      const mockedMetas = {
+        link: [
+          {
+            href: 'http://actors.com',
+            rel: 'canonical',
+          },
+        ],
+        meta: [
+          {
+            content: 'Actors description',
+            hid: 'description',
+            name: 'description',
+          }, {
+            content: 'Actors, keywords',
+            hid: 'keywords',
+            name: 'keywords',
+          }, {
+            content: 'Actors og:title',
+            hid: 'og:title',
+            property: 'og:title',
+          }, {
+            content: 'Actors og:type',
+            hid: 'og:type',
+            property: 'og:type',
+          }, {
+            content: 'Actors og:image',
+            hid: 'og:image',
+            property: 'og:image',
+          }, {
+            content: 'Actors og:url',
+            hid: 'og:url',
+            property: 'og:url',
+          }, {
+            content: 'Actors og:description',
+            hid: 'og:description',
+            property: 'og:description',
+          }, {
+            content: 'Actors og:site_name',
+            hid: 'og:site_name',
+            property: 'og:site_name',
+          }, {
+            content: 'Actors twitter:site',
+            hid: 'twitter:site',
+            name: 'twitter:site',
+          }, {
+            content: 'Actors twitter:card',
+            hid: 'twitter:card',
+            name: 'twitter:card',
+          }, {
+            content: 'Actors twitter:image',
+            hid: 'twitter:image',
+            name: 'twitter:image',
+          }, {
+            content: 'Actors twitter:title',
+            hid: 'twitter:title',
+            name: 'twitter:title',
+          }, {
+            content: 'Actors twitter:description',
+            hid: 'twitter:description',
+            name: 'twitter:description',
+          },
+        ],
+        title: 'Actors title',
+      };
+
+      utils.getCommonMetas.mockReturnValue(mockedMetas);
+
       const wrapper = shallowMount(Actors, {
         localVue,
         store,
+        stubs: ['nuxt-link', 'router-view', 'font-awesome-icon', 'Adsense', 'el-row', 'el-col', 'el-card', 'adsbygoogle', 'social-sharing', 'network'],
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
       });
 
       const { title } = wrapper.vm.$metaInfo;
       const descriptionMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'description',
+      );
+      const keywordsMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'keywords',
       );
       const canonicalUrlLink = wrapper.vm.$metaInfo.link.find(
         (item) => item.rel === 'canonical',
@@ -154,23 +224,40 @@ describe('Actors.vue', () => {
       const ogDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'og:description',
       );
+      const ogSiteNameMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:site_name',
+      );
       const twitterSiteMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:site',
       );
       const twitterCardMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:card',
       );
+      const twitterImageMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:image',
+      );
+      const twitterTitleMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:title',
+      );
+      const twitterDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:description',
+      );
 
       expect(title).toEqual('Actors title');
       expect(descriptionMeta.content).toEqual('Actors description');
+      expect(keywordsMeta.content).toEqual('Actors, keywords');
       expect(canonicalUrlLink.href).toEqual('http://actors.com');
       expect(ogTitleMeta.content).toEqual('Actors og:title');
       expect(ogTypeMeta.content).toEqual('Actors og:type');
       expect(ogImageMeta.content).toEqual('Actors og:image');
       expect(ogUrlMeta.content).toEqual('Actors og:url');
+      expect(ogSiteNameMeta.content).toEqual('Actors og:site_name');
       expect(ogDescriptionMeta.content).toEqual('Actors og:description');
       expect(twitterSiteMeta.content).toEqual('Actors twitter:site');
       expect(twitterCardMeta.content).toEqual('Actors twitter:card');
+      expect(twitterImageMeta.content).toEqual('Actors twitter:image');
+      expect(twitterTitleMeta.content).toEqual('Actors twitter:title');
+      expect(twitterDescriptionMeta.content).toEqual('Actors twitter:description');
     });
   });
 
@@ -184,7 +271,7 @@ describe('Actors.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['nuxt-link', 'router-view', 'el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -200,7 +287,7 @@ describe('Actors.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['nuxt-link', 'router-view', 'el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -215,7 +302,7 @@ describe('Actors.vue', () => {
       mocks: {
         $t: () => {},
       },
-      stubs: ['nuxt-link', 'router-view', 'el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+      stubs: ['nuxt-link', 'router-view', 'el-row'],
     });
 
     window.removeEventListener = jest.fn();

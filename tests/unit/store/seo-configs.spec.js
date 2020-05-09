@@ -7,6 +7,12 @@ describe('store/seo-configs.js', () => {
     Vue.anhqvClient = {};
   });
 
+  describe('state', () => {
+    expect(state()).toEqual({
+      currentSeoConfig: {},
+    });
+  });
+
   describe('actions', () => {
     describe('getBySlug', () => {
       it('it should call getSeoConfigBySlug method and setCurrentSeoConfig mutation', (done) => {

@@ -4,7 +4,7 @@
       {{ copyrightText }}
     </div>
     <div id="author">
-      <a href="https://www.juanmanuellopezpazos.es" target="_blank">{{ authorText }}</a>
+      <a href="http://www.juanmanuellopezpazos.es" target="_blank">{{ authorText }}</a>
     </div>
   </div>
 </template>

@@ -5,14 +5,14 @@
     :body-style="{ padding: '0px' }"
   >
     <div class="image-container">
-      <img :src="character.image_url" class="image">
+      <img :src="character.image_url" :alt="character.image_alt" class="image">
     </div>
     <div
       class="character-card-info"
       style="padding: 14px;"
     >
       <el-row>
-        <span class="character-name"><b>{{ character.shortname }}</b></span>
+        <span class="character-name"><b>{{ characterName }}</b></span>
       </el-row>
       <el-row>
         <nuxt-link
@@ -22,6 +22,7 @@
               slug: character.slug,
             },
           }"
+          :title="characterName"
         >
           <el-button
             type="primary"
@@ -48,6 +49,13 @@ export default {
     return {
       detailButtonText: this.$t('VIEWS.CHARACTERS.SEE_DETAIL.TEXT'),
     };
+  },
+  computed: {
+    characterName() {
+      let res = this.character.name;
+      if (this.character.surname) res += ` ${this.character.surname}`;
+      return res;
+    },
   },
   methods: {},
 };

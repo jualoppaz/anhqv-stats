@@ -92,7 +92,7 @@ describe('Season.vue', () => {
             },
           },
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-row'],
         methods,
       });
 
@@ -118,7 +118,7 @@ describe('Season.vue', () => {
             },
           },
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-row'],
         methods,
       });
 
@@ -126,23 +126,88 @@ describe('Season.vue', () => {
     });
 
     it('has correct <head> content', () => {
+      const mockedMetas = {
+        link: [
+          {
+            href: 'http://season.com',
+            rel: 'canonical',
+          },
+        ],
+        meta: [
+          {
+            content: 'Season description',
+            hid: 'description',
+            name: 'description',
+          }, {
+            content: 'Season, keywords',
+            hid: 'keywords',
+            name: 'keywords',
+          }, {
+            content: 'Season og:title',
+            hid: 'og:title',
+            property: 'og:title',
+          }, {
+            content: 'Season og:type',
+            hid: 'og:type',
+            property: 'og:type',
+          }, {
+            content: 'Season og:image',
+            hid: 'og:image',
+            property: 'og:image',
+          }, {
+            content: 'Season og:url',
+            hid: 'og:url',
+            property: 'og:url',
+          }, {
+            content: 'Season og:description',
+            hid: 'og:description',
+            property: 'og:description',
+          }, {
+            content: 'Season og:site_name',
+            hid: 'og:site_name',
+            property: 'og:site_name',
+          }, {
+            content: 'Season twitter:site',
+            hid: 'twitter:site',
+            name: 'twitter:site',
+          }, {
+            content: 'Season twitter:card',
+            hid: 'twitter:card',
+            name: 'twitter:card',
+          }, {
+            content: 'Season twitter:image',
+            hid: 'twitter:image',
+            name: 'twitter:image',
+          }, {
+            content: 'Season twitter:title',
+            hid: 'twitter:title',
+            name: 'twitter:title',
+          }, {
+            content: 'Season twitter:description',
+            hid: 'twitter:description',
+            name: 'twitter:description',
+          },
+        ],
+        title: 'Season title',
+      };
+
+      utils.getCommonMetas.mockReturnValue(mockedMetas);
+
       const wrapper = shallowMount(Season, {
         localVue,
         store,
+        stubs: ['nuxt-link', 'router-view', 'font-awesome-icon', 'Adsense', 'el-row', 'el-col', 'el-card', 'adsbygoogle', 'social-sharing', 'network'],
         mocks: {
           $t: () => {},
-          $route: {
-            params: {
-              season_number: () => '0',
-            },
-          },
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
       });
 
       const { title } = wrapper.vm.$metaInfo;
       const descriptionMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'description',
+      );
+      const keywordsMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'keywords',
       );
       const canonicalUrlLink = wrapper.vm.$metaInfo.link.find(
         (item) => item.rel === 'canonical',
@@ -162,23 +227,40 @@ describe('Season.vue', () => {
       const ogDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'og:description',
       );
+      const ogSiteNameMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:site_name',
+      );
       const twitterSiteMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:site',
       );
       const twitterCardMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:card',
       );
+      const twitterImageMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:image',
+      );
+      const twitterTitleMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:title',
+      );
+      const twitterDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:description',
+      );
 
-      expect(title).toEqual('Chapters title');
-      expect(descriptionMeta.content).toEqual('Chapters description');
-      expect(canonicalUrlLink.href).toEqual('http://chapters.com');
-      expect(ogTitleMeta.content).toEqual('Chapters og:title');
-      expect(ogTypeMeta.content).toEqual('Chapters og:type');
-      expect(ogImageMeta.content).toEqual('Chapters og:image');
-      expect(ogUrlMeta.content).toEqual('Chapters og:url');
-      expect(ogDescriptionMeta.content).toEqual('Chapters og:description');
-      expect(twitterSiteMeta.content).toEqual('Chapters twitter:site');
-      expect(twitterCardMeta.content).toEqual('Chapters twitter:card');
+      expect(title).toEqual('Season title');
+      expect(descriptionMeta.content).toEqual('Season description');
+      expect(keywordsMeta.content).toEqual('Season, keywords');
+      expect(canonicalUrlLink.href).toEqual('http://season.com');
+      expect(ogTitleMeta.content).toEqual('Season og:title');
+      expect(ogTypeMeta.content).toEqual('Season og:type');
+      expect(ogImageMeta.content).toEqual('Season og:image');
+      expect(ogUrlMeta.content).toEqual('Season og:url');
+      expect(ogSiteNameMeta.content).toEqual('Season og:site_name');
+      expect(ogDescriptionMeta.content).toEqual('Season og:description');
+      expect(twitterSiteMeta.content).toEqual('Season twitter:site');
+      expect(twitterCardMeta.content).toEqual('Season twitter:card');
+      expect(twitterImageMeta.content).toEqual('Season twitter:image');
+      expect(twitterTitleMeta.content).toEqual('Season twitter:title');
+      expect(twitterDescriptionMeta.content).toEqual('Season twitter:description');
     });
   });
 
@@ -197,7 +279,7 @@ describe('Season.vue', () => {
             },
           },
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -218,7 +300,7 @@ describe('Season.vue', () => {
             },
           },
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -238,7 +320,7 @@ describe('Season.vue', () => {
           },
         },
       },
-      stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+      stubs: ['el-row'],
     });
 
     window.removeEventListener = jest.fn();

@@ -14,29 +14,53 @@ export default
   MENU: {
     ACTORS: {
       TEXT: 'Actores',
+      LINK: {
+        TITLE: 'Sección de Actores',
+      },
     },
     CHARACTERS: {
       TEXT: 'Personajes',
+      LINK: {
+        TITLE: 'Sección de Personajes',
+      },
     },
     HOME: {
       TEXT: 'Inicio',
+      LINK: {
+        TITLE: 'Página de inicio',
+      },
     },
     SEASONS: {
       TEXT: 'Temporadas',
       FIRST_SEASON: {
         TEXT: '1ª Temporada',
+        LINK: {
+          TITLE: 'Capítulos de la Primera Temporada',
+        },
       },
       SECOND_SEASON: {
         TEXT: '2ª Temporada',
+        LINK: {
+          TITLE: 'Capítulos de la Segunda Temporada',
+        },
       },
       THIRD_SEASON: {
         TEXT: '3ª Temporada',
+        LINK: {
+          TITLE: 'Capítulos de la Tercera Temporada',
+        },
       },
       FOURTH_SEASON: {
         TEXT: '4ª Temporada',
+        LINK: {
+          TITLE: 'Capítulos de la Cuarta Temporada',
+        },
       },
       FIFTH_SEASON: {
         TEXT: '5ª Temporada',
+        LINK: {
+          TITLE: 'Capítulos de la Quinta Temporada',
+        },
       },
     },
   },
@@ -44,7 +68,10 @@ export default
     HOME: {
       TITLE: 'Inicio',
       WELCOME: {
-        TEXT: '<p>Bienvenido a la Web de la Comunidad más loca de la TV. En esta web encontrarás todo tipo de información y estadísticas de la famosa serie de TV <strong>Aquí no hay quien viva</strong>: personajes, actores, capítulos... y mucho más.</p>',
+        TEXT: '<p>Bienvenido a la Web de la Comunidad más loca de la TV, la de Desengaño 21. En esta web encontrarás todo tipo de información y estadísticas de la famosa serie de TV <strong>Aquí no hay quien viva</strong>: personajes, actores, capítulos... y mucho más.</p><p>Sirva esta web como homenaje a la (considerada por muchos) mejor serie que se ha producido en España. Es sin duda una serie que ha marcado a toda una generación, en la cual me incluyo, ya que nos vemos reflejados en cada escena, ya sea por experiencias vividas o presenciadas en nuestro día a día.</p><p>Sirva esta web de homenaje a todos los actores que han participado en ella, especialmente a los que ya no se encuentran entre nosotros.</p>',
+        IMAGE: {
+          ALT: 'Gran parte del elenco de la serie Aquí No Hay Quien Viva',
+        },
       },
       CHARACTERS: {
         TITLE: 'Personajes',
@@ -64,15 +91,32 @@ export default
         LIST: {
           ANHQV: {
             TEXT: 'Web oficial de la serie en la que encontrarás mucha información y curiosidades.',
+            LINK: {
+              WEB: {
+                TITLE: 'Web anhqv.es',
+              },
+              YOUTUBE: {
+                TITLE: 'Canal de Youtube de anhqv.es',
+              },
+            },
           },
           ESCENASANHQV: {
             TEXT: 'Cuenta que dispone de multitud de escenas y memes de la serie. Síguela en Twitter e Instagram.',
+            LINK: {
+              TWITTER: {
+                TITLE: 'Twitter de Escenas ANHQV',
+              },
+              INSTAGRAM: {
+                TITLE: 'Instagram de Escenas ANHQV',
+              },
+            },
           },
         },
       },
     },
     CHARACTERS: {
       TITLE: 'Personajes',
+      TEXT: '<p>Aquí puedes ver el detalle de todos y cada uno de los personajes que aparecen en la serie, desde los personajes principales y artistas invitados hasta personajes extra.</p>',
       SEE_DETAIL: {
         TEXT: 'Detalle',
       },

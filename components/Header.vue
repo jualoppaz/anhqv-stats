@@ -1,6 +1,6 @@
 <template>
   <div id="header">
-    <h1>ANHQV STATS</h1>
+    <span>ANHQV STATS</span>
   </div>
 </template>
 
@@ -15,10 +15,12 @@ export default {
 #header{
   height: 100%;
 
-  h1 {
+  span {
     margin: 0;
     line-height: 60px;
     padding: 0 20px;
+    font-weight: bold;
+    font-size: 1.17em;
 
     text-overflow: ellipsis;
     white-space: nowrap;

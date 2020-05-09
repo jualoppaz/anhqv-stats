@@ -96,7 +96,7 @@ describe('Characters.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-row'],
         methods,
       });
     });
@@ -115,7 +115,7 @@ describe('Characters.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-row'],
         methods,
       });
 
@@ -123,18 +123,88 @@ describe('Characters.vue', () => {
     });
 
     it('has correct <head> content', () => {
+      const mockedMetas = {
+        link: [
+          {
+            href: 'http://characters.com',
+            rel: 'canonical',
+          },
+        ],
+        meta: [
+          {
+            content: 'Characters description',
+            hid: 'description',
+            name: 'description',
+          }, {
+            content: 'Characters, keywords',
+            hid: 'keywords',
+            name: 'keywords',
+          }, {
+            content: 'Characters og:title',
+            hid: 'og:title',
+            property: 'og:title',
+          }, {
+            content: 'Characters og:type',
+            hid: 'og:type',
+            property: 'og:type',
+          }, {
+            content: 'Characters og:image',
+            hid: 'og:image',
+            property: 'og:image',
+          }, {
+            content: 'Characters og:url',
+            hid: 'og:url',
+            property: 'og:url',
+          }, {
+            content: 'Characters og:description',
+            hid: 'og:description',
+            property: 'og:description',
+          }, {
+            content: 'Characters og:site_name',
+            hid: 'og:site_name',
+            property: 'og:site_name',
+          }, {
+            content: 'Characters twitter:site',
+            hid: 'twitter:site',
+            name: 'twitter:site',
+          }, {
+            content: 'Characters twitter:card',
+            hid: 'twitter:card',
+            name: 'twitter:card',
+          }, {
+            content: 'Characters twitter:image',
+            hid: 'twitter:image',
+            name: 'twitter:image',
+          }, {
+            content: 'Characters twitter:title',
+            hid: 'twitter:title',
+            name: 'twitter:title',
+          }, {
+            content: 'Characters twitter:description',
+            hid: 'twitter:description',
+            name: 'twitter:description',
+          },
+        ],
+        title: 'Characters title',
+      };
+
+      utils.getCommonMetas.mockReturnValue(mockedMetas);
+
       const wrapper = shallowMount(Characters, {
         localVue,
         store,
+        stubs: ['nuxt-link', 'router-view', 'font-awesome-icon', 'Adsense', 'el-row', 'el-col', 'el-card', 'adsbygoogle', 'social-sharing', 'network'],
         mocks: {
           $t: () => {},
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
       });
 
       const { title } = wrapper.vm.$metaInfo;
       const descriptionMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'description',
+      );
+      const keywordsMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'keywords',
       );
       const canonicalUrlLink = wrapper.vm.$metaInfo.link.find(
         (item) => item.rel === 'canonical',
@@ -154,23 +224,40 @@ describe('Characters.vue', () => {
       const ogDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'og:description',
       );
+      const ogSiteNameMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'og:site_name',
+      );
       const twitterSiteMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:site',
       );
       const twitterCardMeta = wrapper.vm.$metaInfo.meta.find(
         (item) => item.hid === 'twitter:card',
       );
+      const twitterImageMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:image',
+      );
+      const twitterTitleMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:title',
+      );
+      const twitterDescriptionMeta = wrapper.vm.$metaInfo.meta.find(
+        (item) => item.hid === 'twitter:description',
+      );
 
       expect(title).toEqual('Characters title');
       expect(descriptionMeta.content).toEqual('Characters description');
+      expect(keywordsMeta.content).toEqual('Characters, keywords');
       expect(canonicalUrlLink.href).toEqual('http://characters.com');
       expect(ogTitleMeta.content).toEqual('Characters og:title');
       expect(ogTypeMeta.content).toEqual('Characters og:type');
       expect(ogImageMeta.content).toEqual('Characters og:image');
       expect(ogUrlMeta.content).toEqual('Characters og:url');
+      expect(ogSiteNameMeta.content).toEqual('Characters og:site_name');
       expect(ogDescriptionMeta.content).toEqual('Characters og:description');
       expect(twitterSiteMeta.content).toEqual('Characters twitter:site');
       expect(twitterCardMeta.content).toEqual('Characters twitter:card');
+      expect(twitterImageMeta.content).toEqual('Characters twitter:image');
+      expect(twitterTitleMeta.content).toEqual('Characters twitter:title');
+      expect(twitterDescriptionMeta.content).toEqual('Characters twitter:description');
     });
   });
 
@@ -185,7 +272,7 @@ describe('Characters.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -201,7 +288,7 @@ describe('Characters.vue', () => {
         mocks: {
           $t: () => {},
         },
-        stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+        stubs: ['el-row'],
       });
 
       wrapper.vm.handleResize();
@@ -216,7 +303,7 @@ describe('Characters.vue', () => {
       mocks: {
         $t: () => {},
       },
-      stubs: ['el-row', 'social-sharing', 'font-awesome-icon', 'network'],
+      stubs: ['el-row'],
     });
 
     window.removeEventListener = jest.fn();
