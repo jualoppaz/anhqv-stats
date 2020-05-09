@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: http://anhqv-stats.es/sitemap.xml
+Sitemap: http://www.anhqv-stats.es/sitemap.xml
