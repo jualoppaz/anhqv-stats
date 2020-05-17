@@ -12,6 +12,9 @@ export default
     },
   },
   MENU: {
+    LOGO: {
+      ALT: 'Logo de la serie española Aquí No Hay Quien Viva (ANHQV)',
+    },
     ACTORS: {
       TEXT: 'Actores',
       LINK: {
