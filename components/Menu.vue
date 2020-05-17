@@ -1,7 +1,7 @@
 <template>
   <el-aside id="aside-menu">
     <div id="logo">
-      <img src="/images/menu/anhqv.jpg">
+      <img src="/images/menu/anhqv.jpg" :alt="logoImageAlt">
     </div>
     <el-menu :default-openeds="defaultOpeneds" :collapse="isCollapsed">
       <el-menu-item index="1">
@@ -112,6 +112,7 @@ export default {
     return {
       isCollapsed: false,
       defaultOpeneds: ['4'],
+      logoImageAlt: this.$t('MENU.LOGO.ALT'),
       charactersItemText: this.$t('MENU.CHARACTERS.TEXT'),
       homeItemText: this.$t('MENU.HOME.TEXT'),
       actorsItemText: this.$t('MENU.ACTORS.TEXT'),
