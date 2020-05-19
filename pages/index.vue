@@ -244,6 +244,10 @@ export default {
     }
   }
 
+  #adsense{
+    margin: 10px 0 10px;
+  }
+
   #characters{
     #characters-title{
       color: $color-text-blue;
