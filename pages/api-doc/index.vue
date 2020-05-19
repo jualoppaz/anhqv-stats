@@ -4,9 +4,7 @@
       <h1>{{ title }}</h1>
     </div>
     <div class="wrapper">
-      <div id="api-doc-text">
-        <p>Documentación de la API REST</p>
-      </div>
+      <div id="api-doc-text" v-html="apiDocText" />
       <div id="swagger-ui" />
       <el-row
         class="social-networks"
@@ -40,6 +38,7 @@ export default {
   },
   data() {
     return {
+      apiDocText: this.$t('VIEWS.API_DOC.TEXT'),
       shareText: this.$t('COMMON.SOCIAL_SHARING.SHARE'),
     };
   },
