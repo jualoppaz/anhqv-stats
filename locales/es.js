@@ -183,5 +183,8 @@ export default
         },
       },
     },
+    API_DOC: {
+      TEXT: '<p>En esta página se muestra la documentación Swagger de la API REST de la web <a href="http://www.anhqv-stats.es">ANHQV STATS</a>. Decir que se trata de una API <strong>NO OFICIAL</strong> de la serie Aquí No Hay Quien Viva. En ella podrás consultar información sobre: <strong>personajes</strong>, <strong>actores</strong>, <strong>capítulos</strong>, <strong>escenas</strong>... y hasta <strong>diálogos</strong>.</p>',
+    },
   },
 };
