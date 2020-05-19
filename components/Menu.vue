@@ -97,6 +97,12 @@
           </nuxt-link>
         </el-menu-item>
       </el-submenu>
+      <el-menu-item index="5">
+        <nuxt-link :to="{ name: `api-doc___${$i18n.locale}` }" :title="apiDocLinkTitle">
+          <i class="el-icon-info" />
+          <span>{{ apiDocItemText }}</span>
+        </nuxt-link>
+      </el-menu-item>
     </el-menu>
   </el-aside>
 </template>
@@ -130,6 +136,8 @@ export default {
       thirdSeasonLinkTitle: this.$t('MENU.SEASONS.THIRD_SEASON.LINK.TITLE'),
       fourthSeasonLinkTitle: this.$t('MENU.SEASONS.FOURTH_SEASON.LINK.TITLE'),
       fifthSeasonLinkTitle: this.$t('MENU.SEASONS.FIFTH_SEASON.LINK.TITLE'),
+      apiDocLinkTitle: this.$t('MENU.API_DOC.LINK.TITLE'),
+      apiDocItemText: this.$t('MENU.API_DOC.TEXT'),
     };
   },
   mounted() {
