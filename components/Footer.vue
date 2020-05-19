@@ -4,7 +4,7 @@
       {{ copyrightText }}
     </div>
     <div id="author">
-      <a href="http://www.juanmanuellopezpazos.es" target="_blank">{{ authorText }}</a>
+      👨‍💻 <a href="http://www.juanmanuellopezpazos.es" target="_blank">{{ authorText }}</a>
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       copyrightText: 'Copyright ©2020',
-      authorText: '👨‍💻 Juan Manuel López Pazos',
+      authorText: 'Juan Manuel López Pazos',
     };
   },
 };
@@ -43,7 +43,6 @@ export default {
   }
 
   a {
-    text-decoration: none;
     color: $color-text-black;
 
     &:hover{

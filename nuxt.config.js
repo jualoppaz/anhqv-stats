@@ -36,6 +36,7 @@ export default {
   */
   css: [
     'element-ui/lib/theme-chalk/index.css',
+    'swagger-ui/dist/swagger-ui.css',
   ],
   /*
   ** Plugins to load before mounting the App
