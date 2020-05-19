@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 .pointer{
   cursor: pointer;
 }
@@ -34,5 +36,14 @@
         outline: none;
       }
     }
+  }
+}
+
+a {
+  color: $color-text-blue;
+  text-decoration: none;
+
+  &:hover{
+    text-decoration: underline;
   }
 }
