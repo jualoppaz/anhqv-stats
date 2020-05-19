@@ -66,6 +66,12 @@ export default
         },
       },
     },
+    API_DOC: {
+      TEXT: 'API REST',
+      LINK: {
+        TITLE: 'Documentación de la API REST',
+      },
+    },
   },
   VIEWS: {
     HOME: {
