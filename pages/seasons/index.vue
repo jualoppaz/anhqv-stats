@@ -36,7 +36,7 @@
 
 import { mapState } from 'vuex';
 import { Loading } from 'element-ui';
-import ChapterCard from '../../components/ChapterCard.vue';
+import ChapterCard from '../../components/chapters/ChapterCard.vue';
 import SocialShare from '../../components/SocialShare.vue';
 
 import utils from '../../utils';

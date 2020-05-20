@@ -1,6 +1,6 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import ElementUI from 'element-ui';
-import Footer from '../../../components/Footer.vue';
+import Footer from '../../../../components/layout/Footer.vue';
 
 const localVue = createLocalVue();
 localVue.use(ElementUI);
