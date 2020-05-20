@@ -1,7 +1,9 @@
 <template>
   <div id="chapter-scene-events">
     <div class="block">
-      <el-timeline v-if="chapter.scenes[index]">
+      <el-timeline
+        v-if="hasEvents()"
+      >
         <el-timeline-item
           v-for="event in chapter.scenes[index].events"
           :key="event.id"
@@ -26,6 +28,9 @@
           </el-card>
         </el-timeline-item>
       </el-timeline>
+      <p v-else>
+        {{ unavailableText }}
+      </p>
     </div>
   </div>
 </template>
@@ -46,6 +51,7 @@ export default {
     return {
       characterAvatarSize: 'small',
       eventTypeDialog: utils.VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.SCENES.EVENTS.TYPE.DIALOG,
+      unavailableText: this.$t('COMMON.UNAVAILABLE'),
     };
   },
   computed: {
@@ -74,6 +80,11 @@ export default {
     },
     getNodeSize() {
       return 'large';
+    },
+    hasEvents() {
+      return this.chapter.scenes[this.index]
+        && this.chapter.scenes[this.index].events
+        && this.chapter.scenes[this.index].events.length;
     },
   },
 };
