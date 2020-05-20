@@ -9,6 +9,9 @@ describe('Footer.vue', () => {
   it('check initial data', () => {
     const wrapper = shallowMount(Footer, {
       localVue,
+      mocks: {
+        $t: () => {},
+      },
     });
 
     expect(wrapper.find('#copyright').exists()).toBe(true);
