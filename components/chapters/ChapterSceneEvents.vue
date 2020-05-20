@@ -1,9 +1,9 @@
 <template>
   <div id="chapter-scene-events">
     <div class="block">
-      <el-timeline>
+      <el-timeline v-if="chapter.scenes[index]">
         <el-timeline-item
-          v-for="event in scene.events"
+          v-for="event in chapter.scenes[index].events"
           :key="event.id"
           :timestamp="getNodeTimestamp(event)"
           placement="top"
@@ -36,6 +36,12 @@ import utils from '../../utils';
 
 export default {
   name: 'ChapterSceneEvents',
+  props: {
+    order: {
+      type: Number,
+      default: 1,
+    },
+  },
   data() {
     return {
       characterAvatarSize: 'small',
@@ -43,9 +49,12 @@ export default {
     };
   },
   computed: {
-    ...mapState('scenes', {
-      scene: 'current',
+    ...mapState('chapters', {
+      chapter: 'current',
     }),
+    index() {
+      return this.order - 1;
+    },
   },
   methods: {
     getNodeTimestamp(event) {
