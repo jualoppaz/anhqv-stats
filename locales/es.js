@@ -179,6 +179,9 @@ export default
             VIDEO: {
               TITLE: 'Vídeo del capítulo',
             },
+            SCENES: {
+              TITLE: 'Escenas del capítulo',
+            },
           },
         },
       },

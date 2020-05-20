@@ -1,6 +1,6 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import ElementUI from 'element-ui';
-import Header from '../../../components/Header.vue';
+import Header from '../../../../components/layout/Header.vue';
 
 const localVue = createLocalVue();
 localVue.use(ElementUI);

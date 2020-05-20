@@ -22,9 +22,9 @@
 <script>
 
 import VueAdBlockDetect from 'vue-adblock-detect';
-import Menu from '../components/Menu.vue';
-import Header from '../components/Header.vue';
-import Footer from '../components/Footer.vue';
+import Menu from '../components/layout/Menu.vue';
+import Header from '../components/layout/Header.vue';
+import Footer from '../components/layout/Footer.vue';
 
 export default {
   name: 'App',

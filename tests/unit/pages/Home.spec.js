@@ -79,7 +79,7 @@ describe('Home.vue', () => {
       },
     });
 
-    expect(wrapper.find('#welcome-image').exists()).toBe(true);
+    expect(wrapper.find('#welcome-image').exists()).toBeTruthy();
   });
 
   it('has correct <head> content', () => {

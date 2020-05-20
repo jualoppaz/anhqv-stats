@@ -130,6 +130,26 @@
             {{ unavailableText }}
           </p>
         </el-card>
+      </div>
+      <div id="scenes">
+        <el-card>
+          <div slot="header" class="clearfix">
+            <div id="title">
+              {{ scenesTitle }}
+            </div>
+          </div>
+          <p v-if="loading()">
+            {{ loadingText }}
+          </p>
+          <div v-else-if="chapter.scenes && chapter.scenes.length">
+            <ChapterScenesList />
+          </div>
+          <p v-else>
+            {{ unavailableText }}
+          </p>
+        </el-card>
+      </div>
+      <div id="social-networks">
         <el-row
           class="social-networks"
         >
@@ -148,6 +168,7 @@
 import { mapState } from 'vuex';
 import { Loading } from 'element-ui';
 import SocialShare from '../../../../../components/SocialShare.vue';
+import ChapterScenesList from '../../../../../components/chapters/ChapterScenesList.vue';
 
 import utils from '../../../../../utils';
 
@@ -155,6 +176,7 @@ export default {
   name: 'ChapterDetail',
   components: {
     SocialShare,
+    ChapterScenesList,
   },
   nuxtI18n: {
     paths: {
@@ -199,6 +221,7 @@ export default {
       releaseDateLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.RELEASE_DATE'),
       summaryLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.SUMMARY'),
       videoTitle: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.VIDEO.TITLE'),
+      scenesTitle: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.SCENES.TITLE'),
       loadingText: this.$t('COMMON.LOADING'),
       unavailableText: this.$t('COMMON.UNAVAILABLE'),
       shareText: this.$t('COMMON.SOCIAL_SHARING.SHARE'),
@@ -284,11 +307,20 @@ export default {
       overflow: hidden;
     }
     .embed-container iframe {
-        position: absolute;
-        top:0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  #scenes{
+    margin-top: 15px;
+
+    #title{
+      color: $color-text-green;
+      font-size: 20px;
     }
   }
 }

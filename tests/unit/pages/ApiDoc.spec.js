@@ -83,7 +83,7 @@ describe('ApiDoc.vue', () => {
       },
     });
 
-    expect(wrapper.find('#api-doc-text').exists()).toBe(true);
+    expect(wrapper.find('#api-doc-text').exists()).toBeTruthy();
   });
 
   it('has correct <head> content', () => {

@@ -39,7 +39,7 @@
 
 import { mapState } from 'vuex';
 import { Loading } from 'element-ui';
-import ActorCard from '../../components/ActorCard.vue';
+import ActorCard from '../../components/actors/ActorCard.vue';
 import SocialShare from '../../components/SocialShare.vue';
 
 import utils from '../../utils';
