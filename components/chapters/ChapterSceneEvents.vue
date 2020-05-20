@@ -28,7 +28,7 @@
           </el-card>
         </el-timeline-item>
       </el-timeline>
-      <p v-else>
+      <p v-else id="empty-block">
         {{ unavailableText }}
       </p>
     </div>
