@@ -4,7 +4,7 @@
       {{ copyrightText }}
     </div>
     <div id="author">
-      👨‍💻 <a href="http://www.juanmanuellopezpazos.es" target="_blank">{{ authorText }}</a>
+      👨‍💻 <a href="http://www.juanmanuellopezpazos.es" target="_blank" :title="authorTitle">{{ authorText }}</a>
     </div>
   </div>
 </template>
@@ -15,6 +15,7 @@ export default {
   data() {
     return {
       copyrightText: 'Copyright ©2020',
+      authorTitle: this.$t('FOOTER.AUTHOR.TITLE'),
       authorText: 'Juan Manuel López Pazos',
     };
   },
