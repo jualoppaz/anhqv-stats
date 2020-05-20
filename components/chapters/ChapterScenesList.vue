@@ -1,12 +1,12 @@
 <template>
   <div id="chapter-scenes-list">
-    <el-tabs :tab-position="tabPosition" @tab-click="selectScene">
+    <el-tabs :tab-position="tabPosition">
       <el-tab-pane
         v-for="scene in chapter.scenes"
         :key="scene.id"
         :label="getTabLabel(scene)"
       >
-        <ChapterSceneEvents />
+        <ChapterSceneEvents :order="scene.order" />
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -31,21 +31,9 @@ export default {
       chapter: 'current',
     }),
   },
-  mounted() {
-    this.selectScene({
-      label: '1',
-    });
-  },
   methods: {
     getTabLabel(scene) {
       return String(scene.id);
-    },
-    selectScene(tab) {
-      const scene = this.chapter.scenes.find(
-        (item) => String(item.order) === tab.label,
-      );
-
-      this.$store.commit('scenes/setCurrent', scene);
     },
   },
 };
