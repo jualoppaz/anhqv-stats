@@ -145,7 +145,11 @@
             <ChapterScenesList />
           </div>
           <p v-else>
-            {{ unavailableText }}
+            <el-alert
+              :title="emptyScenesText"
+              type="warning"
+              :closable="false"
+            />
           </p>
         </el-card>
       </div>
@@ -223,7 +227,7 @@ export default {
       videoTitle: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.VIDEO.TITLE'),
       scenesTitle: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.SCENES.TITLE'),
       loadingText: this.$t('COMMON.LOADING'),
-      unavailableText: this.$t('COMMON.UNAVAILABLE'),
+      emptyScenesText: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.SCENES.EMPTY'),
       shareText: this.$t('COMMON.SOCIAL_SHARING.SHARE'),
     };
   },
