@@ -180,7 +180,13 @@ export default
               TITLE: 'Vídeo del capítulo',
             },
             SCENES: {
+              EMPTY: 'No hay escenas registradas.',
               TITLE: 'Escenas del capítulo',
+              DETAIL: {
+                EVENTS: {
+                  EMPTY: 'No hay eventos registrados.',
+                },
+              },
             },
           },
         },

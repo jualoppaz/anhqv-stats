@@ -1,8 +1,14 @@
 <template>
   <div id="chapter-scene-events">
     <div class="block">
+      <div id="scene-title">
+        <el-tag type="primary">
+          {{ chapter.scenes[index].title }}
+        </el-tag>
+      </div>
       <el-timeline
         v-if="hasEvents()"
+        id="events-list"
       >
         <el-timeline-item
           v-for="event in chapter.scenes[index].events"
@@ -15,21 +21,28 @@
           :size="getNodeSize()"
         >
           <el-card>
-            <h4>
+            <h4 class="event-characters">
               <el-avatar
                 v-for="character in event.characters"
                 :key="character.id"
                 :size="characterAvatarSize"
                 :src="character.image_url"
                 :alt="character.image_alt"
+                :title="character.shortname"
               />
             </h4>
-            <cite>{{ event.text }}</cite>
+            <div class="event-text">
+              <i>{{ event.text }}</i>
+            </div>
           </el-card>
         </el-timeline-item>
       </el-timeline>
       <p v-else id="empty-block">
-        {{ unavailableText }}
+        <el-alert
+          :title="emptyEventsText"
+          type="warning"
+          :closable="false"
+        />
       </p>
     </div>
   </div>
@@ -51,7 +64,7 @@ export default {
     return {
       characterAvatarSize: 'small',
       eventTypeDialog: utils.VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.SCENES.EVENTS.TYPE.DIALOG,
-      unavailableText: this.$t('COMMON.UNAVAILABLE'),
+      emptyEventsText: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.SCENES.DETAIL.EVENTS.EMPTY'),
     };
   },
   computed: {
@@ -92,8 +105,26 @@ export default {
 
 <style lang="scss" scoped>
 
-h4 {
-  margin-top: 0;
-}
+#chapter-scene-events{
+  #scene-title{
+    text-align: center;
 
+    .el-tag{
+      height: auto;
+      white-space: normal;
+    }
+  }
+
+  #events-list{
+    margin-top: 10px;
+
+    .event-characters{
+      margin-top: 0;
+    }
+
+    .event-text {
+      text-align: justify;
+    }
+  }
+}
 </style>

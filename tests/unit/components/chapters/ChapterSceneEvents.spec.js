@@ -66,7 +66,17 @@ describe('ChapterSceneEvents.vue', () => {
     });
 
     it('it should render empty screen as there is no event', () => {
-      const emptyState = { ...state, current: { scenes: [] } };
+      const emptyState = {
+        ...state,
+        current: {
+          scenes: [
+            {
+              title: 'Chapter title',
+            },
+          ],
+        },
+      };
+
       const emtpyStore = new Vuex.Store({
         modules: {
           chapters: {
