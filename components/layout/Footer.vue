@@ -42,13 +42,5 @@ export default {
       }
     }
   }
-
-  a {
-    color: $color-text-black;
-
-    &:hover{
-      color: $color-text-blue;
-    }
-  }
 }
 </style>
