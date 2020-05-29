@@ -25,12 +25,12 @@ import utils from '../../utils';
 import SocialShare from '../../components/SocialShare.vue';
 
 export default {
-  name: 'Home',
+  name: 'ApiDoc',
   components: {
     SocialShare,
   },
   async fetch() {
-    this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.HOME.TITLE'));
+    this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.API_DOC.TITLE'));
 
     return this.$store.dispatch('seo-configs/getSeoConfigBySlug', {
       slug: 'api-doc',
@@ -73,5 +73,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+#api-doc{
+  .wrapper{
+    ::v-deep #swagger-ui{
+      div{
+        &.information-container.wrapper{
+          padding: 0 !important;
+        }
+      }
+
+      .scheme-container{
+        box-shadow: none;
+        -webkit-box-shadow: none;
+
+        section{
+          &.schemes.wrapper{
+            padding: 0 !important;
+          }
+        }
+      }
+
+      div {
+        & > .wrapper{
+          padding: 0 !important;
+        }
+      }
+    }
+  }
+}
 
 </style>
