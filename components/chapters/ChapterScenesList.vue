@@ -15,6 +15,7 @@
 <script>
 import { mapState } from 'vuex';
 import ChapterSceneEvents from './ChapterSceneEvents.vue';
+import utils from '../../utils';
 
 export default {
   name: 'ChapterScenesList',
@@ -22,8 +23,12 @@ export default {
     ChapterSceneEvents,
   },
   data() {
+    let tabPosition = utils.COMMON.ELEMENTUI.TABS.POSITION.LEFT;
+
+    if (process.client && utils.isMobile()) tabPosition = utils.COMMON.ELEMENTUI.TABS.POSITION.TOP;
+
     return {
-      tabPosition: 'left',
+      tabPosition,
     };
   },
   computed: {
@@ -31,9 +36,21 @@ export default {
       chapter: 'current',
     }),
   },
+  mounted() {
+    // eslint-disable-next-line nuxt/no-globals-in-created
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+  },
   methods: {
     getTabLabel(scene) {
       return String(scene.id);
+    },
+    handleResize() {
+      if (utils.isMobile()) {
+        this.tabPosition = utils.COMMON.ELEMENTUI.TABS.POSITION.TOP;
+      } else {
+        this.tabPosition = utils.COMMON.ELEMENTUI.TABS.POSITION.LEFT;
+      }
     },
   },
 };
