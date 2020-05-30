@@ -1,4 +1,14 @@
 const constants = {
+  COMMON: {
+    ELEMENTUI: {
+      TABS: {
+        POSITION: {
+          LEFT: 'left',
+          TOP: 'top',
+        },
+      },
+    },
+  },
   DEVICES: {
     TABLET: {
       MIN_WIDTH: 768,
