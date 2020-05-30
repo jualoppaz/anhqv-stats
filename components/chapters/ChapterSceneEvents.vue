@@ -117,6 +117,11 @@ export default {
 
   #events-list{
     margin-top: 10px;
+    padding-left: 10px;
+
+    @media screen and (min-width: $tablet-min-width) {
+      padding-left: 5px;
+    }
 
     .event-characters{
       margin-top: 0;

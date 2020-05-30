@@ -323,9 +323,18 @@ export default {
   #scenes{
     margin-top: 15px;
 
-    #title{
-      color: $color-text-green;
-      font-size: 20px;
+    .el-card {
+      .el-card__header{
+        #title{
+          color: $color-text-green;
+          font-size: 20px;
+        }
+      }
+
+      ::v-deep > .el-card__body {
+        padding-left: 0;
+        padding-right: 0;
+      }
     }
   }
 }

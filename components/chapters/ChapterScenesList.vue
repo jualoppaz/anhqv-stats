@@ -57,14 +57,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.el-tabs {
-  ::v-deep .el-tabs__header {
-    height: 450px;
-    overflow: hidden;
-  }
+#chapter-scenes-list{
+  .el-tabs {
+    ::v-deep .el-tabs__header {
+      overflow: hidden;
+      padding: 0 10px;
 
-  ::v-deep .el-tabs__content {
-    padding-right: 15px;
+      @media screen and (min-width: $tablet-min-width) {
+        height: 450px;
+        padding: 0;
+      }
+    }
+
+    ::v-deep .el-tabs__content {
+      padding-right: 15px;
+    }
   }
 }
 </style>
