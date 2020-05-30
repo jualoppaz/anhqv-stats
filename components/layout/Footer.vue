@@ -4,7 +4,7 @@
       {{ copyrightText }}
     </div>
     <div id="author">
-      <a href="http://www.juanmanuellopezpazos.es" target="_blank">{{ authorText }}</a>
+      👨‍💻 <a href="http://www.juanmanuellopezpazos.es" target="_blank" :title="authorTitle">{{ authorText }}</a>
     </div>
   </div>
 </template>
@@ -15,7 +15,8 @@ export default {
   data() {
     return {
       copyrightText: 'Copyright ©2020',
-      authorText: '👨‍💻 Juan Manuel López Pazos',
+      authorTitle: this.$t('FOOTER.AUTHOR.TITLE'),
+      authorText: 'Juan Manuel López Pazos',
     };
   },
 };
@@ -39,15 +40,6 @@ export default {
       &#author{
         margin-left: 5px;
       }
-    }
-  }
-
-  a {
-    text-decoration: none;
-    color: $color-text-black;
-
-    &:hover{
-      color: $color-text-blue;
     }
   }
 }

@@ -1,10 +1,10 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import ElementUI from 'element-ui';
-import Menu from '../../../components/Menu.vue';
+import Menu from '../../../../components/layout/Menu.vue';
 
-jest.mock('../../../utils');
+jest.mock('../../../../utils');
 // eslint-disable-next-line import/first
-import utils from '../../../utils';
+import utils from '../../../../utils';
 
 const localVue = createLocalVue();
 localVue.use(ElementUI);

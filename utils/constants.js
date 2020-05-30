@@ -34,6 +34,19 @@ const constants = {
         DEFAULT: 50,
         MOBILE: 20,
       },
+      DETAIL: {
+        CHAPTERS: {
+          DETAIL: {
+            SCENES: {
+              EVENTS: {
+                TYPE: {
+                  DIALOG: 'DIALOG',
+                },
+              },
+            },
+          },
+        },
+      },
     },
   },
 };

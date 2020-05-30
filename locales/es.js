@@ -12,6 +12,9 @@ export default
     },
   },
   MENU: {
+    LOGO: {
+      ALT: 'Logo de la serie española Aquí No Hay Quien Viva (ANHQV)',
+    },
     ACTORS: {
       TEXT: 'Actores',
       LINK: {
@@ -61,6 +64,12 @@ export default
         LINK: {
           TITLE: 'Capítulos de la Quinta Temporada',
         },
+      },
+    },
+    API_DOC: {
+      TEXT: 'API REST',
+      LINK: {
+        TITLE: 'Documentación de la API REST',
       },
     },
   },
@@ -170,9 +179,27 @@ export default
             VIDEO: {
               TITLE: 'Vídeo del capítulo',
             },
+            SCENES: {
+              EMPTY: 'No hay escenas registradas.',
+              TITLE: 'Escenas del capítulo',
+              DETAIL: {
+                EVENTS: {
+                  EMPTY: 'No hay eventos registrados.',
+                },
+              },
+            },
           },
         },
       },
+    },
+    API_DOC: {
+      TITLE: 'API REST',
+      TEXT: '<p>En esta página se muestra la documentación Swagger de la API REST de la web <a href="http://www.anhqv-stats.es">ANHQV STATS</a>. Decir que se trata de una API <strong>NO OFICIAL</strong> de la serie Aquí No Hay Quien Viva. En ella podrás consultar información sobre: <strong>personajes</strong>, <strong>actores</strong>, <strong>capítulos</strong>, <strong>escenas</strong>... y hasta <strong>diálogos</strong>.</p>',
+    },
+  },
+  FOOTER: {
+    AUTHOR: {
+      TITLE: 'Página web personal de Juan Manuel López Pazos',
     },
   },
 };

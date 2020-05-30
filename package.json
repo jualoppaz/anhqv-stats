@@ -1,6 +1,6 @@
 {
   "name": "anhqv-stats",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -25,6 +25,7 @@
     "nuxt-fontawesome": "0.4.0",
     "nuxt-i18n": "6.9.1",
     "nuxt-sass-resources-loader": "2.0.5",
+    "swagger-ui": "3.25.3",
     "vue": "2.6.11",
     "vue-adblock-detect": "0.0.2",
     "vue-social-sharing": "2.4.7",

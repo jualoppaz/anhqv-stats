@@ -3,13 +3,17 @@ import Vuex from 'vuex';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import VueMeta from 'vue-meta';
 import ElementUI from 'element-ui';
-import Home from '../../../pages/index.vue';
-
-jest.mock('../../../utils');
+// eslint-disable-next-line no-unused-vars
+import SwaggerUIBundle from 'swagger-ui';
+import ApiDoc from '../../../pages/api-doc/index.vue';
 // eslint-disable-next-line import/first
 import utils from '../../../utils';
+// eslint-disable-next-line import/first
 
-describe('Home.vue', () => {
+jest.mock('../../../utils');
+jest.mock('swagger-ui');
+
+describe('ApiDoc.vue', () => {
   let localVue;
   let store;
 
@@ -34,16 +38,16 @@ describe('Home.vue', () => {
 
     seoConfigState = {
       currentSeoConfig: {
-        title: 'Home title',
-        description: 'Home description',
-        canonical_url: 'http://home.com',
-        og_title: 'Home og:title',
-        og_type: 'Home og:type',
-        og_image: 'Home og:image',
-        og_url: 'Home og:url',
-        og_description: 'Home og:description',
-        twitter_site: 'Home twitter:site',
-        twitter_card: 'Home twitter:card',
+        title: 'API Doc title',
+        description: 'API Doc description',
+        canonical_url: 'http://api-doc.com',
+        og_title: 'API Doc og:title',
+        og_type: 'API Doc og:type',
+        og_image: 'API Doc og:image',
+        og_url: 'API Doc og:url',
+        og_description: 'API Doc og:description',
+        twitter_site: 'API Doc twitter:site',
+        twitter_card: 'API Doc twitter:card',
       },
     };
 
@@ -70,7 +74,7 @@ describe('Home.vue', () => {
   });
 
   it('check initial data', () => {
-    const wrapper = shallowMount(Home, {
+    const wrapper = shallowMount(ApiDoc, {
       localVue,
       store,
       stubs: ['nuxt-link', 'router-view', 'font-awesome-icon', 'Adsense', 'el-row', 'el-col', 'el-card', 'adsbygoogle', 'social-sharing', 'network'],
@@ -79,78 +83,78 @@ describe('Home.vue', () => {
       },
     });
 
-    expect(wrapper.find('#welcome-image').exists()).toBeTruthy();
+    expect(wrapper.find('#api-doc-text').exists()).toBeTruthy();
   });
 
   it('has correct <head> content', () => {
     const mockedMetas = {
       link: [
         {
-          href: 'http://home.com',
+          href: 'http://api-doc.com',
           rel: 'canonical',
         },
       ],
       meta: [
         {
-          content: 'Home description',
+          content: 'API Doc description',
           hid: 'description',
           name: 'description',
         }, {
-          content: 'Home, keywords',
+          content: 'API Doc, keywords',
           hid: 'keywords',
           name: 'keywords',
         }, {
-          content: 'Home og:title',
+          content: 'API Doc og:title',
           hid: 'og:title',
           property: 'og:title',
         }, {
-          content: 'Home og:type',
+          content: 'API Doc og:type',
           hid: 'og:type',
           property: 'og:type',
         }, {
-          content: 'Home og:image',
+          content: 'API Doc og:image',
           hid: 'og:image',
           property: 'og:image',
         }, {
-          content: 'Home og:url',
+          content: 'API Doc og:url',
           hid: 'og:url',
           property: 'og:url',
         }, {
-          content: 'Home og:description',
+          content: 'API Doc og:description',
           hid: 'og:description',
           property: 'og:description',
         }, {
-          content: 'Home og:site_name',
+          content: 'API Doc og:site_name',
           hid: 'og:site_name',
           property: 'og:site_name',
         }, {
-          content: 'Home twitter:site',
+          content: 'API Doc twitter:site',
           hid: 'twitter:site',
           name: 'twitter:site',
         }, {
-          content: 'Home twitter:card',
+          content: 'API Doc twitter:card',
           hid: 'twitter:card',
           name: 'twitter:card',
         }, {
-          content: 'Home twitter:image',
+          content: 'API Doc twitter:image',
           hid: 'twitter:image',
           name: 'twitter:image',
         }, {
-          content: 'Home twitter:title',
+          content: 'API Doc twitter:title',
           hid: 'twitter:title',
           name: 'twitter:title',
         }, {
-          content: 'Home twitter:description',
+          content: 'API Doc twitter:description',
           hid: 'twitter:description',
           name: 'twitter:description',
         },
       ],
-      title: 'Home title',
+      title: 'API Doc title',
     };
 
     utils.getCommonMetas.mockReturnValue(mockedMetas);
 
-    const wrapper = shallowMount(Home, {
+    const wrapper = shallowMount(ApiDoc, {
       localVue,
       store,
       stubs: ['nuxt-link', 'router-view', 'font-awesome-icon', 'Adsense', 'el-row', 'el-col', 'el-card', 'adsbygoogle', 'social-sharing', 'network'],
@@ -203,20 +207,20 @@ describe('Home.vue', () => {
       (item) => item.hid === 'twitter:description',
     );
 
-    expect(title).toEqual('Home title');
-    expect(descriptionMeta.content).toEqual('Home description');
-    expect(keywordsMeta.content).toEqual('Home, keywords');
-    expect(canonicalUrlLink.href).toEqual('http://home.com');
-    expect(ogTitleMeta.content).toEqual('Home og:title');
-    expect(ogTypeMeta.content).toEqual('Home og:type');
-    expect(ogImageMeta.content).toEqual('Home og:image');
-    expect(ogUrlMeta.content).toEqual('Home og:url');
-    expect(ogSiteNameMeta.content).toEqual('Home og:site_name');
-    expect(ogDescriptionMeta.content).toEqual('Home og:description');
-    expect(twitterSiteMeta.content).toEqual('Home twitter:site');
-    expect(twitterCardMeta.content).toEqual('Home twitter:card');
-    expect(twitterImageMeta.content).toEqual('Home twitter:image');
-    expect(twitterTitleMeta.content).toEqual('Home twitter:title');
-    expect(twitterDescriptionMeta.content).toEqual('Home twitter:description');
+    expect(title).toEqual('API Doc title');
+    expect(descriptionMeta.content).toEqual('API Doc description');
+    expect(keywordsMeta.content).toEqual('API Doc, keywords');
+    expect(canonicalUrlLink.href).toEqual('http://api-doc.com');
+    expect(ogTitleMeta.content).toEqual('API Doc og:title');
+    expect(ogTypeMeta.content).toEqual('API Doc og:type');
+    expect(ogImageMeta.content).toEqual('API Doc og:image');
+    expect(ogUrlMeta.content).toEqual('API Doc og:url');
+    expect(ogSiteNameMeta.content).toEqual('API Doc og:site_name');
+    expect(ogDescriptionMeta.content).toEqual('API Doc og:description');
+    expect(twitterSiteMeta.content).toEqual('API Doc twitter:site');
+    expect(twitterCardMeta.content).toEqual('API Doc twitter:card');
+    expect(twitterImageMeta.content).toEqual('API Doc twitter:image');
+    expect(twitterTitleMeta.content).toEqual('API Doc twitter:title');
+    expect(twitterDescriptionMeta.content).toEqual('API Doc twitter:description');
   });
 });

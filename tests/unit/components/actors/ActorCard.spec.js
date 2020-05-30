@@ -1,6 +1,6 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import ElementUI from 'element-ui';
-import ActorCard from '../../../components/ActorCard.vue';
+import ActorCard from '../../../../components/actors/ActorCard.vue';
 
 const localVue = createLocalVue();
 localVue.use(ElementUI);
