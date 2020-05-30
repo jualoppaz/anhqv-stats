@@ -37,13 +37,13 @@
           </el-card>
         </el-timeline-item>
       </el-timeline>
-      <p v-else id="empty-block">
+      <div v-else id="empty-block">
         <el-alert
           :title="emptyEventsText"
           type="warning"
           :closable="false"
         />
-      </p>
+      </div>
     </div>
   </div>
 </template>
