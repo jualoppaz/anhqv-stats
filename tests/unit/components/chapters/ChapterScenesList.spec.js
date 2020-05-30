@@ -3,6 +3,10 @@ import ElementUI from 'element-ui';
 import Vuex from 'vuex';
 import ChapterScenesList from '../../../../components/chapters/ChapterScenesList.vue';
 
+jest.mock('../../../../utils');
+// eslint-disable-next-line import/first
+import utils from '../../../../utils';
+
 describe('ChapterScenesList.vue', () => {
   let localVue;
   let store;
@@ -59,5 +63,45 @@ describe('ChapterScenesList.vue', () => {
     });
     expect(wrapper.find('#chapter-scenes-list').exists()).toBeTruthy();
     expect(wrapper.vm.tabPosition).toEqual('left');
+  });
+
+  describe('handleResize', () => {
+    it('isCollapsed must be true', () => {
+      utils.isMobile.mockReturnValue(true);
+
+      const wrapper = shallowMount(ChapterScenesList, {
+        localVue,
+        store,
+        mocks: {
+          $t: () => {},
+          $i18n: {
+            locale: 'es',
+          },
+        },
+        stubs: ['el-card', 'el-row', 'el-button', 'nuxt-link'],
+      });
+
+      wrapper.vm.handleResize();
+      expect(wrapper.vm.tabPosition).toEqual('top');
+    });
+
+    it('isCollapsed must be false', () => {
+      utils.isMobile.mockReturnValue(false);
+
+      const wrapper = shallowMount(ChapterScenesList, {
+        localVue,
+        store,
+        mocks: {
+          $t: () => {},
+          $i18n: {
+            locale: 'es',
+          },
+        },
+        stubs: ['el-card', 'el-row', 'el-button', 'nuxt-link'],
+      });
+
+      wrapper.vm.handleResize();
+      expect(wrapper.vm.tabPosition).toEqual('left');
+    });
   });
 });
