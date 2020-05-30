@@ -443,4 +443,8 @@
   <url>
     <loc>http://www.anhqv-stats.es/temporadas/5/capitulos/5x13-erase-un-adios</loc>
   </url>
+  <!-- API REST -->
+  <url>
+    <loc>http://www.anhqv-stats.es/api-doc</loc>
+  </url>
 </urlset>
