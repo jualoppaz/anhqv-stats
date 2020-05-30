@@ -144,13 +144,13 @@
           <div v-else-if="chapter.scenes && chapter.scenes.length">
             <ChapterScenesList />
           </div>
-          <p v-else>
+          <div v-else>
             <el-alert
               :title="emptyScenesText"
               type="warning"
               :closable="false"
             />
-          </p>
+          </div>
         </el-card>
       </div>
       <div id="social-networks">
@@ -329,11 +329,6 @@ export default {
           color: $color-text-green;
           font-size: 20px;
         }
-      }
-
-      ::v-deep > .el-card__body {
-        padding-left: 0;
-        padding-right: 0;
       }
     }
   }

@@ -61,19 +61,11 @@ export default {
   .el-tabs {
     ::v-deep .el-tabs__header {
       overflow: hidden;
-      padding: 0 15px;
+      padding: 0 5px;
 
       @media screen and (min-width: $tablet-min-width) {
         height: 450px;
         padding: 0;
-      }
-    }
-
-    ::v-deep .el-tabs__content {
-      padding-left: 15px;
-      padding-right: 15px;
-      @media screen and (min-width: $tablet-min-width) {
-        padding-left: 0;
       }
     }
   }
