@@ -117,7 +117,7 @@ export default {
 
   #events-list{
     margin-top: 10px;
-    padding-left: 10px;
+    padding-left: 3px;
 
     @media screen and (min-width: $tablet-min-width) {
       padding-left: 5px;
