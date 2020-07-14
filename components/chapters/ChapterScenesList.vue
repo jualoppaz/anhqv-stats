@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     getTabLabel(scene) {
-      return String(scene.id);
+      return String(scene.order);
     },
     handleResize() {
       if (utils.isMobile()) {
