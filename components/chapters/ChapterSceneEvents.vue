@@ -115,6 +115,10 @@ export default {
     }
   }
 
+  #empty-block{
+    margin-top: 15px;
+  }
+
   #events-list{
     margin-top: 10px;
     padding-left: 3px;
