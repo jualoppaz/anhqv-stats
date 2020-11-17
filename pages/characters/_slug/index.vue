@@ -14,12 +14,23 @@
             </div>
           </div>
           <el-row>
-            <el-col id="avatar" :xs="24" :sm="24" :md="6">
+            <el-col
+              id="avatar"
+              :xs="24"
+              :sm="24"
+              :md="12"
+              :lg="6"
+            >
               <el-avatar :src="character.image_url" :size="avatarSize" :alt="character.image_alt" />
             </el-col>
-            <el-col :xs="24" :sm="24" :md="{ span: 14, offset: 2 }">
+            <el-col
+              :xs="24"
+              :sm="24"
+              :md="12"
+              :lg="{ span: 16, offset: 2 }"
+            >
               <el-row class="character-info-row">
-                <el-col :xs="24" :sm="12" :md="8">
+                <el-col :xs="24" :sm="12" :lg="8">
                   <p>
                     {{ nameLabel }}
                   </p>
@@ -30,7 +41,7 @@
                     <i class="el-icon-minus" />
                   </p>
                 </el-col>
-                <el-col :xs="24" :sm="12" :md="8">
+                <el-col :xs="24" :sm="12" :lg="8">
                   <p>
                     {{ surnameLabel }}
                   </p>
@@ -41,7 +52,7 @@
                     <i class="el-icon-minus" />
                   </p>
                 </el-col>
-                <el-col :xs="24" :sm="12" :md="8">
+                <el-col :xs="24" :sm="12" :lg="8">
                   <p>
                     {{ secondSurnameLabel }}
                   </p>
@@ -52,7 +63,7 @@
                     <i class="el-icon-minus" />
                   </p>
                 </el-col>
-                <el-col :xs="24" :sm="12" :md="8">
+                <el-col :xs="24" :sm="12" :lg="8">
                   <p>
                     {{ shortnameLabel }}
                   </p>
@@ -63,7 +74,7 @@
                     <i class="el-icon-minus" />
                   </p>
                 </el-col>
-                <el-col :xs="24" :sm="12" :md="8">
+                <el-col :xs="24" :sm="12" :lg="8">
                   <p>
                     {{ nicknameLabel }}
                   </p>
@@ -78,15 +89,22 @@
             </el-col>
           </el-row>
         </el-card>
-        <el-row
-          class="social-networks"
-        >
-          <social-share
-            :title="shareText"
-            :seo-config="seoConfig"
-          />
-        </el-row>
       </div>
+      <div id="adsense">
+        <adsbygoogle
+          data-ad-slot="4044329554"
+          data-ad-format="fluid"
+          data-full-width-responsive="true"
+        />
+      </div>
+      <el-row
+        class="social-networks"
+      >
+        <social-share
+          :title="shareText"
+          :seo-config="seoConfig"
+        />
+      </el-row>
     </div>
   </div>
 </template>
@@ -200,6 +218,10 @@ export default {
         font-weight: bold;
       }
     }
+  }
+
+  #adsense {
+    margin-top: 15px;
   }
 }
 </style>

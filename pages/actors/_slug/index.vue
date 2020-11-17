@@ -14,12 +14,23 @@
             </div>
           </div>
           <el-row>
-            <el-col id="avatar" :xs="24" :sm="24" :md="6">
+            <el-col
+              id="avatar"
+              :xs="24"
+              :sm="24"
+              :md="12"
+              :lg="6"
+            >
               <el-avatar :src="actor.image_url" :size="avatarSize" :alt="actor.image_alt" />
             </el-col>
-            <el-col :xs="24" :sm="24" :md="{ span: 14, offset: 2 }">
+            <el-col
+              :xs="24"
+              :sm="24"
+              :md="12"
+              :lg="{ span: 16, offset: 2 }"
+            >
               <el-row class="actor-info-row">
-                <el-col :xs="24" :sm="12" :md="8">
+                <el-col :xs="24" :sm="12" :lg="8">
                   <p>{{ nameLabel }}</p>
                   <p v-if="actor.name" class="bold">
                     {{ actor.name }}
@@ -28,7 +39,7 @@
                     <i class="el-icon-minus" />
                   </p>
                 </el-col>
-                <el-col :xs="24" :sm="12" :md="8">
+                <el-col :xs="24" :sm="12" :lg="8">
                   <p>{{ surnameLabel }}</p>
                   <p v-if="actor.surname" class="bold">
                     {{ actor.surname }}
@@ -37,7 +48,7 @@
                     <i class="el-icon-minus" />
                   </p>
                 </el-col>
-                <el-col :xs="24" :sm="12" :md="8">
+                <el-col :xs="24" :sm="12" :lg="8">
                   <p>{{ secondSurnameLabel }}</p>
                   <p v-if="actor.second_surname" class="bold">
                     {{ actor.second_surname }}
@@ -46,7 +57,7 @@
                     <i class="el-icon-minus" />
                   </p>
                 </el-col>
-                <el-col :xs="24" :sm="12" :md="8">
+                <el-col :xs="24" :sm="12" :lg="8">
                   <p>{{ shortnameLabel }}</p>
                   <p v-if="actor.shortname" class="bold">
                     {{ actor.shortname }}
@@ -55,7 +66,7 @@
                     <i class="el-icon-minus" />
                   </p>
                 </el-col>
-                <el-col :xs="24" :sm="12" :md="8">
+                <el-col :xs="24" :sm="12" :lg="8">
                   <p>{{ birthdateLabel }}</p>
                   <p v-if="actor.parsed_birthdate" class="bold">
                     {{ actor.parsed_birthdate }}
@@ -64,7 +75,7 @@
                     <i class="el-icon-minus" />
                   </p>
                 </el-col>
-                <el-col v-if="actor.parsed_deathdate" :xs="24" :sm="12" :md="8">
+                <el-col v-if="actor.parsed_deathdate" :xs="24" :sm="12" :lg="8">
                   <p>{{ deathdateLabel }}</p>
                   <p class="bold">
                     {{ actor.parsed_deathdate }}
@@ -74,6 +85,13 @@
             </el-col>
           </el-row>
         </el-card>
+      </div>
+      <div id="adsense">
+        <adsbygoogle
+          data-ad-slot="4044329554"
+          data-ad-format="fluid"
+          data-full-width-responsive="true"
+        />
       </div>
       <el-row
         class="social-networks"
@@ -197,6 +215,10 @@ export default {
         font-weight: bold;
       }
     }
+  }
+
+  #adsense {
+    margin-top: 15px;
   }
 }
 </style>
