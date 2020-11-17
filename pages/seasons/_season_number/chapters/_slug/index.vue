@@ -129,6 +129,13 @@
           </p>
         </el-card>
       </div>
+      <div id="adsense">
+        <adsbygoogle
+          data-ad-slot="4044329554"
+          data-ad-format="fluid"
+          data-full-width-responsive="true"
+        />
+      </div>
       <div id="scenes">
         <el-card>
           <div slot="header" class="clearfix">
@@ -293,6 +300,10 @@ export default {
         text-align: justify;
       }
     }
+  }
+
+  #adsense{
+    margin-top: 15px;
   }
 
   #chapter-video {

@@ -89,15 +89,22 @@
             </el-col>
           </el-row>
         </el-card>
-        <el-row
-          class="social-networks"
-        >
-          <social-share
-            :title="shareText"
-            :seo-config="seoConfig"
-          />
-        </el-row>
       </div>
+      <div id="adsense">
+        <adsbygoogle
+          data-ad-slot="4044329554"
+          data-ad-format="fluid"
+          data-full-width-responsive="true"
+        />
+      </div>
+      <el-row
+        class="social-networks"
+      >
+        <social-share
+          :title="shareText"
+          :seo-config="seoConfig"
+        />
+      </el-row>
     </div>
   </div>
 </template>
@@ -211,6 +218,10 @@ export default {
         font-weight: bold;
       }
     }
+  }
+
+  #adsense {
+    margin-top: 15px;
   }
 }
 </style>
