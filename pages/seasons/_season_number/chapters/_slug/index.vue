@@ -17,8 +17,6 @@
             <el-col
               id="avatar"
               :xs="24"
-              :sm="24"
-              :md="12"
               :lg="6"
             >
               <el-avatar
@@ -31,11 +29,11 @@
             <el-col
               :xs="24"
               :sm="24"
-              :md="12"
-              :lg="{ span: 14, offset: 2 }"
+              :md="24"
+              :lg="{ span: 16, offset: 2 }"
             >
               <el-row class="chapter-info-row">
-                <el-col :xs="24" :sm="12" :md="8">
+                <el-col :xs="24" :sm="24">
                   <p>{{ nameLabel }}</p>
                   <p v-if="chapter.name" class="bold">
                     {{ chapter.name }}
@@ -44,7 +42,7 @@
                     <i class="el-icon-minus" />
                   </p>
                 </el-col>
-                <el-col :xs="24" :sm="12" :md="8">
+                <el-col :xs="24" :sm="12" :md="12" :lg="8">
                   <p>{{ seasonLabel }}</p>
                   <p v-if="chapter.season" class="bold">
                     {{ chapter.season }}
@@ -53,7 +51,7 @@
                     <i class="el-icon-minus" />
                   </p>
                 </el-col>
-                <el-col :xs="24" :sm="12" :md="8">
+                <el-col :xs="24" :sm="12" :md="12" :lg="8">
                   <p>{{ durationLabel }}</p>
                   <p v-if="chapter.parsed_duration" class="bold">
                     {{ chapter.parsed_duration }}
@@ -62,7 +60,7 @@
                     <i class="el-icon-minus" />
                   </p>
                 </el-col>
-                <el-col :xs="24" :sm="12" :md="8">
+                <el-col :xs="24" :sm="12" :md="12" :lg="8">
                   <p>{{ releaseDateLabel }}</p>
                   <p
                     v-if="chapter.parsed_release_date"
