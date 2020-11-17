@@ -96,7 +96,7 @@ body{
           .wrapper {
             padding: 20px;
 
-            @media screen and (min-width: $tablet-min-width){
+            @media screen and (min-width: $lg-desktop-min-width){
               padding: 50px;
             }
           }
