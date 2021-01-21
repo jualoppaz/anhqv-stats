@@ -1,6 +1,6 @@
 {
   "name": "anhqv-stats",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -16,10 +16,10 @@
     "@fortawesome/free-brands-svg-icons": "5.13.0",
     "@fortawesome/free-solid-svg-icons": "5.13.0",
     "@fortawesome/vue-fontawesome": "0.1.9",
-    "@nuxtjs/axios": "5.9.7",
+    "@nuxtjs/axios": "5.12.5",
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/google-adsense": "1.1.3",
-    "axios": "0.19.2",
+    "axios": "0.21.1",
     "element-ui": "2.13.1",
     "nuxt": "2.12.2",
     "nuxt-fontawesome": "0.4.0",
