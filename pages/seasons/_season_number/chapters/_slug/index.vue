@@ -98,7 +98,7 @@
           <p v-if="loading()">
             {{ loadingText }}
           </p>
-          <el-row v-else-if="chapter.video_url">
+          <el-row v-else-if="videoUrl">
             <el-col
               id="avatar"
               :xs="24"
@@ -116,7 +116,7 @@
                 class="embed-container"
               >
                 <iframe
-                  :src="chapter.video_url"
+                  :src="videoUrl"
                   frameborder="0"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
@@ -247,6 +247,9 @@ export default {
     ...mapState('seo-configs', {
       seoConfig: 'currentSeoConfig',
     }),
+    videoUrl() {
+      return this.chapter.own_video_url || this.chapter.video_url;
+    },
   },
   mounted() {
     // eslint-disable-next-line nuxt/no-globals-in-created
