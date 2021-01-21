@@ -108,7 +108,7 @@ describe('CharacterDetail.vue', () => {
             },
           },
         },
-        stubs: ['el-card', 'el-col', 'el-row', 'el-avatar'],
+        stubs: ['el-card', 'el-col', 'el-row', 'el-avatar', 'adsbygoogle'],
         methods,
       });
 
@@ -134,7 +134,7 @@ describe('CharacterDetail.vue', () => {
             },
           },
         },
-        stubs: ['el-card', 'el-col', 'el-row', 'el-avatar'],
+        stubs: ['el-card', 'el-col', 'el-row', 'el-avatar', 'adsbygoogle'],
         methods,
       });
 
@@ -295,7 +295,7 @@ describe('CharacterDetail.vue', () => {
             },
           },
         },
-        stubs: ['el-card', 'el-col', 'el-row', 'el-avatar'],
+        stubs: ['el-card', 'el-col', 'el-row', 'el-avatar', 'adsbygoogle'],
       });
 
       wrapper.vm.handleResize();
@@ -316,7 +316,7 @@ describe('CharacterDetail.vue', () => {
             },
           },
         },
-        stubs: ['el-card', 'el-col', 'el-row', 'el-avatar'],
+        stubs: ['el-card', 'el-col', 'el-row', 'el-avatar', 'adsbygoogle'],
       });
 
       wrapper.vm.handleResize();
@@ -336,7 +336,7 @@ describe('CharacterDetail.vue', () => {
           },
         },
       },
-      stubs: ['el-card', 'el-col', 'el-row', 'el-avatar'],
+      stubs: ['el-card', 'el-col', 'el-row', 'el-avatar', 'adsbygoogle'],
     });
 
     window.removeEventListener = jest.fn();
