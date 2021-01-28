@@ -86,6 +86,13 @@
           </el-row>
         </el-card>
       </div>
+      <div id="adsense">
+        <adsbygoogle
+          data-ad-slot="4044329554"
+          data-ad-format="fluid"
+          data-full-width-responsive="true"
+        />
+      </div>
       <div
         id="chapter-video"
       >
@@ -129,13 +136,30 @@
           </p>
         </el-card>
       </div>
-      <div id="adsense">
-        <adsbygoogle
-          data-ad-slot="4044329554"
-          data-ad-format="fluid"
-          data-full-width-responsive="true"
-        />
-      </div>
+      <el-row
+        class="youtube-subscribe"
+      >
+        <el-col
+          :xs="24"
+          :lg="{
+            span: 12,
+            offset: 6
+          }"
+          class="youtube-subscribe-button-container"
+        >
+          <div id="subscribe">
+            <h2 id="subscribe-title">
+              {{ subscribeTitle }}
+            </h2>
+            <div id="subscribe-text" v-html="subscribeText" />
+          </div>
+          <YoutubeSubscribeButton
+            identifier="youtube-subscribe-button"
+            channelid="UCvjkhpPuyNS0rBGJ8loDo2g"
+            layout="full"
+          />
+        </el-col>
+      </el-row>
       <div id="scenes">
         <el-card>
           <div slot="header" class="clearfix">
@@ -176,16 +200,19 @@
 
 import { mapState } from 'vuex';
 import { Loading } from 'element-ui';
-import SocialShare from '../../../../../components/SocialShare.vue';
-import ChapterScenesList from '../../../../../components/chapters/ChapterScenesList.vue';
+import SocialShare from '@/components/SocialShare.vue';
+import ChapterScenesList from '@/components/chapters/ChapterScenesList.vue';
+import YoutubeSubscribeButton from '@/components/YoutubeSubscribeButton.vue';
 
-import utils from '../../../../../utils';
+import utils from '@/utils';
+
 
 export default {
   name: 'ChapterDetail',
   components: {
     SocialShare,
     ChapterScenesList,
+    YoutubeSubscribeButton,
   },
   nuxtI18n: {
     paths: {
@@ -230,6 +257,8 @@ export default {
       releaseDateLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.RELEASE_DATE'),
       summaryLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.SUMMARY'),
       videoTitle: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.VIDEO.TITLE'),
+      subscribeTitle: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.SUBSCRIBE.TITLE'),
+      subscribeText: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.SUBSCRIBE.TEXT'),
       scenesTitle: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.SCENES.TITLE'),
       loadingText: this.$t('COMMON.LOADING'),
       unavailableText: this.$t('COMMON.UNAVAILABLE'),
@@ -332,8 +361,18 @@ export default {
     }
   }
 
+  #subscribe{
+    #subscribe-title{
+      color: $color-brand-youtube;
+    }
+
+    #subscribe-text{
+      text-align: justify;
+    }
+  }
+
   #scenes{
-    margin-top: 15px;
+    margin-top: 30px;
 
     .el-card {
       .el-card__header{
