@@ -183,6 +183,10 @@ export default
             VIDEO: {
               TITLE: 'Vídeo del capítulo',
             },
+            SUBSCRIBE: {
+              TITLE: 'Suscríbete a nuestro Canal',
+              TEXT: '<p>Puedes apoyarnos suscribiéndote a nuestro canal en Youtube, donde encontrarás todos los capítulos de la serie. Nuestro objetivo: 1000 suscriptores.</p>.',
+            },
             SCENES: {
               EMPTY: 'No hay escenas registradas.',
               TITLE: 'Escenas del capítulo',
