@@ -202,7 +202,6 @@ import { mapState } from 'vuex';
 import { Loading } from 'element-ui';
 import SocialShare from '@/components/SocialShare.vue';
 import ChapterScenesList from '@/components/chapters/ChapterScenesList.vue';
-import YoutubeSubscribeButton from '@/components/YoutubeSubscribeButton.vue';
 
 import utils from '@/utils';
 
@@ -212,7 +211,6 @@ export default {
   components: {
     SocialShare,
     ChapterScenesList,
-    YoutubeSubscribeButton,
   },
   nuxtI18n: {
     paths: {
