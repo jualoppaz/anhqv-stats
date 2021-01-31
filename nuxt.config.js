@@ -45,7 +45,6 @@ export default {
     '@/plugins/element-ui',
     '@/plugins/nuxt-anhqv-client.js',
     '@/plugins/nuxt-social-sharing.js',
-    '@/plugins/nuxt-youtube-subscribe.js',
   ],
   /*
   ** Nuxt.js dev-modules
