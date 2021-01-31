@@ -203,13 +203,11 @@ import { mapState } from 'vuex';
 import utils from '../utils';
 
 import SocialShare from '@/components/SocialShare.vue';
-import YoutubeSubscribeButton from '@/components/YoutubeSubscribeButton.vue';
 
 export default {
   name: 'Home',
   components: {
     SocialShare,
-    YoutubeSubscribeButton,
   },
   async fetch() {
     this.$store.commit('configs/setCurrentTitle', this.$t('VIEWS.HOME.TITLE'));
