@@ -96,7 +96,7 @@ export default
       },
       SUBSCRIBE: {
         TITLE: 'Suscríbete a nuestro Canal',
-        TEXT: '<p>También puedes apoyarnos suscribiéndote a nuestro canal en Youtube, donde encontrarás todos los capítulos de la serie. Nuestro objetivo: 1000 suscriptores.</p>.',
+        TEXT: '<p>También puedes apoyarnos suscribiéndote a nuestro canal en Youtube, donde encontrarás todos los capítulos de la serie. Nuestro objetivo: 1000 suscriptores.</p>',
       },
       REFERENCES: {
         TITLE: 'Referencias',
@@ -185,7 +185,7 @@ export default
             },
             SUBSCRIBE: {
               TITLE: 'Suscríbete a nuestro Canal',
-              TEXT: '<p>Puedes apoyarnos suscribiéndote a nuestro canal en Youtube, donde encontrarás todos los capítulos de la serie. Nuestro objetivo: 1000 suscriptores.</p>.',
+              TEXT: '<p>Puedes apoyarnos suscribiéndote a nuestro canal en Youtube, donde encontrarás todos los capítulos de la serie. Nuestro objetivo: 1000 suscriptores.</p>',
             },
             SCENES: {
               EMPTY: 'No hay escenas registradas.',
