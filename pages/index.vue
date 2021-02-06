@@ -76,31 +76,6 @@
           </div>
         </el-col>
       </el-row>
-      <el-row
-        class="youtube-subscribe"
-      >
-        <el-col
-          :xs="24"
-          :lg="{
-            span: 12,
-            offset: 6
-          }"
-          class="youtube-subscribe-button-container"
-        >
-          <div id="subscribe">
-            <h2 id="subscribe-title">
-              {{ subscribeTitle }}
-            </h2>
-            <div id="subscribe-text" v-html="subscribeText" />
-          </div>
-          <YoutubeSubscribeButton
-            identifier="youtube-subscribe-button"
-            channelid="UCvjkhpPuyNS0rBGJ8loDo2g"
-            layout="full"
-          />
-        </el-col>
-      </el-row>
-
       <el-row>
         <el-col
           :xs="24"
@@ -219,8 +194,6 @@ export default {
       chaptersText: this.$t('VIEWS.HOME.CHAPTERS.TEXT'),
       referencesTitle: this.$t('VIEWS.HOME.REFERENCES.TITLE'),
       referencesText: this.$t('VIEWS.HOME.REFERENCES.TEXT'),
-      subscribeTitle: this.$t('VIEWS.HOME.SUBSCRIBE.TITLE'),
-      subscribeText: this.$t('VIEWS.HOME.SUBSCRIBE.TEXT'),
       anhqvText: this.$t('VIEWS.HOME.REFERENCES.LIST.ANHQV.TEXT'),
       escenasAnhqvText: this.$t('VIEWS.HOME.REFERENCES.LIST.ESCENASANHQV.TEXT'),
       shareText: this.$t('COMMON.SOCIAL_SHARING.SHARE'),
@@ -295,16 +268,6 @@ export default {
     }
 
     #chapters-text{
-      text-align: justify;
-    }
-  }
-
-  #subscribe{
-    #subscribe-title{
-      color: $color-brand-youtube;
-    }
-
-    #subscribe-text{
       text-align: justify;
     }
   }
