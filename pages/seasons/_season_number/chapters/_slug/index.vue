@@ -136,30 +136,6 @@
           </p>
         </el-card>
       </div>
-      <el-row
-        class="youtube-subscribe"
-      >
-        <el-col
-          :xs="24"
-          :lg="{
-            span: 12,
-            offset: 6
-          }"
-          class="youtube-subscribe-button-container"
-        >
-          <div id="subscribe">
-            <h2 id="subscribe-title">
-              {{ subscribeTitle }}
-            </h2>
-            <div id="subscribe-text" v-html="subscribeText" />
-          </div>
-          <YoutubeSubscribeButton
-            identifier="youtube-subscribe-button"
-            channelid="UCvjkhpPuyNS0rBGJ8loDo2g"
-            layout="full"
-          />
-        </el-col>
-      </el-row>
       <div id="scenes">
         <el-card>
           <div slot="header" class="clearfix">
@@ -255,8 +231,6 @@ export default {
       releaseDateLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.RELEASE_DATE'),
       summaryLabel: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.INFO.SUMMARY'),
       videoTitle: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.VIDEO.TITLE'),
-      subscribeTitle: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.SUBSCRIBE.TITLE'),
-      subscribeText: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.SUBSCRIBE.TEXT'),
       scenesTitle: this.$t('VIEWS.SEASONS.DETAIL.CHAPTERS.DETAIL.SCENES.TITLE'),
       loadingText: this.$t('COMMON.LOADING'),
       unavailableText: this.$t('COMMON.UNAVAILABLE'),
@@ -356,16 +330,6 @@ export default {
       left: 0;
       width: 100%;
       height: 100%;
-    }
-  }
-
-  #subscribe{
-    #subscribe-title{
-      color: $color-brand-youtube;
-    }
-
-    #subscribe-text{
-      text-align: justify;
     }
   }
 

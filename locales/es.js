@@ -94,10 +94,6 @@ export default
         TITLE: 'Capítulos',
         TEXT: '<p>Se pueden ver detalles de todos los capítulos de la serie agrupados por temporada, así como los capítulos en vídeo y curiosidades de los mismos.</p>',
       },
-      SUBSCRIBE: {
-        TITLE: 'Suscríbete a nuestro Canal',
-        TEXT: '<p>También puedes apoyarnos suscribiéndote a nuestro canal en Youtube, donde encontrarás todos los capítulos de la serie. Nuestro objetivo: 1000 suscriptores.</p>',
-      },
       REFERENCES: {
         TITLE: 'Referencias',
         TEXT: '<p>A continuación destacamos una serie de webs y perfiles en RRSS que hemos considerado interesantes y que han sido de gran utilidad para el desarrollo de esta web.</p>',
@@ -107,9 +103,6 @@ export default
             LINK: {
               WEB: {
                 TITLE: 'Web anhqv.es',
-              },
-              YOUTUBE: {
-                TITLE: 'Canal de Youtube de anhqv.es',
               },
             },
           },
@@ -182,10 +175,6 @@ export default
             },
             VIDEO: {
               TITLE: 'Vídeo del capítulo',
-            },
-            SUBSCRIBE: {
-              TITLE: 'Suscríbete a nuestro Canal',
-              TEXT: '<p>Puedes apoyarnos suscribiéndote a nuestro canal en Youtube, donde encontrarás todos los capítulos de la serie. Nuestro objetivo: 1000 suscriptores.</p>',
             },
             SCENES: {
               EMPTY: 'No hay escenas registradas.',

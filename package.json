@@ -1,6 +1,6 @@
 {
   "name": "anhqv-stats",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -25,7 +25,6 @@
     "nuxt-fontawesome": "0.4.0",
     "nuxt-i18n": "6.9.1",
     "nuxt-sass-resources-loader": "2.0.5",
-    "nuxt-youtube-subscribe-module": "0.1.1",
     "swagger-ui": "3.25.3",
     "vue": "2.6.12",
     "vue-adblock-detect": "0.0.2",
