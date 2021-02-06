@@ -134,14 +134,6 @@
                 >
                   <font-awesome-icon icon="link" />
                 </a>
-                <a
-                  href="https://www.youtube.com/user/juancuestanhqv2014"
-                  target="_blank"
-                  rel="nofollow"
-                  :title="anhqvLinkYoutubeTitle"
-                >
-                  <font-awesome-icon :icon="['fab', 'youtube']" />
-                </a>
               </div>
             </div>
             <div>
@@ -234,7 +226,6 @@ export default {
       shareText: this.$t('COMMON.SOCIAL_SHARING.SHARE'),
       welcomeImageAlt: this.$t('VIEWS.HOME.WELCOME.IMAGE.ALT'),
       anhqvLinkWebTitle: this.$t('VIEWS.HOME.REFERENCES.LIST.ANHQV.LINK.WEB.TITLE'),
-      anhqvLinkYoutubeTitle: this.$t('VIEWS.HOME.REFERENCES.LIST.ANHQV.LINK.YOUTUBE.TITLE'),
       escenasAnhqvLinkTwitterTitle: this.$t('VIEWS.HOME.REFERENCES.LIST.ESCENASANHQV.LINK.TWITTER.TITLE'),
       escenasAnhqvLinkInstagramTitle: this.$t('VIEWS.HOME.REFERENCES.LIST.ESCENASANHQV.LINK.INSTAGRAM.TITLE'),
     };
