@@ -108,9 +108,6 @@ export default
               WEB: {
                 TITLE: 'Web anhqv.es',
               },
-              YOUTUBE: {
-                TITLE: 'Canal de Youtube de anhqv.es',
-              },
             },
           },
           ESCENASANHQV: {
